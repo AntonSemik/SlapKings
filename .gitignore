@@ -27,6 +27,9 @@
 .vs/
 .vsconfig
 
+# Idea directory
+.idea/
+
 # Gradle cache directory
 .gradle/
 
