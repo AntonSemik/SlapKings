@@ -6,17 +6,20 @@ public class SaveGameState : MonoBehaviour
 {
     public static SaveGameState _inst;
 
-    public int _level, _healthLevel, _attackLevel, _coins;
+    public int _level{ private set; get;}
+    public int _healthLevel { private set; get; }
+    public int _attackLevel { private set; get; }
+    public int _coins { private set; get; }
 
 
     private void Awake()
     {
         _inst = this;
 
-        LoadPlayerStat();
+        LoadPlayerStats();
     }
 
-    public void LoadPlayerStats()
+    void LoadPlayerStats()
     {
         _level = PlayerPrefs.GetInt("Level", 1);
 
@@ -25,6 +28,11 @@ public class SaveGameState : MonoBehaviour
 
         _coins = PlayerPrefs.GetInt("Coins", 0);
 
+    }
+
+    public void SaveInt(string _key, int _value)
+    {
+        PlayerPrefs.SetInt(_key, _value);
     }
 
     public void SavePlayerStats()
