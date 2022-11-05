@@ -12,7 +12,7 @@ public class Indicator : MonoBehaviour
     private float _time;
     private float _pointerPosition;
     private float _powerPercent;
-    [SerializeField] private bool _updatePointerPosition;
+    private bool _updatePointerPosition;
 
     private void OnEnable() => 
         StartPointerMovement();

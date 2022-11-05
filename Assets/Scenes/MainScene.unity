@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b595cf90f5ecc2144a567b933f8d837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 120
   _playerAngle: {x: 0, y: 0, z: 0}
   _enemyAngle: {x: 0, y: -60, z: 0}
 --- !u!4 &514531424
@@ -1320,7 +1320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _updatePointerPosition: 0
 --- !u!1001 &3741184025085005262
 PrefabInstance:
   m_ObjectHideFlags: 0
