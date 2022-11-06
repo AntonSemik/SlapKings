@@ -1,24 +1,21 @@
+using System;
 using UnityEngine;
 
 public class Fight : MonoBehaviour
 {
+    public event Action<bool> PlayerWin;
     private CameraMover _cameraMover;
     private Slaper[] _slapers;
     private int _activeSlaperIndex;
 
+
     public void SetupSlappers(Slaper first, Slaper second, int activeSlaper = 0)
     {
         _slapers = new Slaper[2] { first, second };
-        foreach (var slaper in _slapers)
-        {
-            slaper.SlapeTriggerEnter += OnSlapeTriggerEnter;
-            slaper.HitedAnimationEnd += OnHitedAnimationEnd;
-            slaper.IsCurrentSlaper = false;
-        }
+        SubscribeToSlapersEvents();
 
         _activeSlaperIndex = activeSlaper;
-        _slapers[_activeSlaperIndex].IsCurrentSlaper = true;
-
+        SetActiveSlaper();
         CameraSetup();
     }
 
@@ -33,6 +30,20 @@ public class Fight : MonoBehaviour
         opponent.ReceiveDamage(_slapers[_activeSlaperIndex].Damage);
     private void OnHitedAnimationEnd() =>
         ChangeActiveSlaper();
+    private void OnKnokedDown()
+    {
+        bool isPlayerWin = _slapers[_activeSlaperIndex] is Player;
+
+        PlayerWin?.Invoke(isPlayerWin);
+        CameraLookAtWinner(isPlayerWin);
+        EliminateLooser(isPlayerWin);
+
+        UnsubscribeFromSlapersEvents();
+        foreach (var slaper in _slapers)
+            slaper.IsCurrentSlaper = false;
+    }
+
+
 
     private void ChangeActiveSlaper()
     {
@@ -51,6 +62,48 @@ public class Fight : MonoBehaviour
             _cameraMover.LookAtPlayer();
         }
     }
+    private void SubscribeToSlapersEvents()
+    {
+        foreach (var slaper in _slapers)
+        {
+            slaper.SlapeTriggerEnter += OnSlapeTriggerEnter;
+            slaper.HitedAnimationEnd += OnHitedAnimationEnd;
+            slaper.KnokedDown += OnKnokedDown;
+        }
+    }
+    private void UnsubscribeFromSlapersEvents()
+    {
+        foreach (var slaper in _slapers)
+        {
+            slaper.SlapeTriggerEnter -= OnSlapeTriggerEnter;
+            slaper.HitedAnimationEnd -= OnHitedAnimationEnd;
+            slaper.KnokedDown -= OnKnokedDown;
+        }
+    }
+    private void SetActiveSlaper()
+    {
+        for (int i = 0; i < _slapers.Length; i++)
+            _slapers[i].IsCurrentSlaper = (i == _activeSlaperIndex);
+    }
+    private void CameraLookAtWinner(bool isPlayerWin)
+    {
+        if (!isPlayerWin)
+            _cameraMover.LookAtPlayer();
+        else
+            _cameraMover.LookAtEnemy();
+    }
+    private void EliminateLooser(bool isPlayerWin)
+    {    // placeholder
+        foreach (var slaper in _slapers)
+        {
+            if(isPlayerWin && slaper is Enemy)
+                slaper.gameObject.SetActive(false);
+
+            if(!isPlayerWin && slaper is Player)
+                slaper.gameObject.SetActive(false);
+        }    
+    }
+
 }
 
 

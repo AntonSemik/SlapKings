@@ -21,28 +21,36 @@ public abstract class Slaper : MonoBehaviour
             _handCollider.enabled = IsCurrentSlaper;
         }
     }
-    
+
     public event Action<Slaper> SlapeTriggerEnter;
     public event Action HitedAnimationEnd;
     public event Action<int> DamageReceived;
+    public event Action KnokedDown;
 
-    protected int _currentHealth;
-    protected int _baseDamage;
+    [SerializeField] protected int _currentHealth;
+    [SerializeField] protected int _baseDamage;
     private bool _isCurrentSlaper;
     protected Animator _animator;
 
     protected virtual void Initialize() =>
         _animator = GetComponentInChildren<Animator>();
-   
+
     public void OnHitedAnimationEnd() =>
         HitedAnimationEnd?.Invoke();
     public void ReceiveDamage(int damge)
     {
+        if (damge >= _currentHealth)
+        {
+            damge = _currentHealth;
+            KnokedDown?.Invoke();
+        }
+        else
+            _animator.CrossFade(ToHitedAnimation, 0.2f);
+
         _currentHealth -= damge;
-        _animator.CrossFade(ToHitedAnimation, 0.2f);
         DamageReceived?.Invoke(damge);
     }
-   
+
     protected virtual void Slap() =>
         _animator.CrossFade(ToSlapAnimation, 0.2f);
     protected void InvokeSlapeTriggerEnter(Slaper opponent) =>

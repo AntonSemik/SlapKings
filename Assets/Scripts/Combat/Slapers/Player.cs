@@ -6,7 +6,7 @@ public class Player : Slaper
     [SerializeField] private Button _slap;
     [SerializeField] private Indicator _indicator;
     
-    public override int Damage => _baseDamage * (int)_indicator.PowerPercent;
+    public override int Damage => (int)(_baseDamage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent));
     public override bool IsCurrentSlaper
     {
         get => base.IsCurrentSlaper;

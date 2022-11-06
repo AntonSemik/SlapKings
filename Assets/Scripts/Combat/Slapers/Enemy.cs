@@ -13,7 +13,7 @@ public class Enemy : Slaper
                 StartCoroutine(SlapWithDelay(Random.Range(1.5f, 2)));
         }
     }
-    
+    public override int Damage => (int)(_baseDamage * Random.Range(0.5f, 1f));
     
     private void Start() =>
         Initialize();
