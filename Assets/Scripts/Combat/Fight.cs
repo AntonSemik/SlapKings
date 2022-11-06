@@ -44,7 +44,6 @@ public class Fight : MonoBehaviour
     }
 
 
-
     private void ChangeActiveSlaper()
     {
         if (_activeSlaperIndex == 0)
@@ -62,6 +61,7 @@ public class Fight : MonoBehaviour
             _cameraMover.LookAtPlayer();
         }
     }
+    
     private void SubscribeToSlapersEvents()
     {
         foreach (var slaper in _slapers)
@@ -71,6 +71,7 @@ public class Fight : MonoBehaviour
             slaper.KnokedDown += OnKnokedDown;
         }
     }
+    
     private void UnsubscribeFromSlapersEvents()
     {
         foreach (var slaper in _slapers)
@@ -80,11 +81,13 @@ public class Fight : MonoBehaviour
             slaper.KnokedDown -= OnKnokedDown;
         }
     }
+    
     private void SetActiveSlaper()
     {
         for (int i = 0; i < _slapers.Length; i++)
             _slapers[i].IsCurrentSlaper = (i == _activeSlaperIndex);
     }
+    
     private void CameraLookAtWinner(bool isPlayerWin)
     {
         if (!isPlayerWin)
@@ -92,6 +95,7 @@ public class Fight : MonoBehaviour
         else
             _cameraMover.LookAtEnemy();
     }
+    
     private void EliminateLooser(bool isPlayerWin)
     {    // placeholder
         foreach (var slaper in _slapers)
@@ -103,12 +107,4 @@ public class Fight : MonoBehaviour
                 slaper.gameObject.SetActive(false);
         }    
     }
-
 }
-
-
-
-
-
-
-

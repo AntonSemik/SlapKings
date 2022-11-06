@@ -57,4 +57,3 @@ public abstract class Slaper : MonoBehaviour
         SlapeTriggerEnter?.Invoke(opponent);
 
 }
-

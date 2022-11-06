@@ -26,6 +26,4 @@ public class CameraMover : MonoBehaviour
         _targetAngle = _enemyAngle;
         transform.rotation = Quaternion.Euler(_targetAngle);
     }
-
-
 }

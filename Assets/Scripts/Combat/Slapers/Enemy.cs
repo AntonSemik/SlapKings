@@ -17,6 +17,7 @@ public class Enemy : Slaper
     
     private void Start() =>
         Initialize();
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent<Slaper>(out Slaper opponent))
@@ -30,6 +31,4 @@ public class Enemy : Slaper
         yield return new WaitForSeconds(seconds);
         Slap();
     }
-
 }
-

@@ -35,6 +35,7 @@ public class Player : Slaper
         base.Initialize();
         _slap.onClick.AddListener(Slap);
     }
+    
     protected override void Slap()
     {
         if (!IsCurrentSlaper || _buttonClicked)
@@ -44,7 +45,4 @@ public class Player : Slaper
         _buttonClicked = true;
         _indicator.Stop();
     }
-
-
-
 }
