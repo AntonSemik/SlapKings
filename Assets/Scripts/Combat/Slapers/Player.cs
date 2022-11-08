@@ -4,9 +4,10 @@ using UnityEngine.UI;
 public class Player : Slaper
 {
     [SerializeField] private Button _slap;
+    [SerializeField] private Button _megaSlap;
     [SerializeField] private Indicator _indicator;
     
-    public override int Damage => (int)(_baseDamage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent));
+    public override int Damage => (int)(_baseDamage * _damageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent));
     public override bool IsCurrentSlaper
     {
         get => base.IsCurrentSlaper;
@@ -14,11 +15,12 @@ public class Player : Slaper
         {
             base.IsCurrentSlaper = value;
             _indicator.gameObject.SetActive(IsCurrentSlaper);   
+            _megaSlap.gameObject.SetActive(IsCurrentSlaper);   
             _buttonClicked = !IsCurrentSlaper;        
         }
     }
     private bool _buttonClicked;
-    
+    private int _damageMultiplier = 1;
     
     private void Start() =>
          Initialize();
@@ -32,8 +34,9 @@ public class Player : Slaper
     
     protected override void Initialize()
     {
-        base.Initialize();
+        base.Initialize();        
         _slap.onClick.AddListener(Slap);
+        _megaSlap.onClick.AddListener(MegaSlap);
     }
     
     protected override void Slap()
@@ -41,8 +44,17 @@ public class Player : Slaper
         if (!IsCurrentSlaper || _buttonClicked)
             return;
         
+        if(_megaSlap.gameObject.activeSelf)
+            _damageMultiplier = 1;
+
         base.Slap();
         _buttonClicked = true;
-        _indicator.Stop();
+        _indicator.Stop();        
+    }
+
+    private void MegaSlap()
+    {
+        _damageMultiplier = 2;
+        _megaSlap.gameObject.SetActive(false);        
     }
 }
