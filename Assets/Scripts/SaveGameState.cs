@@ -53,6 +53,6 @@ public class SaveGameState : MonoBehaviour
 
     private void OnApplicationPause()
     {
-        SavePlayerStats();
+        //SavePlayerStats();
     }
 }
