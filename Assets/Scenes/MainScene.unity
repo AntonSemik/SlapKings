@@ -714,8 +714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainCollider: {fileID: 1150093725}
   _handCollider: {fileID: 110755674}
-  _currentHealth: 125
   _baseDamage: 44
+  _maxHealth: 0
   _slap: {fileID: 1882813295}
   _megaSlap: {fileID: 1784054846}
   _indicator: {fileID: 2113887879}
@@ -1246,12 +1246,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6728050088908339992, guid: 1e70bb6d429e9804da192d252d5541ac, type: 3}
+      propertyPath: _maxHealth
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728050088908339992, guid: 1e70bb6d429e9804da192d252d5541ac, type: 3}
       propertyPath: _baseDamage
       value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 6728050088908339992, guid: 1e70bb6d429e9804da192d252d5541ac, type: 3}
       propertyPath: _currentHealth
-      value: 125
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e70bb6d429e9804da192d252d5541ac, type: 3}

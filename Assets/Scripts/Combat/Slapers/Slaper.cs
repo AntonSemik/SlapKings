@@ -10,6 +10,7 @@ public abstract class Slaper : MonoBehaviour
     [SerializeField] private Collider _handCollider;
 
     public virtual int Damage => _baseDamage;
+    public virtual int MaxHealth => _maxHealth;
     public int CurrentHealth => _currentHealth;
     public virtual bool IsCurrentSlaper
     {
@@ -27,13 +28,17 @@ public abstract class Slaper : MonoBehaviour
     public event Action<int> DamageReceived;
     public event Action KnokedDown;
 
-    [SerializeField] protected int _currentHealth;
     [SerializeField] protected int _baseDamage;
+    [SerializeField] protected int _maxHealth;
+    protected int _currentHealth;
     private bool _isCurrentSlaper;
     protected Animator _animator;
 
-    protected virtual void Initialize() =>
+    protected virtual void Initialize() 
+    {
         _animator = GetComponentInChildren<Animator>();
+        ResetHealth();
+    }
 
     public void OnHitedAnimationEnd() =>
         HitedAnimationEnd?.Invoke();
@@ -50,7 +55,8 @@ public abstract class Slaper : MonoBehaviour
         _currentHealth -= damge;
         DamageReceived?.Invoke(damge);
     }
-
+    public void ResetHealth() =>
+        _currentHealth = MaxHealth;
     protected virtual void Slap() =>
         _animator.CrossFade(ToSlapAnimation, 0.2f);
     protected void InvokeSlapeTriggerEnter(Slaper opponent) =>

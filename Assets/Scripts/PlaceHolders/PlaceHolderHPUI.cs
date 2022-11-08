@@ -11,8 +11,8 @@ public class PlaceHolderHPUI : MonoBehaviour
     
     private void Start()
     {   
-        _playerHP.SetDefaultValues(_player.CurrentHealth);
-        _enemyHP.SetDefaultValues(_enemy.CurrentHealth);
+        _playerHP.SetDefaultValues(_player.MaxHealth);
+        _enemyHP.SetDefaultValues(_enemy.MaxHealth);
         
         _player.DamageReceived += damage => {_playerHP.SetHealth(_player.CurrentHealth); Debug.Log($"Enemy dealed {damage} damage points");};
         _enemy.DamageReceived += damage => {_enemyHP.SetHealth(_enemy.CurrentHealth); Debug.Log($"Player dealed {damage} damage points");};
