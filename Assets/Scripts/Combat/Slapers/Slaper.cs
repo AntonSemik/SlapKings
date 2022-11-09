@@ -42,7 +42,7 @@ public abstract class Slaper : MonoBehaviour
 
     public void OnHitedAnimationEnd() =>
         HitedAnimationEnd?.Invoke();
-    public void ReceiveDamage(int damge)
+    public virtual void ReceiveDamage(int damge)
     {
         if (damge >= _currentHealth)
         {

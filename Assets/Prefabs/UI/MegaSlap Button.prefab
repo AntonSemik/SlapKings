@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 8772703278974261110}
   - component: {fileID: 8521816081280459143}
   - component: {fileID: 2653616164709746969}
-  - component: {fileID: 3335964379882862015}
   - component: {fileID: 1862159850066739939}
   m_Layer: 5
   m_Name: Icon
@@ -215,22 +214,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!111 &3335964379882862015
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555414154192582359}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 3729ae9ba2b699142a65595e2bdfa6c1, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 3729ae9ba2b699142a65595e2bdfa6c1, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1862159850066739939
 Animator:
   serializedVersion: 4
@@ -341,14 +324,13 @@ GameObject:
   - component: {fileID: 7358413564235962667}
   - component: {fileID: 6086226848041095750}
   - component: {fileID: 4182153444328936493}
-  - component: {fileID: 6459464839624532711}
   m_Layer: 5
   m_Name: MegaSlap Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2240031958371320712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -473,19 +455,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &6459464839624532711
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7041262711204253343}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: e933772a5991be14e9c5283677f06878, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: e933772a5991be14e9c5283677f06878, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
