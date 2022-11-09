@@ -21,7 +21,7 @@ public class LevelParameters : MonoBehaviour
 
     private void Start()
     {
-        //_level = SaveGameState._inst._level;
+        _level = SaveGameState._inst._level;
         _currentLocation = _locations[0];
 
         SetNewLocation();
@@ -55,7 +55,7 @@ public class LevelParameters : MonoBehaviour
         return new Vector2(_enemyHealth, _enemyDamageBase);
     }
 
-    public int GetVictoryReward()
+    public int PlayerWon()
     {
         _level++;
         SaveGameState._inst.SaveInt("Level", _level);
@@ -64,8 +64,14 @@ public class LevelParameters : MonoBehaviour
 
         SetLevelScene();
 
-        Debug.Log("Reward: " + _reward);
+        Debug.Log("Reward for win: " + _reward);
         return _reward;
+    }
+
+    public int PlayerLost()
+    {
+        Debug.Log("Reward for lose: " + _baseReward);
+        return _baseReward;
     }
 
     private void CalculateLevelParameters()
