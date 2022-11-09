@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class SaveGameState : MonoBehaviour
 {
-    public static SaveGameState _inst;
-
     public int _level{ private set; get;}
     public int _healthLevel { private set; get; }
     public int _attackLevel { private set; get; }
@@ -14,8 +12,6 @@ public class SaveGameState : MonoBehaviour
 
     private void Awake()
     {
-        _inst = this;
-
         LoadPlayerStats();
     }
 

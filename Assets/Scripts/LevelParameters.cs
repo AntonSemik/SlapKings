@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class LevelParameters : MonoBehaviour
 {
-    public static LevelParameters _inst;
-
     [SerializeField] Location[] _locations;
     private Location _currentLocation;
     private int _locationID = 0;
@@ -14,14 +12,9 @@ public class LevelParameters : MonoBehaviour
     private int _enemyHealth;
     private int _enemyDamageBase;
 
-    private void Awake()
-    {
-        _inst = this;
-    }
-
     private void Start()
     {
-        _level = SaveGameState._inst._level;
+        _level = Singletons._s.LevelParameters._level;
         _currentLocation = _locations[0];
 
         SetNewLocation();
@@ -58,7 +51,7 @@ public class LevelParameters : MonoBehaviour
     public int PlayerWon()
     {
         _level++;
-        SaveGameState._inst.SaveInt("Level", _level);
+        Singletons._s.SaveGameState.SaveInt("Level", _level);
 
         int _reward = _baseReward * 4;
 

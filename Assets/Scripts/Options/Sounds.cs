@@ -7,7 +7,7 @@ public class Sounds : MonoBehaviour
 
     private void Start()
     {
-        AudioListener.pause = SaveGameState._inst._soundsPaused;
+        AudioListener.pause = Singletons._s.SaveGameState._soundsPaused;
         if (_toggleSoundUI.isOn != AudioListener.pause)
         {
             _toggleSoundUI.isOn = AudioListener.pause;
@@ -19,6 +19,6 @@ public class Sounds : MonoBehaviour
     {
         AudioListener.pause = !AudioListener.pause;
 
-        SaveGameState._inst.SaveInt("SoundsPaused", AudioListener.pause ? 1 : 0);
+        Singletons._s.SaveGameState.SaveInt("SoundsPaused", AudioListener.pause ? 1 : 0);
     }
 }

@@ -14,10 +14,10 @@ public class Coins : MonoBehaviour
     {
         _inst = this;
 
-        _coins = SaveGameState._inst._coins;
+        _coins = Singletons._s.SaveGameState._coins;
         _coinsUI.text = _coins.ToString();
 
-        _fight.PlayerWin += OnFightEnded;
+        Singletons._s.Fight.PlayerWin += OnFightEnded;
     }
 
     void OnFightEnded(bool _isPlayerWin)
@@ -26,7 +26,7 @@ public class Coins : MonoBehaviour
 
         if (_isPlayerWin)
         {
-            reward = LevelParameters._inst.PlayerWon();
+            reward = Singletons._s.LevelParameters.PlayerWon();
 
             //Check for ad
 
@@ -34,7 +34,7 @@ public class Coins : MonoBehaviour
         }
         else
         {
-            reward = LevelParameters._inst.PlayerLost();
+            reward = Singletons._s.LevelParameters.PlayerLost();
             ChangeCoins(reward);
         }
 
@@ -45,7 +45,7 @@ public class Coins : MonoBehaviour
     {
         _coins += _amount;
 
-        SaveGameState._inst.SaveInt("Coins", _coins);
+        Singletons._s.SaveGameState.SaveInt("Coins", _coins);
 
         _coinsUI.text = _coins.ToString();
     }

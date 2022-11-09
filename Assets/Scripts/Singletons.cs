@@ -9,6 +9,8 @@ public class Singletons : MonoBehaviour
     public Coins Coins;
     public SaveGameState SaveGameState;
     public AdsPlaceholder AdsPlaceholder;
+    public Fight Fight;
+    public LevelParameters LevelParameters;
 
     private void Awake()
     {
