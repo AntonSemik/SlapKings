@@ -19,6 +19,8 @@ public class Player : Slaper
         {
             base.IsCurrentSlaper = value;
             _indicator.gameObject.SetActive(IsCurrentSlaper);
+            ChangeIndicatorText(_playerStats.Damage);
+
             _megaSlap.gameObject.SetActive(IsCurrentSlaper);
             _armorButton.gameObject.SetActive(!IsCurrentSlaper);
             _buttonClicked = !IsCurrentSlaper;
@@ -62,6 +64,7 @@ public class Player : Slaper
         if (_megaSlap.gameObject.activeSelf)
             _damageMultiplier = _multiplier["single"];
 
+        ChangeIndicatorText(Damage);
         HideButtons();
         
         base.Slap();
@@ -72,6 +75,7 @@ public class Player : Slaper
     private void MegaSlap()
     {
         _damageMultiplier = _multiplier["double"];;
+        ChangeIndicatorText(_playerStats.Damage * _damageMultiplier);
         _megaSlap.gameObject.SetActive(false);
     }
 
@@ -92,5 +96,10 @@ public class Player : Slaper
     {
         _armorButton.gameObject.SetActive(false);
         _megaSlap.gameObject.SetActive(false);
+    }
+
+    private void ChangeIndicatorText(int value)
+    {
+        _indicator.SetDamageText(value.ToString());
     }
 }
