@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Player : Slaper
 {
+    // TODO: перенести все UI из Player
     [SerializeField] private Button _slap;
     [SerializeField] private Button _megaSlap;
     [SerializeField] private Button _armorButton;
