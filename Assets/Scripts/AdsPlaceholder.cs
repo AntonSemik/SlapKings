@@ -4,18 +4,9 @@ using UnityEngine;
 
 public class AdsPlaceholder : MonoBehaviour
 {
-    // Unity advertisment requires projectID to run, we dont have this for now
-
-    public static AdsPlaceholder _inst;
-
     [SerializeField] GameObject _placeholderAd;
 
     [SerializeField]Fight _fight;
-
-    private void Awake()
-    {
-        _inst = this;
-    }
 
     #region testAd
     private void Start()
