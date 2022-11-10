@@ -8,6 +8,13 @@ namespace UI
     {
         [SerializeField] private float _timeToHide = 2f;
 
+        private WaitForSeconds _waitForSeconds;
+
+        private void Awake()
+        {
+            _waitForSeconds = new WaitForSeconds(_timeToHide);
+        }
+
         private void OnEnable()
         {
             StartCoroutine(Hide());
@@ -15,7 +22,7 @@ namespace UI
 
         private IEnumerator Hide()
         {
-            yield return new WaitForSeconds(_timeToHide);
+            yield return _waitForSeconds;
             gameObject.SetActive(false);
         }
     }
