@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -228,6 +228,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7c1abe5b437e1f144a2252eca1538fc5, type: 3}
   - {fileID: 21300000, guid: 16a7c09a657578949924a54cb2a53d6a, type: 3}
   - {fileID: 21300000, guid: 754ec23884ce25a44bea827157681243, type: 3}
+  - {fileID: 21300000, guid: fc039ca7c9ee7544aaabffe3d45c6244, type: 3}
+  - {fileID: 21300000, guid: d5b50d86e45cf9b4db42aec22a295662, type: 3}
   _image: {fileID: 2001396155610315994}
 --- !u!1 &2001396156448911010
 GameObject:
@@ -350,7 +352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2001396156448911009}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AdsPlaceholder, Assembly-CSharp
+        m_MethodName: CloseAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2001396156813181053
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2001396156813181050
 RectTransform:
   m_ObjectHideFlags: 0
