@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 8222896853106890637}
   - component: {fileID: 8222896853106890636}
   - component: {fileID: 1168827979}
+  - component: {fileID: 5564821312055923470}
   - component: {fileID: 1271657152}
   m_Layer: 5
   m_Name: ArmorButton
@@ -280,6 +281,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5564821312055923470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222896853106890634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16075c9e43cd46c98687b3a47fdbccb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedAnimation: 1
 --- !u!114 &1271657152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +319,7 @@ GameObject:
   - component: {fileID: 8222896853598318539}
   - component: {fileID: 8222896853598318538}
   - component: {fileID: 6395182909306242901}
+  - component: {fileID: 850381884}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -390,6 +405,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &850381884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222896853598318535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16075c9e43cd46c98687b3a47fdbccb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedAnimation: 1
 --- !u!1 &8222896854118831923
 GameObject:
   m_ObjectHideFlags: 0
