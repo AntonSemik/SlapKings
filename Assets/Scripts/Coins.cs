@@ -26,7 +26,7 @@ public class Coins : MonoBehaviour
 
         if (_isPlayerWin)
         {
-            reward = Singletons._s.LevelParameters.PlayerWon();
+            reward = Singletons._s.LevelParameters._baseReward * 4;
 
             //Check for ad
 
@@ -34,7 +34,8 @@ public class Coins : MonoBehaviour
         }
         else
         {
-            reward = Singletons._s.LevelParameters.PlayerLost();
+            reward = Singletons._s.LevelParameters._baseReward;
+
             ChangeCoins(reward);
         }
 

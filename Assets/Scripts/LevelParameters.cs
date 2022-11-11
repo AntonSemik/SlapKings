@@ -1,37 +1,48 @@
 using UnityEngine;
+using TMPro;
 
 public class LevelParameters : MonoBehaviour
 {
     [SerializeField] Location[] _locations;
+
+    [SerializeField] TMP_Text _levelText;
+
     private Location _currentLocation;
     private int _locationID = 0;
 
     private int _level;
 
-    private int _baseReward;
-    private int _enemyHealth;
-    private int _enemyDamageBase;
+
+    public bool _isBonus { private set; get; }
+    public int _baseReward { private set; get; }
+    public int _enemyHealth { private set; get; }
+    public int _enemyDamageBase { private set; get; }
 
     private void Start()
     {
-        _level = Singletons._s.LevelParameters._level;
+        _level = Singletons._s.SaveGameState._level;
+        _level = 4; /////
         _currentLocation = _locations[0];
+
+        _isBonus = _level % 4 == 0;
 
         SetNewLocation();
         SetLevelScene();
-        //UpdateUI
+        _levelText.text = "Level: " + _level.ToString();
+
+        Singletons._s.Fight.PlayerWin += OnFightEnded;
     }
 
-    void SetLevelScene()
+    private void SetLevelScene()
     {
         CalculateLevelParameters();
 
         if (_locationID != Mathf.FloorToInt(_level / 4)) SetNewLocation();
 
-        //UpdateUI
+        _levelText.text = "Level: " + _level.ToString();
     }
 
-    void SetNewLocation()
+    private void SetNewLocation()
     {
         _locationID = Mathf.FloorToInt(_level / 4);
         while (_locationID > _locations.Length) _locationID -= _locations.Length;
@@ -43,28 +54,31 @@ public class LevelParameters : MonoBehaviour
         _currentLocation._surroundings.SetActive(true);
     }
 
-    public Vector2 GetEnemyStats()
+    private void OnFightEnded(bool _isPlayerVictorious)
     {
-        return new Vector2(_enemyHealth, _enemyDamageBase);
+        if (_isPlayerVictorious)
+        {
+            IncreaseLevel();
+
+            SetLevelScene();
+
+            return;
+        }
+        
+        if(_isBonus)
+        {
+            IncreaseLevel();
+
+            SetLevelScene();
+        }
     }
 
-    public int PlayerWon()
+    private void IncreaseLevel()
     {
         _level++;
         Singletons._s.SaveGameState.SaveInt("Level", _level);
 
-        int _reward = _baseReward * 4;
-
-        SetLevelScene();
-
-        Debug.Log("Reward for win: " + _reward);
-        return _reward;
-    }
-
-    public int PlayerLost()
-    {
-        Debug.Log("Reward for lose: " + _baseReward);
-        return _baseReward;
+        _isBonus = _level % 4 == 0;
     }
 
     private void CalculateLevelParameters()
@@ -72,5 +86,10 @@ public class LevelParameters : MonoBehaviour
         _baseReward = 25 * _level;
         _enemyHealth = 70 + 30 * _level;
         _enemyDamageBase = 10 + 15 * _level;
+
+        if (_isBonus)
+        {
+            _baseReward += 75;
+        }
     }
 }
