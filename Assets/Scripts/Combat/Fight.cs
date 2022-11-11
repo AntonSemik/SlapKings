@@ -52,6 +52,14 @@ public class Fight : MonoBehaviour
             _slapers[1].IsCurrentSlaper = true;
             _activeSlaperIndex = 1;
             _cameraMover.LookAtEnemy();
+
+            if (Singletons._s.LevelParameters._isBonus) //ƒаниил, € впилил сюда максимально костыльную проверку т.к. не особо пон€л где и что переключаетс€
+            {
+                _slapers[0].IsCurrentSlaper = true;
+                _slapers[1].IsCurrentSlaper = false;
+                _activeSlaperIndex = 0;
+                _cameraMover.LookAtPlayer();
+            }
         }
         else
         {
