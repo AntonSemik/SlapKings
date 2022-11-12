@@ -77,6 +77,8 @@ public class Player : Slaper
         _damageMultiplier = _multiplier["double"];;
         ChangeIndicatorText(_playerStats.Damage * _damageMultiplier);
         _megaSlap.gameObject.SetActive(false);
+
+        Singletons._s.AdsPlaceholder.ShowAd();
     }
 
     public override void ReceiveDamage(int damage)
@@ -90,6 +92,8 @@ public class Player : Slaper
     {
         _damageDivider = _multiplier["double"];
         _armorButton.gameObject.SetActive(false);
+
+        Singletons._s.AdsPlaceholder.ShowAd();
     }
 
     private void HideButtons()

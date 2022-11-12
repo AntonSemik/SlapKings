@@ -21,7 +21,6 @@ public class LevelParameters : MonoBehaviour
     private void Start()
     {
         _level = Singletons._s.SaveGameState._level;
-        _level = 4; /////
         _currentLocation = _locations[0];
 
         _isBonus = _level % 4 == 0;

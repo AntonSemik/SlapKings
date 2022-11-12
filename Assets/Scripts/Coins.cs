@@ -20,26 +20,25 @@ public class Coins : MonoBehaviour
         Singletons._s.Fight.PlayerWin += OnFightEnded;
     }
 
+    public void GiveReward(int _multyplier)
+    {
+        int _reward;
+        _reward = Singletons._s.LevelParameters._baseReward * _multyplier;
+        ChangeCoins(_reward);
+
+        Debug.Log("Player earned " + _reward.ToString() + " coins");
+    }
+
     void OnFightEnded(bool _isPlayerWin)
     {
-        int reward;
-
         if (_isPlayerWin)
         {
-            reward = Singletons._s.LevelParameters._baseReward * 4;
-
-            //Check for ad
-
-            ChangeCoins(reward);
+            GiveReward(4);
         }
         else
         {
-            reward = Singletons._s.LevelParameters._baseReward;
-
-            ChangeCoins(reward);
+            GiveReward(1);
         }
-
-        Debug.Log("Player earned " + reward.ToString() + " coins");
     }
 
     void ChangeCoins(int _amount)

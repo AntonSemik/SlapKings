@@ -7,6 +7,7 @@ public class SaveGameState : MonoBehaviour
     public int _attackLevel { private set; get; }
     public int _coins { private set; get; }
 
+    public bool _adsActive = true;
     public bool _soundsPaused = true;
     public bool _vibroOff = true;
 
@@ -26,6 +27,7 @@ public class SaveGameState : MonoBehaviour
 
         _soundsPaused = PlayerPrefs.GetInt("SoundsPaused") != 0;
         _vibroOff = PlayerPrefs.GetInt("VibroOff") != 0;
+        _adsActive = PlayerPrefs.GetInt("AdsActive") != 0;
     }
 
     public void SaveInt(string _key, int _value)
@@ -44,7 +46,7 @@ public class SaveGameState : MonoBehaviour
 
         PlayerPrefs.SetInt("SoundsPaused", (_soundsPaused ? 1 : 0));
         PlayerPrefs.SetInt("VibroOff", (_vibroOff ? 1 : 0));
-
+        PlayerPrefs.SetInt("AdsActive", (_adsActive ? 1 : 0));
     }
 
     private void OnApplicationPause()

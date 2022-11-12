@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class AdsPlaceholder : MonoBehaviour
 {
+    [SerializeField] bool _adsActive = true;
     [SerializeField] GameObject _placeholderAd;
 
-    #region testAd
     private void Start()
     {
-        Singletons._s.Fight.PlayerWin += PlayerWon;
+        _adsActive = Singletons._s.SaveGameState._adsActive;
     }
 
-    void PlayerWon(bool _true)
+    public void NoMoreAds()
     {
-        if (_true)
-        {
-            ShowAd();
-        }
+        _adsActive = false;
+        Singletons._s.SaveGameState.SaveInt("AdsActive", _adsActive ? 1 : 0);
     }
-    #endregion
 
     public void ShowAd()
     {
-        _placeholderAd.SetActive(true);
+        if (_adsActive)
+        {
+            _placeholderAd.SetActive(true);
+        }
     }
 
     public void CloseAd()
