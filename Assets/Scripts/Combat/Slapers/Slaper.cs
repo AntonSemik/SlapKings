@@ -42,18 +42,18 @@ public abstract class Slaper : MonoBehaviour
 
     public void OnHitedAnimationEnd() =>
         HitedAnimationEnd?.Invoke();
-    public virtual void ReceiveDamage(int damge)
+    public virtual void ReceiveDamage(int damage)
     {
-        if (damge >= _currentHealth)
+        if (damage >= _currentHealth)
         {
-            damge = _currentHealth;
+            damage = _currentHealth;
             KnokedDown?.Invoke();
         }
         else
             _animator.CrossFade(ToHitedAnimation, 0.2f);
 
-        _currentHealth -= damge;
-        DamageReceived?.Invoke(damge);
+        _currentHealth -= damage;
+        DamageReceived?.Invoke(damage);
     }
     public void ResetHealth() =>
         _currentHealth = MaxHealth;

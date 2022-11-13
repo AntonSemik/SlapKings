@@ -32,7 +32,7 @@ public class Player : Slaper
     private int _damageMultiplier;
     private int _damageDivider;
 
-    private PlayerStats _playerStats = new PlayerStats();
+    [SerializeField] private PlayerStats _playerStats; // = new PlayerStats();
 
     private void Start() =>
          Initialize();

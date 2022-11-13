@@ -11,6 +11,8 @@ public class Singletons : MonoBehaviour
     public AdsPlaceholder AdsPlaceholder;
     public Fight Fight;
     public LevelParameters LevelParameters;
+    public Indicator Indicator;
+    public UI.HealthPanelAnimator HealthPanelAnimator;
 
     private void Awake()
     {

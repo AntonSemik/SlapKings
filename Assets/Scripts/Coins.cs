@@ -41,7 +41,7 @@ public class Coins : MonoBehaviour
         }
     }
 
-    void ChangeCoins(int _amount)
+    public void ChangeCoins(int _amount)
     {
         _coins += _amount;
 

@@ -34,23 +34,4 @@ public class SaveGameState : MonoBehaviour
     {
         PlayerPrefs.SetInt(_key, _value);
     }
-
-    public void SavePlayerStats()
-    {
-        PlayerPrefs.SetInt("Level", _level);
-
-        PlayerPrefs.SetInt("HealthLevel", _healthLevel);
-        PlayerPrefs.SetInt("AttackLevel", _attackLevel);
-
-        PlayerPrefs.SetInt("Coins", _coins);
-
-        PlayerPrefs.SetInt("SoundsPaused", (_soundsPaused ? 1 : 0));
-        PlayerPrefs.SetInt("VibroOff", (_vibroOff ? 1 : 0));
-        PlayerPrefs.SetInt("AdsActive", (_adsActive ? 1 : 0));
-    }
-
-    private void OnApplicationPause()
-    {
-        //SavePlayerStats();
-    }
 }
