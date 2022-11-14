@@ -9,7 +9,6 @@ public class LevelParameters : MonoBehaviour
 
     private Location _currentLocation;
     private int _locationID = 0;
-
     private int _level;
 
 
@@ -18,9 +17,13 @@ public class LevelParameters : MonoBehaviour
     public int _enemyHealth { private set; get; }
     public int _enemyDamageBase { private set; get; }
 
-    private void Start()
+    public Slaper GetEnemy() => _locations[_locationID]._characters[_level % 3];
+
+    private void Start() => 
+        Singletons._s.GameStateMachine.LevelComplete += OnLevelComplete;
+    public void Load(int level)
     {
-        _level = Singletons._s.SaveGameState._level;
+        _level = level;
         _currentLocation = _locations[0];
 
         _isBonus = _level % 4 == 0;
@@ -28,8 +31,6 @@ public class LevelParameters : MonoBehaviour
         SetNewLocation();
         SetLevelScene();
         _levelText.text = "Level: " + _level.ToString();
-
-        Singletons._s.Fight.PlayerWin += OnFightEnded;
     }
 
     private void SetLevelScene()
@@ -40,7 +41,6 @@ public class LevelParameters : MonoBehaviour
 
         _levelText.text = "Level: " + _level.ToString();
     }
-
     private void SetNewLocation()
     {
         _locationID = Mathf.FloorToInt(_level / 4);
@@ -52,34 +52,19 @@ public class LevelParameters : MonoBehaviour
         _currentLocation = _locations[_locationID];
         _currentLocation._surroundings.SetActive(true);
     }
-
-    private void OnFightEnded(bool _isPlayerVictorious)
+    private void OnLevelComplete()
     {
-        if (_isPlayerVictorious)
-        {
-            IncreaseLevel();
-
-            SetLevelScene();
-
-            return;
-        }
-        
-        if(_isBonus)
-        {
-            IncreaseLevel();
-
-            SetLevelScene();
-        }
+        IncreaseLevel();
+        SetLevelScene();
     }
 
     private void IncreaseLevel()
-    {
+    {  
         _level++;
         Singletons._s.SaveGameState.SaveInt("Level", _level);
 
         _isBonus = _level % 4 == 0;
     }
-
     private void CalculateLevelParameters()
     {
         _baseReward = 25 * _level;

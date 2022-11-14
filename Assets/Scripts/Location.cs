@@ -4,7 +4,7 @@ public class Location : MonoBehaviour
 {
     public GameObject _surroundings;
 
-    public GameObject[] _characters;
+    public Slaper[] _characters;
 
     public GameObject _bonusLevelEnemy;
 }

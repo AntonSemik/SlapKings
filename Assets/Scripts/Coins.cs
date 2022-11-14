@@ -4,20 +4,14 @@ using TMPro;
 public class Coins : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsUI;
-
-    public static Coins _inst;
+    private GameStateMachine _stateMachine;
     private int _coins;
 
-    [SerializeField] private Fight _fight;
 
     private void Start()
     {
-        _inst = this;
-
-        _coins = Singletons._s.SaveGameState._coins;
+        SetDependencies();
         _coinsUI.text = _coins.ToString();
-
-        Singletons._s.Fight.PlayerWin += OnFightEnded;
     }
 
     public void GiveReward(int _multyplier)
@@ -27,18 +21,6 @@ public class Coins : MonoBehaviour
         ChangeCoins(_reward);
 
         Debug.Log("Player earned " + _reward.ToString() + " coins");
-    }
-
-    void OnFightEnded(bool _isPlayerWin)
-    {
-        if (_isPlayerWin)
-        {
-            GiveReward(4);
-        }
-        else
-        {
-            GiveReward(1);
-        }
     }
 
     public void ChangeCoins(int _amount)
@@ -55,4 +37,15 @@ public class Coins : MonoBehaviour
         return _amountNeeded <= _coins;
     }
 
+    private void OnLevelComplete() =>
+        GiveReward(4);
+    private void OnLevelFailed() =>
+        GiveReward(1);
+    private void SetDependencies()
+    {
+        _coins = Singletons._s.SaveGameState._coins;
+        _stateMachine = Singletons._s.GameStateMachine;
+        _stateMachine.LevelComplete += OnLevelComplete;
+        _stateMachine.LevelFailed += OnLevelFailed;
+    }
 }

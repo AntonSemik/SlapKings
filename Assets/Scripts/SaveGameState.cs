@@ -12,7 +12,7 @@ public class SaveGameState : MonoBehaviour
     public bool _vibroOff = true;
 
     private void Awake()
-    {
+    {   PlayerPrefs.SetInt("Level", 1);
         LoadPlayerStats();
     }
 

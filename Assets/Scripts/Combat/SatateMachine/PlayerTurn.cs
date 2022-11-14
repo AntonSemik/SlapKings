@@ -1,0 +1,58 @@
+using UnityEngine;
+
+public class PlayerTurn : Turn<Player>
+{
+    [SerializeField] private GameObject _megaSlap;    
+    [SerializeField] private Indicator _indicator;
+    protected override Player _slaper => _fightState.Player;
+   
+
+    private PlayerStats _playerStats = new PlayerStats();
+
+    public void Slap()
+    {
+     _slaper.Slap();
+     _indicator.Stop();
+    }    
+    public override void StartTurn()
+    {
+        _megaSlap.SetActive(true);        
+        _indicator.gameObject.SetActive(true);        
+        _indicator.SetDamageText(_slaper.Damage.ToString());
+        _fightState.CameraMover.LookAtPlayer();
+    }
+
+    public override void EndTurn()
+    {   
+        _megaSlap.SetActive(false);
+        _indicator.StartPointerMovement();  
+        _indicator.gameObject.SetActive(false);      
+    }
+
+    protected override void OnKnokedDown() => 
+        _fightState.StateMachine.InvokeLevelFailed();
+
+    protected override void OnHittedAnimationEnd() => 
+        _fightState.StartPlayerTurn();
+
+
+    protected override void OnSlapedOpponent()
+    {         
+        _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
+        _slaper.SetDamageMultiplier(Player.MultiplierSingle);        
+    }
+
+    public void MegaSlap()
+    {
+        _slaper.SetDamageMultiplier(Player.MultiplierDouble);
+        ChangeIndicatorText(_playerStats.Damage * _slaper.DamageMultiplier);
+        _megaSlap.gameObject.SetActive(false);
+        Singletons._s.AdsPlaceholder.ShowAd();
+    }
+
+    private void ChangeIndicatorText(int value) =>
+        _indicator.SetDamageText(value.ToString());
+}
+
+
+

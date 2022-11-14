@@ -50,6 +50,7 @@ MonoBehaviour:
   _locations:
   - {fileID: 3741184026236317415}
   - {fileID: 5739779612363117228}
+  _levelText: {fileID: 0}
 --- !u!1001 &3802362339429473002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,7 +106,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LocationWithAnimation
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8606098606760083233, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
 --- !u!4 &5985488239488413325 stripped
 Transform:

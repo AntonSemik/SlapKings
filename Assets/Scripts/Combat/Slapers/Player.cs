@@ -1,109 +1,21 @@
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
 public class Player : Slaper
 {
-    // TODO: перенести все UI из Player
-    [SerializeField] private Button _slap;
-    [SerializeField] private Button _megaSlap;
-    [SerializeField] private Button _armorButton;
-    [SerializeField] private Indicator _indicator;
-
-    public override int Damage => (int)(_playerStats.Damage * _damageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent));
+    public const string MultiplierSingle = "single";
+    public const string MultiplierDouble = "double";
+    private PlayerStats _playerStats = new PlayerStats();
+    public override int Damage => (int)(_playerStats.Damage);
     public override int MaxHealth => (int)(_playerStats.Health);
-    public override bool IsCurrentSlaper
-    {
-        get => base.IsCurrentSlaper;
-        set
-        {
-            base.IsCurrentSlaper = value;
-            _indicator.gameObject.SetActive(IsCurrentSlaper);
-            ChangeIndicatorText(_playerStats.Damage);
 
-            _megaSlap.gameObject.SetActive(IsCurrentSlaper);
-            _armorButton.gameObject.SetActive(!IsCurrentSlaper);
-            _buttonClicked = !IsCurrentSlaper;
-        }
-    }
-    private bool _buttonClicked;
-    
-    private Dictionary<string, int> _multiplier = new Dictionary<string, int>() { {"single", 1}, {"double", 2} };
-    private int _damageMultiplier;
-    private int _damageDivider;
+    public int DamageMultiplier { get => _damageMultiplier; private set => _damageMultiplier = value; }
+    public int DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
+    private int _damageMultiplier = 1;
+    private int _damageDivider = 1;
+    private Dictionary<string, int> _multiplier = new Dictionary<string, int>() { { MultiplierSingle, 1 }, { MultiplierDouble, 2 } };
 
-    [SerializeField] private PlayerStats _playerStats; // = new PlayerStats();
+    public void SetDamageMultiplier(string multiplier)
+        => DamageMultiplier = _multiplier[multiplier];
 
-    private void Start() =>
-         Initialize();
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.TryGetComponent<Slaper>(out Slaper opponent))
-            return;
-
-        InvokeSlapeTriggerEnter(opponent);
-    }
-
-    protected override void Initialize()
-    {
-        base.Initialize();
-        
-        _slap.onClick.AddListener(Slap);
-        _megaSlap.onClick.AddListener(MegaSlap);
-        _armorButton.onClick.AddListener(SetArmor);
-        
-        _damageMultiplier = _multiplier["single"];
-        _damageDivider = _multiplier["single"];
-    }
-
-    protected override void Slap()
-    {
-        if (!IsCurrentSlaper || _buttonClicked)
-            return;
-
-        if (_megaSlap.gameObject.activeSelf)
-            _damageMultiplier = _multiplier["single"];
-
-        ChangeIndicatorText(Damage);
-        HideButtons();
-        
-        base.Slap();
-        _buttonClicked = true;
-        _indicator.Stop();
-    }
-
-    private void MegaSlap()
-    {
-        _damageMultiplier = _multiplier["double"];;
-        ChangeIndicatorText(_playerStats.Damage * _damageMultiplier);
-        _megaSlap.gameObject.SetActive(false);
-
-        Singletons._s.AdsPlaceholder.ShowAd();
-    }
-
-    public override void ReceiveDamage(int damage)
-    {
-        damage = damage / _damageDivider;
-        base.ReceiveDamage(damage);
-        _damageDivider = _multiplier["single"];;
-    }
-
-    private void SetArmor()
-    {
-        _damageDivider = _multiplier["double"];
-        _armorButton.gameObject.SetActive(false);
-
-        Singletons._s.AdsPlaceholder.ShowAd();
-    }
-
-    private void HideButtons()
-    {
-        _armorButton.gameObject.SetActive(false);
-        _megaSlap.gameObject.SetActive(false);
-    }
-
-    private void ChangeIndicatorText(int value)
-    {
-        _indicator.SetDamageText(value.ToString());
-    }
+    public void SetDamageDevider(string multiplier)
+        => DamageDivider = _multiplier[multiplier];
 }

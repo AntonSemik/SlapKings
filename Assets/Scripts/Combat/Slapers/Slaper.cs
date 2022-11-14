@@ -4,62 +4,42 @@ using UnityEngine;
 public abstract class Slaper : MonoBehaviour
 {
     protected const string ToSlapAnimation = "Slap";
-    protected const string ToHitedAnimation = "Hited";
+    protected const string ToHittedAnimation = "Hitted";
 
-    [SerializeField] private Collider _mainCollider;
-    [SerializeField] private Collider _handCollider;
+    [SerializeField] protected Animator _animator;
 
-    public virtual int Damage => _baseDamage;
-    public virtual int MaxHealth => _maxHealth;
-    public int CurrentHealth => _currentHealth;
-    public virtual bool IsCurrentSlaper
-    {
-        get => _isCurrentSlaper;
-        set
-        {
-            _isCurrentSlaper = value;
-            _mainCollider.enabled = !IsCurrentSlaper;
-            _handCollider.enabled = IsCurrentSlaper;
-        }
-    }
+    public virtual int Damage { get; protected set; }
+    public virtual int MaxHealth { get; protected set; }
+    public int CurrentHealth { get; protected set; }
 
-    public event Action<Slaper> SlapeTriggerEnter;
-    public event Action HitedAnimationEnd;
+    public event Action SlapedOpponent;
+    public event Action HittedAnimationEnd;
     public event Action<int> DamageReceived;
     public event Action KnokedDown;
 
-    [SerializeField] protected int _baseDamage;
-    [SerializeField] protected int _maxHealth;
-    protected int _currentHealth;
-    private bool _isCurrentSlaper;
-    protected Animator _animator;
 
-    protected virtual void Initialize() 
-    {
-        _animator = GetComponentInChildren<Animator>();
-        ResetHealth();
-    }
+    public void OnHittedAnimationEnd() =>
+        HittedAnimationEnd?.Invoke();
+    public void OnSlapedOpponent() =>
+        SlapedOpponent?.Invoke();
 
-    public void OnHitedAnimationEnd() =>
-        HitedAnimationEnd?.Invoke();
-    public virtual void ReceiveDamage(int damage)
-    {
-        if (damage >= _currentHealth)
+    public void Slap() =>
+       _animator.CrossFade(ToSlapAnimation, 0.2f);
+    public void ReceiveDamage(int damage)
+    {   
+        if (damage >= CurrentHealth)
         {
-            damage = _currentHealth;
+            damage = CurrentHealth;
             KnokedDown?.Invoke();
         }
         else
-            _animator.CrossFade(ToHitedAnimation, 0.2f);
+            _animator.CrossFade(ToHittedAnimation, 0.2f);
+            
 
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
         DamageReceived?.Invoke(damage);
     }
     public void ResetHealth() =>
-        _currentHealth = MaxHealth;
-    protected virtual void Slap() =>
-        _animator.CrossFade(ToSlapAnimation, 0.2f);
-    protected void InvokeSlapeTriggerEnter(Slaper opponent) =>
-        SlapeTriggerEnter?.Invoke(opponent);
+        CurrentHealth = MaxHealth;
 
 }

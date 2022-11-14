@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Singletons : MonoBehaviour
@@ -8,14 +6,14 @@ public class Singletons : MonoBehaviour
 
     public Coins Coins;
     public SaveGameState SaveGameState;
-    public AdsPlaceholder AdsPlaceholder;
-    public Fight Fight;
+    public AdsPlaceholder AdsPlaceholder;    
     public LevelParameters LevelParameters;
     public Indicator Indicator;
     public UI.HealthPanelAnimator HealthPanelAnimator;
-
+    public GameStateMachine GameStateMachine;
     private void Awake()
-    {
+    {   
+        
         _s = this;
     }
 }
