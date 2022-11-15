@@ -40,5 +40,4 @@ public abstract class Slaper : MonoBehaviour
     }
     public void ResetHealth() =>
         CurrentHealth = MaxHealth;
-
 }

@@ -9,7 +9,7 @@ public class EnemyTurn : Turn<Enemy>
    
     public void SetArmor()
     {
-        _fightState.Player.SetDamageDevider(Player.MultiplierDouble);
+        _fightState.Player.SetDamageDivider(Player.MultiplierDouble);
         _armorButton.gameObject.SetActive(false);
         Singletons._singletons.AdsPlaceholder.ShowAd();
     }
@@ -31,7 +31,7 @@ public class EnemyTurn : Turn<Enemy>
     protected override void OnSlapedOpponent()
     {           
         _fightState.Player.ReceiveDamage(_slaper.Damage / _fightState.Player.DamageDivider);
-        _fightState.Player.SetDamageDevider(Player.MultiplierSingle);
+        _fightState.Player.SetDamageDivider(Player.MultiplierSingle);
     }
 
     private IEnumerator SlapWithDelay(float seconds)
@@ -43,6 +43,3 @@ public class EnemyTurn : Turn<Enemy>
     protected override void OnHittedAnimationEnd() => 
         _fightState.StartEnemyTurn();
 }
-
-
-

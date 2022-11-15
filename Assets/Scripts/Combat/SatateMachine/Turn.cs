@@ -23,8 +23,4 @@ public abstract class Turn<T> : MonoBehaviour where T : Slaper
         _slaper.HittedAnimationEnd -= OnHittedAnimationEnd;
         _slaper.KnokedDown -= OnKnokedDown;
     }
-     
 }
-
-
-

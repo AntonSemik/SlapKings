@@ -39,10 +39,4 @@ public class LoadLevelState : MonoBehaviour, IGameState
         _idleUI.SetActive(true);
     private void HideIdleUI() =>
         _idleUI.SetActive(false);
-
-
-
-
-
 }
-

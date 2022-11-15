@@ -8,7 +8,6 @@ public class PlayerTurn : Turn<Player>
     
     protected override Player _slaper => _fightState.Player;
 
-
     private PlayerStats _playerStats = new PlayerStats();
 
     public void Slap()
@@ -57,6 +56,3 @@ public class PlayerTurn : Turn<Player>
     private void ChangeIndicatorText(int value) =>
         _indicator.SetDamageText(value.ToString());
 }
-
-
-

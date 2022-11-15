@@ -16,6 +16,6 @@ public class Player : Slaper
     public void SetDamageMultiplier(string multiplier)
         => DamageMultiplier = _multiplier[multiplier];
 
-    public void SetDamageDevider(string multiplier)
+    public void SetDamageDivider(string multiplier)
         => DamageDivider = _multiplier[multiplier];
 }
