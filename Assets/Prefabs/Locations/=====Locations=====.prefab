@@ -59,6 +59,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3741184026242023198}
     m_Modifications:
+    - target: {fileID: 5808898425448479551, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: _rope
+      value: 
+      objectReference: {fileID: 4645777716956879803}
     - target: {fileID: 5937168804690905114, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -66,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 7481619937060484198, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: _bonusLevelEnemy
       value: 
-      objectReference: {fileID: 4241641418576829383}
+      objectReference: {fileID: 0}
     - target: {fileID: 7481619937060484199, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -117,17 +121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
---- !u!114 &4241641418576829383 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1016091694667350317, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+--- !u!23 &4645777716956879803 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8412067003890106705, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
   m_PrefabInstance: {fileID: 3802362339429473002}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca3553b7d4007e845891d19f63a7872d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5985488239488413324 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7481619937060484198, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
@@ -151,6 +149,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3741184026242023198}
     m_Modifications:
+    - target: {fileID: 5808898425448479551, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: _rope
+      value: 
+      objectReference: {fileID: 3673783166096852804}
     - target: {fileID: 5937168804690905114, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -158,7 +160,7 @@ PrefabInstance:
     - target: {fileID: 7481619937060484198, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: _bonusLevelEnemy
       value: 
-      objectReference: {fileID: 5215078271011227448}
+      objectReference: {fileID: 0}
     - target: {fileID: 7481619937060484199, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -225,17 +227,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4d3168224ba054db6202ac03428d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5215078271011227448 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1016091694667350317, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+--- !u!23 &3673783166096852804 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8412067003890106705, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
   m_PrefabInstance: {fileID: 5063818453176337941}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca3553b7d4007e845891d19f63a7872d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5063818453269692607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +239,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3741184026242023198}
     m_Modifications:
+    - target: {fileID: 5808898425448479551, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: _rope
+      value: 
+      objectReference: {fileID: 3673783165938483694}
     - target: {fileID: 5937168804690905114, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 7481619937060484198, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: _bonusLevelEnemy
       value: 
-      objectReference: {fileID: 5215078271186239890}
+      objectReference: {fileID: 0}
     - target: {fileID: 7481619937060484199, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -317,14 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4d3168224ba054db6202ac03428d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5215078271186239890 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1016091694667350317, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+--- !u!23 &3673783165938483694 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8412067003890106705, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
   m_PrefabInstance: {fileID: 5063818453269692607}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca3553b7d4007e845891d19f63a7872d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

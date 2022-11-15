@@ -5,7 +5,7 @@ public class PlayerTurn : Turn<Player>
     [SerializeField] private GameObject _megaSlap;
     [SerializeField] private GameObject _slap;
     [SerializeField] private Indicator _indicator;
-    
+
     protected override Player _slaper => _fightState.Player;
 
     private PlayerStats _playerStats = new PlayerStats();
@@ -19,7 +19,9 @@ public class PlayerTurn : Turn<Player>
     }
     public override void StartTurn()
     {
+        _slap.SetActive(true);
         _megaSlap.SetActive(true);
+        _indicator.StartPointerMovement();
         _indicator.gameObject.SetActive(true);
         _indicator.SetDamageText(_slaper.Damage.ToString());
         _fightState.CameraMover.LookAtPlayer();
@@ -27,9 +29,9 @@ public class PlayerTurn : Turn<Player>
 
     public override void EndTurn()
     {
-        _megaSlap.SetActive(false);
-        _indicator.StartPointerMovement();
-        _indicator.gameObject.SetActive(false);
+        _megaSlap.SetActive(false);        
+        if(!Singletons._singletons.LevelParameters._isBonus)
+            _indicator.gameObject.SetActive(false);
     }
 
     protected override void OnKnokedDown() =>

@@ -6,14 +6,13 @@ public class Singletons : MonoBehaviour
 
     public Coins Coins;
     public SaveGameState SaveGameState;
-    public Ads AdsPlaceholder;    
+    public Ads AdsPlaceholder;
     public LevelParameters LevelParameters;
     public Indicator Indicator;
     public UI.HealthPanelAnimator HealthPanelAnimator;
     public GameStateMachine GameStateMachine;
     private void Awake()
-    {   
-        
+    {
         _singletons = this;
     }
 }

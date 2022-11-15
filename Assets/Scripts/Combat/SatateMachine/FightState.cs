@@ -1,12 +1,13 @@
 using UnityEngine;
 
 public class FightState : MonoBehaviour, IGameState
-{        
+{
     [SerializeField] private GameStateMachine _stateMachine;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private PlayerTurn _playerTurn;
     [SerializeField] private EnemyTurn _enemyTurn;
-   
+    [SerializeField] private BonusEnemyTurn _bonusEnemyTurn;
+
     public GameStateMachine StateMachine => _stateMachine;
     public CameraMover CameraMover => _cameraMover;
     public Player Player => _stateMachine.Player;
@@ -16,26 +17,35 @@ public class FightState : MonoBehaviour, IGameState
     {
         _enemyTurn.SubscribeToSlaperEvents();
         _playerTurn.SubscribeToSlaperEvents();
+        
         Enemy.ResetHealth();
         Player.ResetHealth();
     }
 
     public void StartPlayerTurn()
     {
-        _enemyTurn.EndTurn();
+        if (Singletons._singletons.LevelParameters._isBonus)
+            _bonusEnemyTurn.EndTurn();
+        else
+            _enemyTurn.EndTurn();
+
         _playerTurn.StartTurn();
     }
 
     public void StartEnemyTurn()
     {
         _playerTurn.EndTurn();
-        _enemyTurn.StartTurn();
+        if (Singletons._singletons.LevelParameters._isBonus)
+            _bonusEnemyTurn.StartTurn();
+        else
+            _enemyTurn.StartTurn();
     }
 
     public void Exit()
     {        
         _enemyTurn.UnsubscribeFromSlaperEvents();
-        _playerTurn.UnsubscribeFromSlaperEvents();       
+        _playerTurn.UnsubscribeFromSlaperEvents();
+
     }
 }
 

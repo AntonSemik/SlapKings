@@ -32,8 +32,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
         _levelLoader.Load(Singletons._singletons.SaveGameState._level);
     private void LoadEnemy()
     {
-        _stateMachine.Enemy?.gameObject.SetActive(false);
-
+        _stateMachine.Enemy?.gameObject.SetActive(false);       
         _stateMachine.Enemy = (Enemy)_levelLoader.GetEnemy();
         _stateMachine.Enemy.gameObject.SetActive(true);
     }
