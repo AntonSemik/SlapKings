@@ -18,6 +18,7 @@ public class HPUI : MonoBehaviour
         SubscribeToSlapers();
     }
 
+
     private void SubscribeToSlapers()
     {
         _player.DamageReceived += OnPlayerReceivedDamage;
@@ -33,8 +34,7 @@ public class HPUI : MonoBehaviour
     }
 
     private void ResetHealthPanels()
-    {        
-        Debug.Log($"_player.MaxHealth{_player.MaxHealth}||| _enemy.MaxHealth{_enemy.MaxHealth}");
+    {
         _playerHP.SetDefaultValues(_player.MaxHealth);
         _enemyHP.SetDefaultValues(_enemy.MaxHealth);
     }

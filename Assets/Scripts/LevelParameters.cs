@@ -17,10 +17,8 @@ public class LevelParameters : MonoBehaviour
     public int _enemyHealth { private set; get; }
     public int _enemyDamageBase { private set; get; }
 
-    public Slaper GetEnemy() => _locations[_locationID]._characters[_level % 3];
+    public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[_level % 3];
 
-    private void Start() => 
-        Singletons._s.GameStateMachine.LevelComplete += OnLevelComplete;
     public void Load(int level)
     {
         _level = level;
@@ -32,7 +30,15 @@ public class LevelParameters : MonoBehaviour
         SetLevelScene();
         _levelText.text = "Level: " + _level.ToString();
     }
-
+    public void IncreaseLevel()
+    {   
+        _level++;
+        
+        Singletons._s.SaveGameState.SaveInt("Level", _level);
+        
+        _isBonus = _level % 4 == 0;
+    }
+    
     private void SetLevelScene()
     {
         CalculateLevelParameters();
@@ -52,19 +58,7 @@ public class LevelParameters : MonoBehaviour
         _currentLocation = _locations[_locationID];
         _currentLocation._surroundings.SetActive(true);
     }
-    private void OnLevelComplete()
-    {
-        IncreaseLevel();
-        SetLevelScene();
-    }
 
-    private void IncreaseLevel()
-    {  
-        _level++;
-        Singletons._s.SaveGameState.SaveInt("Level", _level);
-
-        _isBonus = _level % 4 == 0;
-    }
     private void CalculateLevelParameters()
     {
         _baseReward = 25 * _level;

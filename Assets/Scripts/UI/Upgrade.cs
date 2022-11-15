@@ -19,10 +19,7 @@ public class Upgrade : MonoBehaviour
         _damageLevelText.text = "POWER (" + _playerStats.DamageLevel.ToString() + ")";
 
         _healthCostText.text = CalculateCost(_playerStats.HealthLevel).ToString();
-        _healthLevelText.text = "HEALTH (" + _playerStats.HealthLevel.ToString() + ")";
-
-        Singletons._s.Indicator.SetDamageText(_playerStats.Damage.ToString());
-        Singletons._s.HealthPanelAnimator.SetDefaultValues(_playerStats.Health);
+        _healthLevelText.text = "HEALTH (" + _playerStats.HealthLevel.ToString() + ")";        
     }
 
     public void UpgradeHealth()

@@ -2,10 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -26,10 +23,10 @@ namespace UI
         }
 
         public void SetDefaultValues(int hp)
-        {
+        {   
             _healthSlider.minValue = 0;
             _healthSlider.maxValue = hp;
-            _healthSlider.value = _healthSlider.maxValue;
+            _healthSlider.value = _healthSlider.maxValue;            
             
             _damageSlider.minValue = _healthSlider.minValue;
             _damageSlider.maxValue = _healthSlider.maxValue;
@@ -45,7 +42,7 @@ namespace UI
         }
 
         public void SetHealth(int hp)
-        {
+        {    
             hp = Mathf.Clamp(hp, 0, (int)_healthSlider.maxValue);
             _healthSlider.value = hp;
             StartCoroutine(DamageBarAnimation(_damageBarTimeAnimation));

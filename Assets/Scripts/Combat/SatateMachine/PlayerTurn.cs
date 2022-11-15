@@ -5,6 +5,7 @@ public class PlayerTurn : Turn<Player>
     [SerializeField] private GameObject _megaSlap;
     [SerializeField] private GameObject _slap;
     [SerializeField] private Indicator _indicator;
+    
     protected override Player _slaper => _fightState.Player;
 
 

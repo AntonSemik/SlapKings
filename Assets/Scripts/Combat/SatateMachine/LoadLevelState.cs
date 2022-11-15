@@ -15,16 +15,21 @@ public class LoadLevelState : MonoBehaviour, IGameState
         LoadEnemy();
         ResetHealthUI();
         ShowIdleUI();
+        ResetIndicator();
         _slap.SetActive(true);
-        _indicator.StartPointerMovement();       
     }
+
+    private void ResetIndicator()
+    {
+        _indicator.SetDamageText(_stateMachine.Player.Damage.ToString());
+        _indicator.StartPointerMovement();
+    }
+
     public void Exit() =>
         HideIdleUI();
 
-    private void LoadLocation()
-    {  
+    private void LoadLocation() =>
         _levelLoader.Load(Singletons._s.SaveGameState._level);
-    }
     private void LoadEnemy() =>
          _stateMachine.Enemy = (Enemy)_levelLoader.GetEnemy();
     private void ResetHealthUI() => 
