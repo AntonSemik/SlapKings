@@ -17,7 +17,7 @@ public class Coins : MonoBehaviour
     public void GiveReward(int _multyplier)
     {
         int _reward;
-        _reward = Singletons._s.LevelParameters._baseReward * _multyplier;
+        _reward = Singletons._singletons.LevelParameters._baseReward * _multyplier;
         ChangeCoins(_reward);
 
         Debug.Log("Player earned " + _reward.ToString() + " coins");
@@ -27,7 +27,7 @@ public class Coins : MonoBehaviour
     {
         _coins += _amount;
 
-        Singletons._s.SaveGameState.SaveInt("Coins", _coins);
+        Singletons._singletons.SaveGameState.SaveInt("Coins", _coins);
 
         _coinsUI.text = _coins.ToString();
     }
@@ -43,8 +43,8 @@ public class Coins : MonoBehaviour
         GiveReward(1);
     private void SetDependencies()
     {
-        _coins = Singletons._s.SaveGameState._coins;
-        _stateMachine = Singletons._s.GameStateMachine;
+        _coins = Singletons._singletons.SaveGameState._coins;
+        _stateMachine = Singletons._singletons.GameStateMachine;
         _stateMachine.LevelComplete += OnLevelComplete;
         _stateMachine.LevelFailed += OnLevelFailed;
     }

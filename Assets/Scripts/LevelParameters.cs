@@ -34,7 +34,7 @@ public class LevelParameters : MonoBehaviour
     {   
         _level++;
         
-        Singletons._s.SaveGameState.SaveInt("Level", _level);
+        Singletons._singletons.SaveGameState.SaveInt("Level", _level);
         
         _isBonus = _level % 4 == 0;
     }

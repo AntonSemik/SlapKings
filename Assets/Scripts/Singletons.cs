@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Singletons : MonoBehaviour
 {
-    public static Singletons _s;
+    public static Singletons _singletons;
 
     public Coins Coins;
     public SaveGameState SaveGameState;
@@ -14,6 +14,6 @@ public class Singletons : MonoBehaviour
     private void Awake()
     {   
         
-        _s = this;
+        _singletons = this;
     }
 }

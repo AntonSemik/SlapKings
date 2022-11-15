@@ -7,13 +7,13 @@ public class AdsPlaceholder : MonoBehaviour
 
     private void Start()
     {
-        _adsActive = Singletons._s.SaveGameState._adsActive;
+        _adsActive = Singletons._singletons.SaveGameState._adsActive;
     }
 
     public void NoMoreAds()
     {
         _adsActive = false;
-        Singletons._s.SaveGameState.SaveInt("AdsActive", _adsActive ? 1 : 0);
+        Singletons._singletons.SaveGameState.SaveInt("AdsActive", _adsActive ? 1 : 0);
     }
 
     public void ShowAd()

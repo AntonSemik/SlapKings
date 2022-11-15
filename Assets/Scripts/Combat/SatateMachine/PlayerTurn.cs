@@ -51,7 +51,7 @@ public class PlayerTurn : Turn<Player>
         _slaper.SetDamageMultiplier(Player.MultiplierDouble);
         ChangeIndicatorText(_playerStats.Damage * _slaper.DamageMultiplier);
         _megaSlap.gameObject.SetActive(false);
-        Singletons._s.AdsPlaceholder.ShowAd();
+        Singletons._singletons.AdsPlaceholder.ShowAd();
     }
 
     private void ChangeIndicatorText(int value) =>

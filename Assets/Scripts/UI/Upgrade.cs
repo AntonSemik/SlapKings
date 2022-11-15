@@ -24,9 +24,9 @@ public class Upgrade : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        if (Singletons._s.Coins.IsEnough(CalculateCost(_playerStats.HealthLevel)))
+        if (Singletons._singletons.Coins.IsEnough(CalculateCost(_playerStats.HealthLevel)))
         {
-            Singletons._s.Coins.ChangeCoins(-CalculateCost(_playerStats.HealthLevel));
+            Singletons._singletons.Coins.ChangeCoins(-CalculateCost(_playerStats.HealthLevel));
 
             _playerStats.SaveHealthLevel(_playerStats.HealthLevel + 1);
 
@@ -35,9 +35,9 @@ public class Upgrade : MonoBehaviour
     }
     public void UpgradeDamage()
     {
-        if (Singletons._s.Coins.IsEnough(CalculateCost(_playerStats.DamageLevel)))
+        if (Singletons._singletons.Coins.IsEnough(CalculateCost(_playerStats.DamageLevel)))
         {
-            Singletons._s.Coins.ChangeCoins(-CalculateCost(_playerStats.DamageLevel));
+            Singletons._singletons.Coins.ChangeCoins(-CalculateCost(_playerStats.DamageLevel));
 
             _playerStats.SaveDamageLevel(_playerStats.DamageLevel + 1);
 

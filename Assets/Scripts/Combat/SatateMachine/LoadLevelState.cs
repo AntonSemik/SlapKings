@@ -29,7 +29,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
         HideIdleUI();
 
     private void LoadLocation() =>
-        _levelLoader.Load(Singletons._s.SaveGameState._level);
+        _levelLoader.Load(Singletons._singletons.SaveGameState._level);
     private void LoadEnemy() =>
          _stateMachine.Enemy = (Enemy)_levelLoader.GetEnemy();
     private void ResetHealthUI() => 

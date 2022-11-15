@@ -11,7 +11,7 @@ public class EnemyTurn : Turn<Enemy>
     {
         _fightState.Player.SetDamageDevider(Player.MultiplierDouble);
         _armorButton.gameObject.SetActive(false);
-        Singletons._s.AdsPlaceholder.ShowAd();
+        Singletons._singletons.AdsPlaceholder.ShowAd();
     }
     public override void StartTurn()
     {
