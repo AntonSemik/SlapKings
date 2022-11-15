@@ -16,7 +16,7 @@ public class LevelParameters : MonoBehaviour
     public int _enemyHealth { private set; get; }
     public int _enemyDamageBase { private set; get; }
 
-    public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[_level % 3];
+    public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[(_level % 4) - 1];
 
     public void Load(int level)
     {
@@ -49,8 +49,8 @@ public class LevelParameters : MonoBehaviour
     {
         _locations[_locationID].gameObject.SetActive(false);
 
-        _locationID = Mathf.FloorToInt(_level / 4);
-        while (_locationID > _locations.Length) _locationID -= _locations.Length;
+        _locationID = Mathf.FloorToInt((_level - 1) / 4);
+        while (_locationID >= _locations.Length) _locationID -= _locations.Length;
 
         _locations[_locationID].gameObject.SetActive(true);
     }

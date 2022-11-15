@@ -18,7 +18,7 @@ public class EnemyTurn : Turn<Enemy>
         if (!_slaper.SkipTurns)
         {
             _armorButton.SetActive(true);
-            StartCoroutine(SlapWithDelay(1.5f));
+            StartCoroutine(SlapWithDelay(0.5f));
             _fightState.CameraMover.LookAtEnemy();
         } else
         {
