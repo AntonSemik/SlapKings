@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2339c7e751c01946a47696d40d6ef15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelLoader: {fileID: 3741184025085005263}
   Player: {fileID: 1150093724}
   Enemy: {fileID: 0}
 --- !u!114 &656770924
@@ -515,12 +516,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075eeca0bf9002d44be2e77d1e834bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthUI: {fileID: 140185998}
   _stateMachine: {fileID: 656770923}
   _cameraMover: {fileID: 514531423}
   _playerTurn: {fileID: 656770927}
   _enemyTurn: {fileID: 656770926}
-  _levelLoader: {fileID: 3741184025085005263}
 --- !u!114 &656770925
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class FightState : MonoBehaviour, IGameState
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private PlayerTurn _playerTurn;
     [SerializeField] private EnemyTurn _enemyTurn;
-    [SerializeField] private LevelParameters _levelLoader;
+   
     public GameStateMachine StateMachine => _stateMachine;
     public CameraMover CameraMover => _cameraMover;
     public Player Player => _stateMachine.Player;
@@ -33,8 +33,7 @@ public class FightState : MonoBehaviour, IGameState
     }
 
     public void Exit()
-    {
-        _levelLoader.IncreaseLevel();
+    {        
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();       
     }

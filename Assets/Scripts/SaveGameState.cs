@@ -13,7 +13,7 @@ public class SaveGameState : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("Level", 1); 
+        PlayerPrefs.SetInt("Level", 3); 
         LoadPlayerStats();
     }
 

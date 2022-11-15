@@ -6,13 +6,13 @@ public class GameStateMachine : MonoBehaviour
 {
     public event Action LevelComplete;
     public event Action LevelFailed;
-
+    [SerializeField] private LevelParameters _levelLoader;
     public Player Player;
     [HideInInspector] public Enemy Enemy;
     private Dictionary<Type, IGameState> _states;
     private IGameState _current;
-    
-            
+
+
     private void Start()
     {
         InitializeStates();
@@ -20,7 +20,7 @@ public class GameStateMachine : MonoBehaviour
 
     public void EnterFightState()
     {
-        if(_current is FightState)
+        if (_current is FightState)
             return;
         ChangeState(typeof(FightState));
     }
@@ -28,6 +28,7 @@ public class GameStateMachine : MonoBehaviour
     public void InvokeLevelComplete()
     {
         LevelComplete?.Invoke();
+        _levelLoader.IncreaseLevel();
         ChangeState(typeof(LoadLevelState));
     }
     public void InvokeLevelFailed()
@@ -52,7 +53,7 @@ public class GameStateMachine : MonoBehaviour
             _states[state.GetType()] = state;
 
         ChangeState(typeof(LoadLevelState));
-    } 
+    }
 
 
 }
