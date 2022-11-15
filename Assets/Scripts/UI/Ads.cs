@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AdsPlaceholder : MonoBehaviour
+public class Ads : MonoBehaviour
 {
     [SerializeField] bool _adsActive = true;
     [SerializeField] GameObject _placeholderAd;

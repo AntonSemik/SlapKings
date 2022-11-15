@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class FightEndedMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _LoseMenu;
@@ -17,6 +16,7 @@ public class FightEndedMenu : MonoBehaviour
     {
         _extraRewardButton.SetActive(false);
 
+        Singletons._singletons.AdsPlaceholder.ShowAd();
         Singletons._singletons.Coins.GiveReward(4);
 
         _WinMenu.SetActive(false);       
@@ -46,6 +46,7 @@ public class FightEndedMenu : MonoBehaviour
         _WinMenu.SetActive(true);
         _extraRewardButton.SetActive(true);
     }
+
     private void OpenLoseMenu()
     {
         _LoseMenu.SetActive(true);

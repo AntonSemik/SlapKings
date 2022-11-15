@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerStats
 {
-    private const int StartHealth = 100;
-    private const int StartDamage = 44;
+    private const int StartHealth = 75;
+    private const int StartDamage = 20;
     private const int HealthProgressionPerLevel = 25;
     private const int DamageProgressionPerLevel = 15;
     public const int StartCost = 50;
@@ -15,11 +15,15 @@ public class PlayerStats
     public int Health => StartHealth + HealthLevel * HealthProgressionPerLevel;
     public int Damage => StartDamage + DamageLevel * DamageProgressionPerLevel;
 
-    public void SaveHealthLevel(int level) =>
+    public void SaveHealthLevel(int level)
+    {
         PlayerPrefs.SetInt(PlayerPrefsKeys.HealthLevelKey, level);
+        Singletons._singletons.HealthPanelAnimator.SetDefaultValues(Health);
+    }
 
-    public void SaveDamageLevel(int level) =>
+    public void SaveDamageLevel(int level)
+    {
         PlayerPrefs.SetInt(PlayerPrefsKeys.DamageLevelKey, level);
-
-    
+        Singletons._singletons.Indicator.SetDamageText(Damage.ToString());
+    }
 }

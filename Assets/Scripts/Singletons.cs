@@ -6,7 +6,7 @@ public class Singletons : MonoBehaviour
 
     public Coins Coins;
     public SaveGameState SaveGameState;
-    public AdsPlaceholder AdsPlaceholder;    
+    public Ads AdsPlaceholder;    
     public LevelParameters LevelParameters;
     public Indicator Indicator;
     public UI.HealthPanelAnimator HealthPanelAnimator;

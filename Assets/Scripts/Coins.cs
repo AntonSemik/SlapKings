@@ -3,7 +3,7 @@ using TMPro;
 
 public class Coins : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _coinsUI;
+    [SerializeField] private TMP_Text[] _coinsUI;
     private GameStateMachine _stateMachine;
     private int _coins;
 
@@ -11,7 +11,11 @@ public class Coins : MonoBehaviour
     private void Start()
     {
         SetDependencies();
-        _coinsUI.text = _coins.ToString();
+
+        foreach (TMP_Text text in _coinsUI)
+        {
+            text.text = _coins.ToString();
+        }
     }
 
     public void GiveReward(int _multyplier)
@@ -29,7 +33,10 @@ public class Coins : MonoBehaviour
 
         Singletons._singletons.SaveGameState.SaveInt("Coins", _coins);
 
-        _coinsUI.text = _coins.ToString();
+        foreach (TMP_Text text in _coinsUI)
+        {
+            text.text = _coins.ToString();
+        }
     }
 
     public bool IsEnough(int _amountNeeded)

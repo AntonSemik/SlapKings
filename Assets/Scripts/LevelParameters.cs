@@ -7,7 +7,6 @@ public class LevelParameters : MonoBehaviour
 
     [SerializeField] TMP_Text _levelText;
 
-    private Location _currentLocation;
     private int _locationID = 0;
     private int _level;
 
@@ -22,7 +21,6 @@ public class LevelParameters : MonoBehaviour
     public void Load(int level)
     {
         _level = level;
-        _currentLocation = _locations[0];
 
         _isBonus = _level % 4 == 0;
 
@@ -49,14 +47,12 @@ public class LevelParameters : MonoBehaviour
     }
     private void SetNewLocation()
     {
+        _locations[_locationID].gameObject.SetActive(false);
+
         _locationID = Mathf.FloorToInt(_level / 4);
         while (_locationID > _locations.Length) _locationID -= _locations.Length;
 
-
-        _currentLocation._surroundings.SetActive(false);
-
-        _currentLocation = _locations[_locationID];
-        _currentLocation._surroundings.SetActive(true);
+        _locations[_locationID].gameObject.SetActive(true);
     }
 
     private void CalculateLevelParameters()

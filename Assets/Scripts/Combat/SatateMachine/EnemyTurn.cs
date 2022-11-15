@@ -15,10 +15,17 @@ public class EnemyTurn : Turn<Enemy>
     }
     public override void StartTurn()
     {
-        _armorButton.SetActive(true);
-        StartCoroutine(SlapWithDelay(1.5f));
-        _fightState.CameraMover.LookAtEnemy();
+        if (!_slaper.SkipTurns)
+        {
+            _armorButton.SetActive(true);
+            StartCoroutine(SlapWithDelay(1.5f));
+            _fightState.CameraMover.LookAtEnemy();
+        } else
+        {
+            _fightState.StartPlayerTurn();
+        }
     }
+
     public override void EndTurn()
     {
         _armorButton.SetActive(false);
