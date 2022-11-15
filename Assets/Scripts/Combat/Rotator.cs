@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
+    [SerializeField] private AnimationCurve _curve;
     [SerializeField] private float _speed = 0.5f;
-    [SerializeField] private float _leftMaxAngle = -15;
-    [SerializeField] private float _rightMaxAngle = 15;
     private float _time = 0.5f;
     private float _angle;
     private bool _move;
@@ -14,7 +13,9 @@ public class Rotator : MonoBehaviour
         if(!_move)
             return;
         _time += Time.deltaTime * _speed;
-        _angle = Mathf.Lerp(_rightMaxAngle, _leftMaxAngle, Mathf.PingPong(_time, 1));
+
+        _angle = _curve.Evaluate(_time);
+
         transform.rotation = Quaternion.Euler(_angle, 0, 0);
     }
 
@@ -22,6 +23,7 @@ public class Rotator : MonoBehaviour
     {
         _move = true;   
     }
+
     public void Reset()
     {
         _time = 0.5f;       
