@@ -567,6 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fightState: {fileID: 656770924}
   _megaSlap: {fileID: 1236224151}
+  _slap: {fileID: 1776483585}
   _indicator: {fileID: 2113887879}
 --- !u!1 &665499052 stripped
 GameObject:
@@ -967,7 +968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddaf86d53565374c9a6eedd3dfc2c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fight: {fileID: 0}
 --- !u!114 &1157264753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,9 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab1d746d17ef744ca00fbdff9fdd497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fight: {fileID: 0}
-  _player: {fileID: 1150093724}
-  _enemy: {fileID: 1687344411}
 --- !u!4 &1157264754
 Transform:
   m_ObjectHideFlags: 0
@@ -1010,10 +1007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81489b126569efd4ab6c50f1f33b8770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1150093724}
-  _enemy: {fileID: 1687344411}
-  _playerHP: {fileID: 1176933509}
-  _enemyHP: {fileID: 152202786}
 --- !u!114 &1176933509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 488745634619225470, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
