@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyTurn : Turn<Enemy>
 {
     [SerializeField] private GameObject _armorButton;
-   
+
     protected override Enemy _slaper => _fightState.Enemy;
 
     public void SetArmor()
@@ -16,7 +16,7 @@ public class EnemyTurn : Turn<Enemy>
     public override void StartTurn()
     {
         _armorButton.SetActive(true);
-        StartCoroutine(SlapWithDelay(1.5f));
+        StartCoroutine(SlapWithDelay(0.5f));
         _fightState.CameraMover.LookAtEnemy();
     }
 
