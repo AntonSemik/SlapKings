@@ -37,7 +37,6 @@ public class GameStateMachine : MonoBehaviour
     public void ReloadLevel() =>
          ChangeState(typeof(LoadLevelState));
 
-
     public void ChangeState(Type stateType)
     {
         _current?.Exit();
@@ -48,13 +47,10 @@ public class GameStateMachine : MonoBehaviour
     private void InitializeStates()
     {
         _states = new Dictionary<Type, IGameState>();
-        IGameState[] childerenStates = GetComponents<IGameState>();
-        foreach (var state in childerenStates)
+        IGameState[] childrenStates = GetComponents<IGameState>();
+        foreach (var state in childrenStates)
             _states[state.GetType()] = state;
 
         ChangeState(typeof(LoadLevelState));
     }
-
-
 }
-
