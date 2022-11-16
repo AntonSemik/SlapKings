@@ -23,7 +23,7 @@ public class EnemyTurn : Turn<Enemy>
     public override void EndTurn() => 
         _armorButton.SetActive(false);
 
-    protected override void OnKnokedDown() =>
+    protected override void OnKnockedDown() =>
         _fightState.StateMachine.InvokeLevelComplete();
 
     protected override void OnSlapedOpponent()

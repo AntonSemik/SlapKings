@@ -34,7 +34,7 @@ public class PlayerTurn : Turn<Player>
             _indicator.gameObject.SetActive(false);
     }
 
-    protected override void OnKnokedDown() =>
+    protected override void OnKnockedDown() =>
         _fightState.StateMachine.InvokeLevelFailed();
 
     protected override void OnHittedAnimationEnd() =>

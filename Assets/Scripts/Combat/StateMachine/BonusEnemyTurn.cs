@@ -23,7 +23,7 @@ public class BonusEnemyTurn : Turn<BonusEnemy>
     }
 
 
-    protected override void OnKnokedDown()
+    protected override void OnKnockedDown()
     {
         _fightState.StateMachine.InvokeLevelComplete();
         _turnsAmount = 0;
