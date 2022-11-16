@@ -8,6 +8,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
     [SerializeField] private GameStateMachine _stateMachine;
     [SerializeField] private LevelParameters _levelLoader;
     [SerializeField] private Indicator _indicator;
+    [SerializeField] private CameraMover _cameraMover;
 
     public void Enter()
     {
@@ -16,14 +17,19 @@ public class LoadLevelState : MonoBehaviour, IGameState
         ResetHealthUI();
         ShowIdleUI();
         ResetIndicator();
+        ResetCameraMover();
         _slap.SetActive(true);
     }
 
     private void ResetIndicator()
     {
+        _indicator.gameObject.SetActive(true);
         _indicator.SetDamageText(_stateMachine.Player.Damage.ToString());
         _indicator.StartPointerMovement();
     }
+
+    private void ResetCameraMover() =>
+        _cameraMover.LookAtPlayer();
 
     public void Exit() =>
         HideIdleUI();
