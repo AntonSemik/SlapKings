@@ -28,6 +28,7 @@ public class LevelParameters : MonoBehaviour
         SetLevelScene();
         _levelText.text = "Level: " + _level.ToString();
     }
+    
     public void IncreaseLevel()
     {   
         _level++;
@@ -45,6 +46,7 @@ public class LevelParameters : MonoBehaviour
 
         _levelText.text = "Level: " + _level.ToString();
     }
+    
     private void SetNewLocation()
     {
         _locations[_locationID].gameObject.SetActive(false);

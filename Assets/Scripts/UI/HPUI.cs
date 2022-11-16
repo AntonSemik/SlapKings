@@ -18,12 +18,12 @@ public class HPUI : MonoBehaviour
         SubscribeToSlapers();
     }
 
-
     private void SubscribeToSlapers()
     {
         _player.DamageReceived += OnPlayerReceivedDamage;
         _enemy.DamageReceived += OnEnemyReceivedDamage;
     }
+    
     private void UnsubscribeFromSlapers()
     {
         if (_player != null)
@@ -44,4 +44,3 @@ public class HPUI : MonoBehaviour
     private void OnEnemyReceivedDamage(int damage) =>
         _enemyHP.SetHealth(_enemy.CurrentHealth);
 }
-

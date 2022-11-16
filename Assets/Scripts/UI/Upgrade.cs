@@ -33,6 +33,7 @@ public class Upgrade : MonoBehaviour
             UpdateUI();
         }
     }
+    
     public void UpgradeDamage()
     {
         if (Singletons._singletons.Coins.IsEnough(CalculateCost(_playerStats.DamageLevel)))

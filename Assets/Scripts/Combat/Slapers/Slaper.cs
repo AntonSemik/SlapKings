@@ -15,7 +15,7 @@ public abstract class Slaper : MonoBehaviour
     public event Action SlapedOpponent;
     public event Action HittedAnimationEnd;
     public event Action<int> DamageReceived;
-    public event Action KnokedDown;
+    public event Action KnockedDown;
 
 
     public void OnHittedAnimationEnd() =>
@@ -34,7 +34,7 @@ public abstract class Slaper : MonoBehaviour
         DamageReceived?.Invoke(damage);
         
         if (CurrentHealth == 0)
-            KnokedDown?.Invoke();
+            KnockedDown?.Invoke();
         else
             _animator.CrossFade(ToHittedAnimation, 0.2f);
     }
@@ -43,7 +43,7 @@ public abstract class Slaper : MonoBehaviour
         DamageReceived?.Invoke(damage);
 
     protected void InvokeKnokedDown() => 
-        KnokedDown?.Invoke();
+        KnockedDown?.Invoke();
     
     public void ResetHealth() =>
         CurrentHealth = MaxHealth;

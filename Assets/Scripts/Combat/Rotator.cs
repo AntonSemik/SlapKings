@@ -30,5 +30,4 @@ public class Rotator : MonoBehaviour
         _move = false;
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-
 }
