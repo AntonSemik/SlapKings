@@ -13,9 +13,6 @@ public class Singletons : MonoBehaviour
     public GameStateMachine GameStateMachine;
     private void Awake()
     {   
-        SaveGameState.SaveInt("Level",3);
-        SaveGameState.SaveInt("DamageLevel",3);
-        SaveGameState.SaveInt("HealthLevel",3);
         _singletons = this;
     }
 }

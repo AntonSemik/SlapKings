@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Ads : MonoBehaviour
 {
+    [SerializeField] GameObject _payment;
     [SerializeField] bool _adsActive = true;
     [SerializeField] GameObject _placeholderAd;
 
@@ -12,6 +13,7 @@ public class Ads : MonoBehaviour
 
     public void NoMoreAds()
     {
+        _payment.SetActive(true);
         _adsActive = false;
         Singletons._singletons.SaveGameState.SaveInt("AdsActive", _adsActive ? 1 : 0);
     }
