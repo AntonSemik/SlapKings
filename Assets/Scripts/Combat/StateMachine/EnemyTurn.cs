@@ -23,8 +23,19 @@ public class EnemyTurn : Turn<Enemy>
     public override void EndTurn() => 
         _armorButton.SetActive(false);
 
-    protected override void OnKnockedDown() =>
+    protected override void OnKnockedDown()
+    {
+        StartCoroutine(EndLevelWithDelay(1.0f));
+    }
+
+    private IEnumerator EndLevelWithDelay(float seconds)
+    {
+        _slaper.EnableRagdoll();
+
+        yield return new WaitForSeconds(seconds);
+
         _fightState.StateMachine.InvokeLevelComplete();
+    }
 
     protected override void OnSlapedOpponent()
     {

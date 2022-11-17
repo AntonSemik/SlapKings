@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerTurn : Turn<Player>
 {
@@ -34,8 +35,20 @@ public class PlayerTurn : Turn<Player>
             _indicator.gameObject.SetActive(false);
     }
 
-    protected override void OnKnockedDown() =>
+    protected override void OnKnockedDown()
+    {
         _fightState.StateMachine.InvokeLevelFailed();
+    }
+
+    //private IEnumerator EndLevelWithDelay(float seconds)
+    //{
+    //    _slaper.EnableRagdoll();
+
+    //    yield return new WaitForSeconds(seconds);
+
+    //    _fightState.StateMachine.InvokeLevelFailed();
+    //}
+
 
     protected override void OnHittedAnimationEnd() =>
         _fightState.StartPlayerTurn();
