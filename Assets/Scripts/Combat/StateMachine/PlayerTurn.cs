@@ -18,10 +18,11 @@ public class PlayerTurn : Turn<Player>
         _indicator.SetDamageText(((int)(_slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent))).ToString());
         _indicator.Stop();
     }
+
     public override void StartTurn()
     {
         _slap.SetActive(true);
-        _megaSlap.SetActive(true);
+        if (!_slaper.UsedMegaSlap) _megaSlap.SetActive(true);
         _indicator.StartPointerMovement();
         _indicator.gameObject.SetActive(true);
         _indicator.SetDamageText(_slaper.Damage.ToString());
@@ -40,7 +41,6 @@ public class PlayerTurn : Turn<Player>
     protected override void OnKnockedDown()
     {
         StartCoroutine(EndLevelWithDelay(1));
-        //_fightState.StateMachine.InvokeLevelFailed();
     }
 
     private IEnumerator EndLevelWithDelay(float seconds)
@@ -49,6 +49,7 @@ public class PlayerTurn : Turn<Player>
 
         yield return new WaitForSeconds(seconds);
 
+        _megaSlap.SetActive(true);
         _fightState.StateMachine.InvokeLevelFailed();
     }
 
@@ -65,6 +66,7 @@ public class PlayerTurn : Turn<Player>
 
     public void MegaSlap()
     {
+        _slaper.UsedMegaSlap = true;
         _slaper.MegaslapObject.SetActive(true);
         _slaper.SetDamageMultiplier(Player.MultiplierDouble);
         ChangeIndicatorText(_playerStats.Damage * _slaper.DamageMultiplier);

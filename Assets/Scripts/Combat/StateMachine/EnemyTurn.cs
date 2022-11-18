@@ -9,13 +9,15 @@ public class EnemyTurn : Turn<Enemy>
 
     public void SetArmor()
     {
+        _slaper.UsedArmor = true;
+
         _fightState.Player.SetDamageDivider(Player.MultiplierDouble);
         _armorButton.gameObject.SetActive(false);
         Singletons._singletons.AdsPlaceholder.ShowAd();
     }
     public override void StartTurn()
     {
-        _armorButton.SetActive(true);
+        if (!_slaper.UsedArmor) _armorButton.SetActive(true);
         StartCoroutine(SlapWithDelay(0.5f));
         _fightState.CameraMover.LookAtEnemy();
     }

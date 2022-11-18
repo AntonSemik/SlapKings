@@ -29,10 +29,8 @@ public class FightEndedMenu : MonoBehaviour
         _extraSlapButton.SetActive(false);
 
         Singletons._singletons.AdsPlaceholder.ShowAd();
-
         Singletons._singletons.PlayerTurn.StartTurn();
-
-        Debug.Log("No slaps for you");
+        Singletons._singletons.GameStateMachine.TookExtraSlap = true;
 
         _LoseMenu.SetActive(false);
     }
@@ -56,6 +54,10 @@ public class FightEndedMenu : MonoBehaviour
     private void OpenLoseMenu()
     {
         _LoseMenu.SetActive(true);
-        _extraSlapButton.SetActive(true);
+
+        if (!Singletons._singletons.GameStateMachine.TookExtraSlap)
+        {
+            _extraSlapButton.SetActive(true);
+        }
     }
 }

@@ -18,8 +18,8 @@ public class FightState : MonoBehaviour, IGameState
         _enemyTurn.SubscribeToSlaperEvents();
         _playerTurn.SubscribeToSlaperEvents();
         
-        Enemy.ResetSlaper();
-        Player.ResetSlaper();
+        Enemy.ResetSlaper(true);
+        Player.ResetSlaper(true);
     }
 
     public void StartPlayerTurn()
@@ -43,6 +43,9 @@ public class FightState : MonoBehaviour, IGameState
 
     public void Exit()
     {
+        Enemy.UsedArmor = false;
+        Player.UsedMegaSlap = false;
+
         Player.MegaslapObject.SetActive(false);
 
         _enemyTurn.UnsubscribeFromSlaperEvents();

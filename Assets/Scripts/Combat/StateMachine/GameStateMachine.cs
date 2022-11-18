@@ -12,6 +12,7 @@ public class GameStateMachine : MonoBehaviour
     private Dictionary<Type, IGameState> _states;
     private IGameState _current;
 
+    public bool TookExtraSlap = false;
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class GameStateMachine : MonoBehaviour
         if (_current is FightState)
             return;
         ChangeState(typeof(FightState));
+
+        TookExtraSlap = false;
     }
 
     public void InvokeLevelComplete()
@@ -37,7 +40,7 @@ public class GameStateMachine : MonoBehaviour
 
         //ReloadLevel();
 
-        Player.ResetSlaper();
+        Player.ResetSlaper(false);
     }
 
     public void ReloadLevel() =>

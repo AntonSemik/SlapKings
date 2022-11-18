@@ -10,6 +10,8 @@ public class Player : Slaper
     public override int Damage => (int)(_playerStats.Damage);
     public override int MaxHealth => (int)(_playerStats.Health);
 
+    public bool UsedMegaSlap = false;
+
     public int DamageMultiplier { get => _damageMultiplier; private set => _damageMultiplier = value; }
     public int DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
     private int _damageMultiplier = 1;

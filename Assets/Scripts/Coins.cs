@@ -23,8 +23,6 @@ public class Coins : MonoBehaviour
         int _reward;
         _reward = Singletons._singletons.LevelParameters._baseReward * _multyplier;
         ChangeCoins(_reward);
-
-        Debug.Log("Player earned " + _reward.ToString() + " coins");
     }
 
     public void ChangeCoins(int _amount)
