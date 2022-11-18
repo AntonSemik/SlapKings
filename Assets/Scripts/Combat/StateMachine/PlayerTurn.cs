@@ -37,17 +37,18 @@ public class PlayerTurn : Turn<Player>
 
     protected override void OnKnockedDown()
     {
-        _fightState.StateMachine.InvokeLevelFailed();
+        StartCoroutine(EndLevelWithDelay(1));
+        //_fightState.StateMachine.InvokeLevelFailed();
     }
 
-    //private IEnumerator EndLevelWithDelay(float seconds)
-    //{
-    //    _slaper.EnableRagdoll();
+    private IEnumerator EndLevelWithDelay(float seconds)
+    {
+        _slaper.EnableRagdoll();
 
-    //    yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(seconds);
 
-    //    _fightState.StateMachine.InvokeLevelFailed();
-    //}
+        _fightState.StateMachine.InvokeLevelFailed();
+    }
 
 
     protected override void OnHittedAnimationEnd() =>

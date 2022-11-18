@@ -31,8 +31,12 @@ public class GameStateMachine : MonoBehaviour
         _levelLoader.IncreaseLevel();
         ChangeState(typeof(LoadLevelState));
     }
-    public void InvokeLevelFailed() =>
+    public void InvokeLevelFailed()
+    {
         LevelFailed?.Invoke();
+
+        Player.ResetSlaper();
+    }
 
     public void ReloadLevel() =>
          ChangeState(typeof(LoadLevelState));

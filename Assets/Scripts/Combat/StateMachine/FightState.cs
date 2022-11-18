@@ -18,8 +18,8 @@ public class FightState : MonoBehaviour, IGameState
         _enemyTurn.SubscribeToSlaperEvents();
         _playerTurn.SubscribeToSlaperEvents();
         
-        Enemy.ResetHealth();
-        Player.ResetHealth();
+        Enemy.ResetSlaper();
+        Player.ResetSlaper();
     }
 
     public void StartPlayerTurn()
@@ -42,10 +42,9 @@ public class FightState : MonoBehaviour, IGameState
     }
 
     public void Exit()
-    {        
+    {
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();
-
     }
 }
 

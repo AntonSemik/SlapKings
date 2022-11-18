@@ -7,7 +7,9 @@ public abstract class Slaper : MonoBehaviour
     protected const string ToHittedAnimation = "Hitted";
 
     [SerializeField] protected Animator _animator;
-    [SerializeField] protected Rigidbody[] _rigidbodies;
+    protected Rigidbody[] _rigidbodies;
+    protected Transform _transform;
+
     public virtual int Damage { get; protected set; }
     public virtual int MaxHealth { get; protected set; }
     public int CurrentHealth { get; protected set; }
@@ -19,6 +21,8 @@ public abstract class Slaper : MonoBehaviour
 
     private void Awake()
     {
+        _transform = transform;
+
         _rigidbodies = GetComponentsInChildren<Rigidbody>();
         foreach(Rigidbody rb in _rigidbodies)
         {
@@ -52,9 +56,21 @@ public abstract class Slaper : MonoBehaviour
 
     protected void InvokeKnokedDown() => 
         KnockedDown?.Invoke();
-    
-    public void ResetHealth() =>
+
+    public void ResetSlaper()
+    {
         CurrentHealth = MaxHealth;
+
+        foreach (Rigidbody rb in _rigidbodies)
+        {
+            rb.isKinematic = true;
+        }
+
+        _transform.localPosition = new Vector3(0, 0, 0);
+        _transform.localEulerAngles = new Vector3(0,0,0);
+
+        _animator.enabled = true;
+    }
 
     public void EnableRagdoll()
     {
