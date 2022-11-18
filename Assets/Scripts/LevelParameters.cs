@@ -8,7 +8,8 @@ public class LevelParameters : MonoBehaviour
     [SerializeField] TMP_Text _levelText;
 
     private int _locationID = 0;
-    private int _level;
+    // private int _level;
+    public int _level { private set; get; }
 
 
     public bool _isBonus { private set; get; }
