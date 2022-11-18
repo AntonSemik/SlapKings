@@ -35,6 +35,8 @@ public class GameStateMachine : MonoBehaviour
     {
         LevelFailed?.Invoke();
 
+        ReloadLevel();
+
         Player.ResetSlaper();
     }
 
