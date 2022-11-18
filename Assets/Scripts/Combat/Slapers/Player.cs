@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using UnityEngine;
 public class Player : Slaper
 {
+    public GameObject MegaslapObject;
+
     public const string MultiplierSingle = "single";
     public const string MultiplierDouble = "double";
     private PlayerStats _playerStats = new PlayerStats();

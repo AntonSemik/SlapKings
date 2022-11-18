@@ -43,6 +43,8 @@ public class FightState : MonoBehaviour, IGameState
 
     public void Exit()
     {
+        Player.MegaslapObject.SetActive(false);
+
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();
     }

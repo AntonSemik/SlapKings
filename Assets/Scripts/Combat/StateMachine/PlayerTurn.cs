@@ -30,8 +30,10 @@ public class PlayerTurn : Turn<Player>
 
     public override void EndTurn()
     {
-        _megaSlap.SetActive(false);        
-        if(!Singletons._singletons.LevelParameters._isBonus)
+        _megaSlap.SetActive(false);
+        _slaper.MegaslapObject.SetActive(false);
+
+        if (!Singletons._singletons.LevelParameters._isBonus)
             _indicator.gameObject.SetActive(false);
     }
 
@@ -63,6 +65,7 @@ public class PlayerTurn : Turn<Player>
 
     public void MegaSlap()
     {
+        _slaper.MegaslapObject.SetActive(true);
         _slaper.SetDamageMultiplier(Player.MultiplierDouble);
         ChangeIndicatorText(_playerStats.Damage * _slaper.DamageMultiplier);
         _megaSlap.gameObject.SetActive(false);
