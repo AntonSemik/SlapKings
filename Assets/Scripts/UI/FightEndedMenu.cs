@@ -19,7 +19,9 @@ public class FightEndedMenu : MonoBehaviour
         Singletons._singletons.AdsPlaceholder.ShowAd();
         Singletons._singletons.Coins.GiveReward(4);
 
-        _WinMenu.SetActive(false);       
+        _WinMenu.SetActive(false);
+
+        Singletons._singletons.GameStateMachine.ReloadLevel();
     }
 
     public void PlusOneSlap()
@@ -28,9 +30,11 @@ public class FightEndedMenu : MonoBehaviour
 
         Singletons._singletons.AdsPlaceholder.ShowAd();
 
+        Singletons._singletons.PlayerTurn.StartTurn();
+
         Debug.Log("No slaps for you");
 
-        _LoseMenu.SetActive(false);       
+        _LoseMenu.SetActive(false);
     }
 
     public void NoThanks()
@@ -38,7 +42,9 @@ public class FightEndedMenu : MonoBehaviour
         Singletons._singletons.AdsPlaceholder.ShowAd();
 
         _WinMenu.SetActive(false);
-        _LoseMenu.SetActive(false);        
+        _LoseMenu.SetActive(false);
+
+        Singletons._singletons.GameStateMachine.ReloadLevel();
     }
     
     private void OpenWinMenu()

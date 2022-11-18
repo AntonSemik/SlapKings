@@ -11,6 +11,8 @@ public class Singletons : MonoBehaviour
     public Indicator Indicator;
     public UI.HealthPanelAnimator HealthPanelAnimator;
     public GameStateMachine GameStateMachine;
+    public PlayerTurn PlayerTurn;
+
     private void Awake()
     {   
         _singletons = this;
