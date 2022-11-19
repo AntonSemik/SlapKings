@@ -12,7 +12,7 @@ namespace UI
         private Color _colorDefault = Color.white;
         private Color _colorFineshed = new Color32(0,116,6, 255);
         private Image _currentProgressBackground;
-        private int _level = 1;
+        private int _levelNumber = 1;
         private int _levelIndex;
         private int _bonusLevelNumber = 4;
         private int _bonusLevelIndex = 0;
@@ -20,11 +20,12 @@ namespace UI
         private void Awake()
         {
             _currentProgressBackground = GetComponent<Image>();
+            _bonusLevelNumber = Singletons._singletons.LevelParameters.bonusLevelNumber;
         }
 
         private void OnEnable()
         {
-            _level = Singletons._singletons.LevelParameters._level;
+            _levelNumber = Singletons._singletons.LevelParameters._level;
             _levelIndex = GetLevelIndex();
             _currentProgressBackground.sprite = _progressSprites[_levelIndex];
             
@@ -38,7 +39,7 @@ namespace UI
             SetLevelPointValue(_bonusLevelIndex, 0, _colorDefault);
         }
         
-        private int GetLevelIndex() => _level % _bonusLevelNumber;
+        private int GetLevelIndex() => _levelNumber % _bonusLevelNumber;
 
         private void SetCurrentLevelPoint()
         {
@@ -50,7 +51,7 @@ namespace UI
         
         private void SetRightLevelPoints()
         {
-            int level = _level;
+            int level = _levelNumber;
             for (int pointIndex = _levelIndex + 1; pointIndex < _progress.Length; pointIndex++)
             {
                 level++;
@@ -60,7 +61,7 @@ namespace UI
         
         private void SetLeftLevelPoints()
         {
-            int level = _level;
+            int level = _levelNumber;
             for (int pointIndex = _levelIndex - 1; pointIndex > 0; pointIndex--)
             {
                 level--;
@@ -76,6 +77,6 @@ namespace UI
             _progress[pointIndex].levelFinished.gameObject.SetActive(false);
         }
 
-        private bool IsBonusLevel() => _level % _bonusLevelNumber == 0;
+        private bool IsBonusLevel() => _levelNumber % _bonusLevelNumber == 0;
     }
 }

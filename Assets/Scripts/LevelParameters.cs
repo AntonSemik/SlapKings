@@ -8,9 +8,9 @@ public class LevelParameters : MonoBehaviour
     [SerializeField] TMP_Text _levelText;
 
     private int _locationID = 0;
-    // private int _level;
-    public int _level { private set; get; }
 
+    public int _level { private set; get; }
+    public int bonusLevelNumber { get; } = 4;
 
     public bool _isBonus { private set; get; }
     public int _baseReward { private set; get; }
@@ -23,7 +23,7 @@ public class LevelParameters : MonoBehaviour
     {
         _level = level;
 
-        _isBonus = _level % 4 == 0;
+        _isBonus = _level % bonusLevelNumber == 0;
 
         SetNewLocation();
         SetLevelScene();
@@ -36,14 +36,14 @@ public class LevelParameters : MonoBehaviour
         
         Singletons._singletons.SaveGameState.SaveInt("Level", _level);
         
-        _isBonus = _level % 4 == 0;
+        _isBonus = _level % bonusLevelNumber == 0;
     }
     
     private void SetLevelScene()
     {
         CalculateLevelParameters();
 
-        if (_locationID != Mathf.FloorToInt(_level / 4)) SetNewLocation();
+        if (_locationID != Mathf.FloorToInt(_level / bonusLevelNumber)) SetNewLocation();
 
         _levelText.text = "Level: " + _level.ToString();
     }
@@ -52,7 +52,7 @@ public class LevelParameters : MonoBehaviour
     {
         _locations[_locationID].gameObject.SetActive(false);
 
-        _locationID = Mathf.FloorToInt((_level - 1) / 4);
+        _locationID = Mathf.FloorToInt((_level - 1) / bonusLevelNumber);
         while (_locationID >= _locations.Length) _locationID -= _locations.Length;
 
         _locations[_locationID].gameObject.SetActive(true);
