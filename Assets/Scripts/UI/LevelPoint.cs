@@ -5,7 +5,7 @@ namespace UI
 {
     public class LevelPoint : MonoBehaviour
     {
-        public TMP_Text _levelNumber;
-        public GameObject _levelFinished;
+        public TMP_Text levelNumber;
+        public GameObject levelFinished;
     }
 }

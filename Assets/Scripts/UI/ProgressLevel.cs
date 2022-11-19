@@ -8,46 +8,74 @@ namespace UI
     {
         [SerializeField] private LevelPoint[] _progress;
         [SerializeField] private Sprite[] _progressSprites;
-        [SerializeField] private Color _defaultColor;
-        [SerializeField] private Color _fineshedColor;
+        
+        private Color _colorDefault = Color.white;
+        private Color _colorFineshed = new Color32(0,116,6, 255);
+        private Image _currentProgressBackground;
+        private int _level = 1;
+        private int _levelIndex;
+        private int _bonusLevelNumber = 4;
+        private int _bonusLevelIndex = 0;
 
-        private Image _currentProgressImage;
-        
-        
-        private void Start()
+        private void Awake()
         {
-            _currentProgressImage = GetComponent<Image>();
-            Invoke("Display", 1f);
+            _currentProgressBackground = GetComponent<Image>();
         }
 
-        private void Display()
+        private void OnEnable()
         {
-            int level = Singletons._singletons.LevelParameters._level;
-            int levelPosition = level % 4;
-
-            _currentProgressImage.sprite = _progressSprites[levelPosition];
+            _level = Singletons._singletons.LevelParameters._level;
+            _levelIndex = GetLevelIndex();
+            _currentProgressBackground.sprite = _progressSprites[_levelIndex];
             
-            Debug.Log(levelPosition);
-            
-            Debug.Log(_currentProgressImage.sprite);
+            SetCurrentLevelPoint();
+            SetLeftLevelPoints();
+            SetRightLevelPoints();
+        }
 
-            for (int point = 0; point < _progress.Length; point++)
+        private void OnDisable()
+        {
+            SetLevelPointValue(_bonusLevelIndex, 0, _colorDefault);
+        }
+        
+        private int GetLevelIndex() => _level % _bonusLevelNumber;
+
+        private void SetCurrentLevelPoint()
+        {
+            _progress[_levelIndex].levelNumber.gameObject.SetActive(false);
+            _progress[_levelIndex].levelFinished.gameObject.SetActive(true);
+            if (IsBonusLevel())
+                _levelIndex = _progress.Length;
+        }
+        
+        private void SetRightLevelPoints()
+        {
+            int level = _level;
+            for (int pointIndex = _levelIndex + 1; pointIndex < _progress.Length; pointIndex++)
             {
-                _progress[point]._levelNumber.text = level.ToString();
-                // if (point != 0)
-                // {
-                //     _progress[point]._levelNumber.text = level.ToString();
-                // }
-                //
-                // if (point == levelPosition)
-                // {
-                //     
-                // }
+                level++;
+                SetLevelPointValue(pointIndex, level, _colorDefault);
             }
-
-            
-            // Debug.Log(Mathf.FloorToInt(level / 4));
+        }
+        
+        private void SetLeftLevelPoints()
+        {
+            int level = _level;
+            for (int pointIndex = _levelIndex - 1; pointIndex > 0; pointIndex--)
+            {
+                level--;
+                SetLevelPointValue(pointIndex, level, _colorFineshed);
+            }
         }
 
+        private void SetLevelPointValue(int pointIndex, int level, Color color)
+        {
+            _progress[pointIndex].levelNumber.color = color;
+            _progress[pointIndex].levelNumber.text = level == 0 ? "" : level.ToString();
+            _progress[pointIndex].levelNumber.gameObject.SetActive(true);
+            _progress[pointIndex].levelFinished.gameObject.SetActive(false);
+        }
+
+        private bool IsBonusLevel() => _level % _bonusLevelNumber == 0;
     }
 }
