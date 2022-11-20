@@ -1604,6 +1604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1150093732}
   MegaslapObject: {fileID: 1150093725}
+  UsedMegaSlap: 0
 --- !u!1 &1150093725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4817957784163549446, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}

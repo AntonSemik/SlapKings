@@ -4,7 +4,7 @@ namespace UI
 {
     public class AnimatorSettings : MonoBehaviour
     {
-        [SerializeField][Min(1)] private float _speedAnimation = 1f;
+        [SerializeField][Min(0.1f)] private float _speedAnimation = 1f;
         
         private Animator _animator;
         private static readonly int SpeedHash = Animator.StringToHash("Speed");
