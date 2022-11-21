@@ -14,6 +14,9 @@ public class GameStateMachine : MonoBehaviour
 
     public bool TookExtraSlap = false;
 
+    public const float GamePaused = 0; 
+    public const float GamePlayed = 1; 
+
     private void Start()
     {
         InitializeStates();
