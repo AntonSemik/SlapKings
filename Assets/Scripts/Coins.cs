@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -7,6 +8,7 @@ public class Coins : MonoBehaviour
     private GameStateMachine _stateMachine;
     private int _coins;
 
+    public event Action CoinsChanged;
 
     private void Start()
     {
@@ -35,6 +37,8 @@ public class Coins : MonoBehaviour
         {
             text.text = _coins.ToString();
         }
+        
+        CoinsChanged?.Invoke();
     }
 
     public bool IsEnough(int _amountNeeded)
