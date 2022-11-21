@@ -7,6 +7,8 @@ public abstract class Slaper : MonoBehaviour
     protected const string ToHittedAnimation = "Hitted";
 
     [SerializeField] protected Animator _animator;
+    [SerializeField] private Sprite _avatar;
+    
     protected Rigidbody[] _rigidbodies;
     protected Transform _transform;
 
@@ -85,4 +87,6 @@ public abstract class Slaper : MonoBehaviour
             rb.AddForce(transform.forward * 400f + transform.up * 300f + transform.right * 200f);
         }
     }
+
+    public Sprite GetAvatar() => _avatar;
 }

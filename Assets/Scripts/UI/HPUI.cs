@@ -1,11 +1,14 @@
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HPUI : MonoBehaviour
 {
     [SerializeField] private HealthPanelAnimator _playerHP;
     [SerializeField] private HealthPanelAnimator _enemyHP;
-
+    [SerializeField] private Image _playerImage;
+    [SerializeField] private Image _enemyImage;
+    
     private Slaper _player;
     private Slaper _enemy;
 
@@ -37,6 +40,8 @@ public class HPUI : MonoBehaviour
     {
         _playerHP.SetDefaultValues(_player.MaxHealth);
         _enemyHP.SetDefaultValues(_enemy.MaxHealth);
+        _playerImage.sprite = _player.GetAvatar();
+        _enemyImage.sprite = _enemy.GetAvatar();
     }
 
     private void OnPlayerReceivedDamage(int damage) =>
