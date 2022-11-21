@@ -9,7 +9,8 @@ public class LoadLevelState : MonoBehaviour, IGameState
     [SerializeField] private LevelParameters _levelLoader;
     [SerializeField] private Indicator _indicator;
     [SerializeField] private CameraMover _cameraMover;
-
+    [SerializeField] private GameObject[] _screenUI;
+    
     public void Enter()
     {
         LoadLocation();
@@ -48,6 +49,15 @@ public class LoadLevelState : MonoBehaviour, IGameState
 
     private void ShowIdleUI() =>
         _idleUI.SetActive(true);
-    private void HideIdleUI() =>
+    public void HideIdleUI() =>
         _idleUI.SetActive(false);
+
+    public void SetActiveScreenUI(bool value)
+    {
+        foreach (var item in _screenUI)
+        {
+            item.SetActive(value);
+        }
+    }
+
 }
