@@ -10,12 +10,12 @@ public class RandomizeImage : MonoBehaviour
 
     private void OnEnable()
     {
-        Time.timeScale = GameStateMachine.GamePaused;
+        Singletons._singletons.GameStateMachine.SetPause(true);
         _image.sprite = _imageArray[Random.Range(0,_imageArray.Length)];
     }
 
     private void OnDisable()
     {
-        Time.timeScale = GameStateMachine.GamePlayed;
+        Singletons._singletons.GameStateMachine.SetPause(false);
     }
 }

@@ -14,9 +14,6 @@ public class GameStateMachine : MonoBehaviour
 
     public bool TookExtraSlap = false;
 
-    public const float GamePaused = 0; 
-    public const float GamePlayed = 1; 
-
     private void Start()
     {
         InitializeStates();
@@ -64,5 +61,10 @@ public class GameStateMachine : MonoBehaviour
             _states[state.GetType()] = state;
 
         ChangeState(typeof(LoadLevelState));
+    }
+
+    public void SetPause(bool value)
+    {
+        Time.timeScale = value == true ? 0 : 1;
     }
 }
