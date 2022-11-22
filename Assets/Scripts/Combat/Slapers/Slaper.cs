@@ -12,6 +12,8 @@ public abstract class Slaper : MonoBehaviour
     protected Rigidbody[] _rigidbodies;
     protected Transform _transform;
 
+    public ParticleSystem NormalSlapHitEffect;
+
     public virtual int Damage { get; protected set; }
     public virtual int MaxHealth { get; protected set; }
     public int CurrentHealth { get; protected set; }

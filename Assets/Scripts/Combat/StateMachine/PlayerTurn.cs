@@ -62,10 +62,10 @@ public class PlayerTurn : Turn<Player>
     {
         if (_slaper.MegaslapObject.activeSelf)
         {
-            _slaper.MegaSlapHitEffect.Play();
+            _slaper.MegaSlapHitEffect?.Play();
         } else
         {
-            _slaper.NormalSlapHitEffect.Play();
+            _slaper.NormalSlapHitEffect?.Play();
         }
 
         _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
