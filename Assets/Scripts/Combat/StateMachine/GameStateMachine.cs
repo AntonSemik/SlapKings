@@ -31,15 +31,24 @@ public class GameStateMachine : MonoBehaviour
     public void InvokeLevelComplete()
     {
         LevelComplete?.Invoke();
+        // IncreaseLevel(); // перенес в PanelWinLose.cs 
+    }
+
+    public void IncreaseLevel()
+    {
         _levelLoader.IncreaseLevel();
         ChangeState(typeof(LoadLevelState));
     }
+
     public void InvokeLevelFailed()
     {
         LevelFailed?.Invoke();
-
         //ReloadLevel();
+        // ResetLevel(); // перенес в PanelWinLose.cs 
+    }
 
+    public void ResetLevel()
+    {
         Player.ResetSlaper(false);
     }
 
