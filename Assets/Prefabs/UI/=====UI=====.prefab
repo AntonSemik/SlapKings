@@ -2382,11 +2382,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b46ef4641e264149b8078284e816815, type: 3}
---- !u!1 &793442142636910653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1881548199809970433, guid: 3b46ef4641e264149b8078284e816815, type: 3}
-  m_PrefabInstance: {fileID: 1233499706705860924}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &793442142636910654 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1881548199809970434, guid: 3b46ef4641e264149b8078284e816815, type: 3}
@@ -3107,10 +3102,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 7905705899779113689, guid: 10fbe3a2fbf6e3343a92c0e06cff2d0b, type: 3}
-      propertyPath: _slapButton
-      value: 
-      objectReference: {fileID: 793442142636910653}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10fbe3a2fbf6e3343a92c0e06cff2d0b, type: 3}
 --- !u!224 &4307317296354556147 stripped
@@ -4048,10 +4039,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6637933673676830676}
     m_Modifications:
-    - target: {fileID: 1484228792, guid: f21b3d8c87609524da39b071e6c054bf, type: 3}
-      propertyPath: _slapButton
-      value: 
-      objectReference: {fileID: 793442142636910653}
     - target: {fileID: 2939530923567290352, guid: f21b3d8c87609524da39b071e6c054bf, type: 3}
       propertyPath: m_Name
       value: LosePanel
