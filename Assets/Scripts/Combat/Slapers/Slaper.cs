@@ -84,7 +84,7 @@ public abstract class Slaper : MonoBehaviour
         foreach(Rigidbody rb in _rigidbodies)
         {
             rb.isKinematic = false;
-            rb.AddForce(transform.forward * 600f + transform.up * 800f + transform.right * 800f);
+            rb.AddForce(transform.forward * -300f + transform.up * 500f + transform.right * 200f);
         }
     }
 
