@@ -40,8 +40,9 @@ public class HPUI : MonoBehaviour
     {
         _playerHP.SetDefaultValues(_player.MaxHealth);
         _enemyHP.SetDefaultValues(_enemy.MaxHealth);
-        _playerImage.sprite = _player.GetAvatar();
-        _enemyImage.sprite = _enemy.GetAvatar();
+        // TODO: временная проверка аватара на null, т.к. иногда после бонусного уровня аватар становится null 
+        _playerImage.sprite = _player.GetAvatar() != null ? _player.GetAvatar() : _playerImage.sprite;
+        _enemyImage.sprite = _enemy.GetAvatar() != null ? _enemy.GetAvatar() : _enemyImage.sprite;
     }
 
     private void OnPlayerReceivedDamage(int damage) =>
