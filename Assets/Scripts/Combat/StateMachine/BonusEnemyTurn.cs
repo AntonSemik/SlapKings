@@ -4,7 +4,7 @@ using System.Collections;
 public class BonusEnemyTurn : Turn<BonusEnemy>
 {
     private const int MaxTurnsAmount = 3;
-    protected override BonusEnemy _slaper => (BonusEnemy)_fightState.Enemy;
+    protected override BonusEnemy _slaper => (BonusEnemy)_fightState.Enemy; //Âîò ýòîò êàñò íå ðàáîòàåò è âñå ëîæèòñÿ.
     private int _turnsAmount;
     private Rotator _rotator => _slaper.Rotator;
 
@@ -12,7 +12,7 @@ public class BonusEnemyTurn : Turn<BonusEnemy>
         _rotator.Reset();
 
     public override void StartTurn()
-    {        
+    {
         _turnsAmount++;
         if (_turnsAmount == MaxTurnsAmount)
         {
@@ -23,13 +23,21 @@ public class BonusEnemyTurn : Turn<BonusEnemy>
     }
 
 
-    protected override void OnKnockedDown()
+    protected override void OnKnockedDown() //ÄÀÍÈË ÝÒÎÒ ÌÅÒÎÄ ÍÅ ÂÛÇÛÂÀÅÒÑß
     {
-        _fightState.StateMachine.InvokeLevelComplete();
-        _turnsAmount = 0;
+        _slaper.ExplosionVFX.Play();
+
+        StartCoroutine(EndLevelWithDelay(2.0f));
     }
 
-    
+    private IEnumerator EndLevelWithDelay(float seconds)
+    {
+        _turnsAmount = 0;
+        _slaper.EnableRagdoll();
+
+        yield return new WaitForSeconds(seconds);
+        _fightState.StateMachine.InvokeLevelComplete();
+    }
 
     protected override void OnHittedAnimationEnd() =>
         _fightState.StartEnemyTurn();

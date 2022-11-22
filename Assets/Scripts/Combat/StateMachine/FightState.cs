@@ -15,9 +15,9 @@ public class FightState : MonoBehaviour, IGameState
 
     public void Enter()
     {
-        _enemyTurn.SubscribeToSlaperEvents();
+        _enemyTurn.SubscribeToSlaperEvents(); //Где подписка на BonusEnemyTurn??
         _playerTurn.SubscribeToSlaperEvents();
-        
+
         Enemy.ResetSlaper(true);
         Player.ResetSlaper(true);
     }

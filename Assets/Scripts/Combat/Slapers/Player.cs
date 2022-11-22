@@ -4,7 +4,6 @@ public class Player : Slaper
 {
     public GameObject MegaslapObject;
     public ParticleSystem MegaSlapHitEffect;
-    public ParticleSystem NormalSlapHitEffect;
 
     public const string MultiplierSingle = "single";
     public const string MultiplierDouble = "double";

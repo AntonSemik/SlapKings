@@ -31,7 +31,7 @@ public class GameStateMachine : MonoBehaviour
     public void InvokeLevelComplete()
     {
         LevelComplete?.Invoke();
-        // IncreaseLevel(); // перенес в PanelWinLose.cs 
+        // IncreaseLevel(); // перенес в PanelWinLose.cs
     }
 
     public void IncreaseLevel()
@@ -45,6 +45,7 @@ public class GameStateMachine : MonoBehaviour
         LevelFailed?.Invoke();
         //ReloadLevel();
         // ResetLevel(); // перенес в PanelWinLose.cs 
+        //Не есть хорошо, загрузка уровне не должна лежать в UI // Антон
     }
 
     public void ResetLevel()

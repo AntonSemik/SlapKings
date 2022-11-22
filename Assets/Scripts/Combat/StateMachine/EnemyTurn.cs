@@ -25,8 +25,13 @@ public class EnemyTurn : Turn<Enemy>
     public override void EndTurn() => 
         _armorButton.SetActive(false);
 
-    protected override void OnKnockedDown()
+    protected override void OnKnockedDown() //Ётот метод почему-то вызываетс€ и на бонусных уровн€х
     {
+        if (Singletons._singletons.LevelParameters._isBonus)
+        {
+            _slaper.ExplosionVFX?.Play();
+        }
+
         StartCoroutine(EndLevelWithDelay(1.0f));
     }
 
@@ -41,6 +46,8 @@ public class EnemyTurn : Turn<Enemy>
 
     protected override void OnSlapedOpponent()
     {
+        _slaper.NormalSlapHitEffect?.Play();
+
         _fightState.Player.ReceiveDamage(_slaper.Damage / _fightState.Player.DamageDivider);
         _fightState.Player.SetDamageDivider(Player.MultiplierSingle);
     }
