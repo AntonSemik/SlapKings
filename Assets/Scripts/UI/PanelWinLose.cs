@@ -6,6 +6,8 @@ namespace UI
 {
     public class PanelWinLose : MonoBehaviour
     {
+        [SerializeField] private GameObject _slapButton; // TODO: костыль, пока не пофиксим загрузку уровня после закрытия экранов Win/Lose
+        
         private LoadLevelState _loadLevelState;
         private WaitForSeconds _waitForSeconds = new WaitForSeconds(0.1f);
         
@@ -30,6 +32,7 @@ namespace UI
         {
             yield return _waitForSeconds;
             _loadLevelState.HideIdleUI();
+            _slapButton.SetActive(false);
         }
     }
 }

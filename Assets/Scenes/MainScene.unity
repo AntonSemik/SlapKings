@@ -471,6 +471,11 @@ MonoBehaviour:
   HealthPanelAnimator: {fileID: 5816469781784612697}
   GameStateMachine: {fileID: 656770923}
   PlayerTurn: {fileID: 656770927}
+--- !u!1 &480762349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1214425586954764097, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+  m_PrefabInstance: {fileID: 6228513347274324519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503928600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1100293863828448, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
@@ -922,10 +927,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageCostText: {fileID: 3380391117371961458}
   _damageLevelText: {fileID: 8039763174950538620}
+  _damageCost: {fileID: 1558351323}
+  _damageAd: {fileID: 908558613}
+  _damageIcon: {fileID: 1593734167}
   _healthCostText: {fileID: 7169262824544906255}
   _healthLevelText: {fileID: 7169262824310805262}
   _healthCost: {fileID: 6228513347274324524}
   _healthAd: {fileID: 6228513347274324523}
+  _healthIcon: {fileID: 480762349}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1110,11 @@ CapsuleCollider:
   m_Height: 0.39930925
   m_Direction: 0
   m_Center: {x: -0.19965462, y: 0, z: 0}
+--- !u!1 &908558613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6018868320480226166, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+  m_PrefabInstance: {fileID: 6228513347274324519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1830,16 @@ MonoBehaviour:
   - {fileID: 13227028}
   - {fileID: 1993062842}
   - {fileID: 2068421574}
+--- !u!1 &1558351323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8690135475415855770, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+  m_PrefabInstance: {fileID: 6228513347274324519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1593734167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429922162597535903, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+  m_PrefabInstance: {fileID: 6228513347274324519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1610757625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6228513347811315678, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}

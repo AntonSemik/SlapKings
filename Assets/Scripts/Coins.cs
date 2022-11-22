@@ -10,7 +10,7 @@ public class Coins : MonoBehaviour
 
     public event Action CoinsChanged;
 
-    private void Start()
+    private void Awake()
     {
         SetDependencies();
 
