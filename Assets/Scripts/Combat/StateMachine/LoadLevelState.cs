@@ -19,8 +19,12 @@ public class LoadLevelState : MonoBehaviour, IGameState
         ShowIdleUI();
         ResetIndicator();
         ResetCameraMover();
+        ResetPlayer();
         _slap.SetActive(true);
     }
+
+    private void ResetPlayer() =>
+        _stateMachine.Player.ResetSlaper(false);
 
     private void ResetIndicator()
     {
@@ -59,5 +63,4 @@ public class LoadLevelState : MonoBehaviour, IGameState
             item.SetActive(value);
         }
     }
-
 }

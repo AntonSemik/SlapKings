@@ -15,7 +15,8 @@ public class QteDefence : MonoBehaviour
             {
                 _buttonsMask[arrayIndex] = new Vector2(j, i);
                 Vector3 position = new Vector3(_buttonsMask[arrayIndex].x, _buttonsMask[arrayIndex].y, 0);
-                Instantiate(shieldButtonPrefab,position,Quaternion.identity);
+                Instantiate(shieldButtonPrefab,position,Quaternion.identity,gameObject.transform);
+                
                 Debug.Log(_buttonsMask[arrayIndex].x);
                 Debug.Log(_buttonsMask[arrayIndex].y);
                 arrayIndex++;

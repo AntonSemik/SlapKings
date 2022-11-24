@@ -52,6 +52,3 @@ public class FightState : MonoBehaviour, IGameState
         _playerTurn.UnsubscribeFromSlaperEvents();
     }
 }
-
-
-

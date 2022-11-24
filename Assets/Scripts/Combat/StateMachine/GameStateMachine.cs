@@ -43,14 +43,6 @@ public class GameStateMachine : MonoBehaviour
     public void InvokeLevelFailed()
     {
         LevelFailed?.Invoke();
-        //ReloadLevel();
-        // ResetLevel(); // перенес в PanelWinLose.cs 
-        //Не есть хорошо, загрузка уровне не должна лежать в UI // Антон
-    }
-
-    public void ResetLevel()
-    {
-        Player.ResetSlaper(false);
     }
 
     public void ReloadLevel() =>

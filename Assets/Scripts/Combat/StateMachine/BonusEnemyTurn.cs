@@ -4,7 +4,7 @@ using System.Collections;
 public class BonusEnemyTurn : Turn<BonusEnemy>
 {
     private const int MaxTurnsAmount = 3;
-    protected override BonusEnemy _slaper => (BonusEnemy)_fightState.Enemy; //Вот этот каст не работает и все ложится.
+    protected override BonusEnemy _slaper => (BonusEnemy)_fightState.Enemy; //Р’РѕС‚ СЌС‚РѕС‚ РєР°СЃС‚ РЅРµ СЂР°Р±РѕС‚Р°РµС‚ Рё РІСЃРµ Р»РѕР¶РёС‚СЃСЏ.
     private int _turnsAmount;
     private Rotator _rotator => _slaper.Rotator;
 
@@ -23,7 +23,7 @@ public class BonusEnemyTurn : Turn<BonusEnemy>
     }
 
 
-    protected override void OnKnockedDown() //ДАНИЛ ЭТОТ МЕТОД НЕ ВЫЗЫВАЕТСЯ
+    protected override void OnKnockedDown() //Р”РђРќРР› Р­РўРћРў РњР•РўРћР” РќР• Р’Р«Р—Р«Р’РђР•РўРЎРЇ
     {
         _slaper.ExplosionVFX.Play();
 

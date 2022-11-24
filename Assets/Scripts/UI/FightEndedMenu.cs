@@ -1,9 +1,10 @@
 using UnityEngine;
+
 public class FightEndedMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _LoseMenu;
-    [SerializeField] private GameObject _extraSlapButton;
     [SerializeField] private GameObject _WinMenu;
+    [SerializeField] private GameObject _extraSlapButton;
     [SerializeField] private GameObject _extraRewardButton;
 
     private void Start()
@@ -21,7 +22,7 @@ public class FightEndedMenu : MonoBehaviour
 
         _WinMenu.SetActive(false);
 
-        Singletons._singletons.GameStateMachine.ReloadLevel();
+        Singletons._singletons.GameStateMachine.IncreaseLevel();
     }
 
     public void PlusOneSlap()
@@ -31,6 +32,7 @@ public class FightEndedMenu : MonoBehaviour
         Singletons._singletons.AdsPlaceholder.ShowAd();
         Singletons._singletons.PlayerTurn.StartTurn();
         Singletons._singletons.GameStateMachine.TookExtraSlap = true;
+        Singletons._singletons.GameStateMachine.Player.ResetSlaper(false); 
 
         _LoseMenu.SetActive(false);
     }
@@ -38,11 +40,14 @@ public class FightEndedMenu : MonoBehaviour
     public void NoThanks()
     {
         Singletons._singletons.AdsPlaceholder.ShowAd();
-
+        
+        if (_WinMenu.activeSelf)
+            Singletons._singletons.GameStateMachine.IncreaseLevel(); 
+        else if (_LoseMenu.activeSelf)
+            Singletons._singletons.GameStateMachine.ReloadLevel();
+        
         _WinMenu.SetActive(false);
         _LoseMenu.SetActive(false);
-
-        Singletons._singletons.GameStateMachine.ReloadLevel();
     }
     
     private void OpenWinMenu()

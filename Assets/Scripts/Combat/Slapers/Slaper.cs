@@ -72,8 +72,9 @@ public abstract class Slaper : MonoBehaviour
         foreach (Rigidbody rb in _rigidbodies)
         {
             rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
         }
-
+        
         _transform.localPosition = new Vector3(0, 0, 0);
         _transform.localEulerAngles = new Vector3(0,0,0);
 

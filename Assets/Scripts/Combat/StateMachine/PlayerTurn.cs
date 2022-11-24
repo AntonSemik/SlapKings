@@ -27,6 +27,7 @@ public class PlayerTurn : Turn<Player>
         _indicator.gameObject.SetActive(true);
         _indicator.SetDamageText(_slaper.Damage.ToString());
         _fightState.CameraMover.LookAtPlayer();
+        _slaper.ResetSlaper(false);
     }
 
     public override void EndTurn()
@@ -53,10 +54,8 @@ public class PlayerTurn : Turn<Player>
         _fightState.StateMachine.InvokeLevelFailed();
     }
 
-
     protected override void OnHittedAnimationEnd() =>
         _fightState.StartPlayerTurn();
-
 
     protected override void OnSlapedOpponent()
     {

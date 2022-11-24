@@ -395,6 +395,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1214425586954764097, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
   m_PrefabInstance: {fileID: 6228513347274324519}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &501144446 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4871167711268965979, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+  m_PrefabInstance: {fileID: 358804650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &514531422
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,8 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LoseMenu: {fileID: 1484228788}
-  _extraSlapButton: {fileID: 1610757625}
   _WinMenu: {fileID: 7905705899779113685}
+  _extraSlapButton: {fileID: 1610757625}
   _extraRewardButton: {fileID: 7905705899384045464}
 --- !u!1 &656770921
 GameObject:
@@ -1572,6 +1577,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1607087159093911593, guid: 6c13762e8f2db724e8eddefc1e7da5fd, type: 3}
+      propertyPath: NormalSlapHitEffect
+      value: 
+      objectReference: {fileID: 501144446}
     - target: {fileID: 2554244898745103729, guid: 6c13762e8f2db724e8eddefc1e7da5fd, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1796,6 +1805,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 912430759595625124, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 912430759595625125, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1805976879211357114, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
@@ -2299,6 +2332,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7685357252785050318, guid: f5445de4df1ad4c44a4427a7fe2bd71a, type: 3}
+      propertyPath: NormalSlapHitEffect
+      value: 
+      objectReference: {fileID: 501144446}
+    - target: {fileID: 8403108874382833984, guid: f5445de4df1ad4c44a4427a7fe2bd71a, type: 3}
+      propertyPath: NormalSlapHitEffect
+      value: 
+      objectReference: {fileID: 501144446}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5445de4df1ad4c44a4427a7fe2bd71a, type: 3}
 --- !u!33 &6442232596216464439
