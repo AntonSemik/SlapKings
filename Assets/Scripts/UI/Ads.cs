@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Ads : MonoBehaviour
@@ -5,6 +6,8 @@ public class Ads : MonoBehaviour
     [SerializeField] GameObject _payment;
     [SerializeField] bool _adsActive = true;
     [SerializeField] GameObject _placeholderAd;
+    public event Action AdsOpen; 
+    public event Action AdsClose; 
 
     private void Start()
     {
@@ -23,11 +26,13 @@ public class Ads : MonoBehaviour
         if (_adsActive)
         {
             _placeholderAd.SetActive(true);
+            AdsOpen?.Invoke();
         }
     }
 
     public void CloseAd()
     {
         _placeholderAd.SetActive(false);
+        AdsClose?.Invoke();
     }
 }

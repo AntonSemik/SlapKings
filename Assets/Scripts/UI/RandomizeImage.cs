@@ -10,12 +10,6 @@ public class RandomizeImage : MonoBehaviour
 
     private void OnEnable()
     {
-        Singletons._singletons.GameStateMachine.SetPause(true);
         _image.sprite = _imageArray[Random.Range(0,_imageArray.Length)];
-    }
-
-    private void OnDisable()
-    {
-        Singletons._singletons.GameStateMachine.SetPause(false);
     }
 }

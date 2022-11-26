@@ -17,6 +17,7 @@ public class GameStateMachine : MonoBehaviour
     private void Start()
     {
         InitializeStates();
+        SubscribeOnAdsPanel();
     }
 
     public void EnterFightState()
@@ -31,7 +32,6 @@ public class GameStateMachine : MonoBehaviour
     public void InvokeLevelComplete()
     {
         LevelComplete?.Invoke();
-        // IncreaseLevel(); // перенес в PanelWinLose.cs
     }
 
     public void IncreaseLevel()
@@ -68,5 +68,32 @@ public class GameStateMachine : MonoBehaviour
     public void SetPause(bool value)
     {
         Time.timeScale = value == true ? 0 : 1;
+    }
+    
+    private void SubscribeOnAdsPanel()
+    {
+        Singletons._singletons.AdsPlaceholder.AdsOpen += OnAdsOpen;
+        Singletons._singletons.AdsPlaceholder.AdsClose += OnAdsClose;
+    }
+    
+    private void UnSubscribeOnAdsPanel()
+    {
+        Singletons._singletons.AdsPlaceholder.AdsOpen -= OnAdsOpen;
+        Singletons._singletons.AdsPlaceholder.AdsClose -= OnAdsClose;
+    }
+
+    private void OnDisable()
+    {
+        UnSubscribeOnAdsPanel();
+    }
+
+    private void OnAdsClose()
+    {
+        SetPause(false);
+    }
+
+    private void OnAdsOpen()
+    {
+        SetPause(true);
     }
 }
