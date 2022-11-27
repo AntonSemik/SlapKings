@@ -14,41 +14,52 @@ namespace UI
         private Image _image;
 
         private bool _canChangeTheme;
-        
+
         private void Awake()
         {
+            
+        }
+
+        private void OnEnable()
+        {
+            // TODO: скрытая win панель
+            
+            // _image = GetComponent<Image>();
+            // if (_image != null)
+            // {
+            //     _sprites.Insert(0, _image.sprite);
+            //     _canChangeTheme = true;
+            // }
+            // Debug.Log(gameObject.SetActive());
+            // Debug.Log(Singletons._singletons.LevelParameters.GetTheme());
+            // if (Singletons._singletons.LevelParameters.GetTheme() != null)
+                // OnChangeThemeUI();
+        }
+
+        private void Start()
+        {
+            SubscribeOnChangeThemeUI();
+            // Debug.Log(Singletons._singletons.LevelParameters.GameTheme);
+            
             _image = GetComponent<Image>();
             if (_image != null)
             {
                 _sprites.Insert(0, _image.sprite);
                 _canChangeTheme = true;
             }
-            // _sprites.Add(_image.sprite);
-            // _defaultTheme = _sprites.Count - 1;
-            // _currentTheme = _defaultTheme == 0 ? 0 : _defaultTheme;
-            // _currentTheme = _defaultTheme == 0 ? 0 : _defaultTheme - 1;
-            // _currentTheme = 0;
-            // _image.sprite = _sprites[_currentTheme];
+            // Debug.Log(gameObject.name);
+            OnChangeThemeUI();
         }
 
-        private void Start()
-        {
-            SubscribeOnChangeThemeUI();
-        }
-
-        private void OnDisable()
-        {
-            UnSubscribeOnChangeThemeUI();
-        }
-
-        private void OnChangeThemeUI(int indexTheme)
+        private void OnChangeThemeUI()
         {
             if (!_canChangeTheme) return;
-            // if (indexTheme > _sprites.Count)
-            // TODO: check item in list
+
+            int indexTheme = (int) Singletons._singletons.LevelParameters.GameTheme;
+            if (indexTheme > _sprites.Count - 1) return;
             
             _image.sprite = _sprites[indexTheme];
-            // Debug.Log(_sprites[3]);
+            Debug.Log("OnChangeThemeUI " + Singletons._singletons.LevelParameters.GameTheme);
         }
 
         private void SubscribeOnChangeThemeUI()
@@ -59,6 +70,11 @@ namespace UI
         private void UnSubscribeOnChangeThemeUI()
         {
             Singletons._singletons.LevelParameters.ChangeThemeUI -= OnChangeThemeUI;
+        }
+        
+        private void OnDisable()
+        {
+            UnSubscribeOnChangeThemeUI();
         }
         
     }

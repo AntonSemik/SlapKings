@@ -20,10 +20,15 @@ public class LevelParameters : MonoBehaviour
 
     public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[(_level % 4) - 1];
 
-    public event Action<int> ChangeThemeUI;
+    public event Action ChangeThemeUI;
     public enum Themes { King, Princess }
-    private Themes _gameTheme = Themes.King;
-    
+    public Themes GameTheme { private set; get; } = Themes.King;
+
+    private void Awake()
+    {
+        // GameTheme = Themes.King;
+    }
+
     public void Load(int level)
     {
         _level = level;
@@ -42,6 +47,7 @@ public class LevelParameters : MonoBehaviour
         Singletons._singletons.SaveGameState.SaveInt("Level", _level);
         
         _isBonus = _level % bonusLevelNumber == 0;
+        SwitchThemeUI();
     }
     
     private void SetLevelScene()
@@ -79,19 +85,24 @@ public class LevelParameters : MonoBehaviour
     private void Update()
     {
         if (UnityEngine.Input.GetKeyUp(KeyCode.T))
+        {
             SwitchThemeUI();
+            Debug.Log("KeyCode");
+        }
     }
     #endif
     
-    private void SwitchThemeUI()
+    public void SwitchThemeUI()
     {
-        _gameTheme = _gameTheme == Themes.King ? Themes.Princess : Themes.King;
-        SetThemeUI(_gameTheme);
+        Debug.Log("SwitchThemeUI");
+        SetThemeUI(GameTheme == Themes.King ? Themes.Princess : Themes.King);
     }
 
-    private void SetThemeUI(Themes newTheme)
+    private void SetThemeUI(Themes theme)
     {
-        ChangeThemeUI?.Invoke((int)newTheme);
+        GameTheme = theme;
+        Debug.Log("SetThemeUI " + GameTheme);
+        ChangeThemeUI?.Invoke();
     }
     
 }
