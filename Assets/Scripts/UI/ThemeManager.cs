@@ -6,18 +6,24 @@ namespace UI
     public class ThemeManager : MonoBehaviour
     {
         public event Action ChangeThemeUI;
-        public enum Themes { King, Princess }
-        public Themes GameTheme { private set; get; } = Themes.King;
+        public enum GameThemes { King, Princess }
+        public GameThemes GameTheme { private set; get; } = GameThemes.King;
+
+        private void Start()
+        {
+            GameTheme = Singletons._singletons.SaveGameState.GameThemeUI;
+        }
 
         public void SwitchThemeUI()
         {
-            Themes theme = GameTheme == Themes.King ? Themes.Princess : Themes.King;
-            SetThemeUI(theme);
+            GameThemes gameTheme = GameTheme == GameThemes.King ? GameThemes.Princess : GameThemes.King;
+            SetThemeUI(gameTheme);
         }
 
-        public void SetThemeUI(Themes theme)
+        public void SetThemeUI(GameThemes gameTheme)
         {
-            GameTheme = theme;
+            GameTheme = gameTheme;
+            Singletons._singletons.SaveGameState.SaveTheme(GameTheme);
             ChangeThemeUI?.Invoke();
         }
         

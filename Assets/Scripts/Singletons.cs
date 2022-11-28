@@ -18,6 +18,5 @@ public class Singletons : MonoBehaviour
     private void Awake()
     {   
         _singletons = this;
-        PlayerPrefs.DeleteAll();
     }
 }

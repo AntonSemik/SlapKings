@@ -16,11 +16,11 @@ namespace UI
         private void Start()
         {
             SubscribeOnChangeThemeUI();
-            InitDefautTheme();
+            InitDefaultTheme();
             OnChangeThemeUI();
         }
 
-        private void InitDefautTheme()
+        private void InitDefaultTheme()
         {
             _image = GetComponent<Image>();
             if (_image != null)
