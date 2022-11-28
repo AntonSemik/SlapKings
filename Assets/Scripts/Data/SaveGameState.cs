@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 public class SaveGameState : MonoBehaviour
@@ -14,9 +15,18 @@ public class SaveGameState : MonoBehaviour
     public bool _adsActive => PlayerPrefs.GetInt("AdsActive", 1) != 0;
     public bool _soundsPaused => PlayerPrefs.GetInt("SoundsPaused", 0) != 0;
     public bool _vibroOff => PlayerPrefs.GetInt("VibroOff", 0) != 0;
+    
+    public ThemeManager.GameThemes GameThemeUI => (ThemeManager.GameThemes) PlayerPrefs.GetInt(ThemeUI, 0);
+
+    private const string ThemeUI = "ThemeUI";
 
     public void SaveInt(string _key, int _value)
     {
         PlayerPrefs.SetInt(_key, _value);
+    }
+    
+    public void SaveTheme(ThemeManager.GameThemes gameTheme)
+    {
+        PlayerPrefs.SetInt(ThemeUI, (int) gameTheme);
     }
 }

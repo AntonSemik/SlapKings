@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 5006611103128925838}
   - component: {fileID: 5006611103128925837}
   - component: {fileID: 5006611103128925834}
+  - component: {fileID: 1650835408316864286}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -510,6 +511,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIpanel: {fileID: 5006611103128925824}
+--- !u!114 &1650835408316864286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5006611103128925824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 0fae241a95d3b456e94aace3bd90c3fe, type: 3}
 --- !u!1 &5006611103471999449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1928,7 @@ GameObject:
   - component: {fileID: 4347410316438605921}
   - component: {fileID: 4620450826656707258}
   - component: {fileID: 7285916102907027661}
+  - component: {fileID: 2952053255476895609}
   m_Layer: 5
   m_Name: GearImage
   m_TagString: Untagged
@@ -1978,6 +1994,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2952053255476895609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485676387376338893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 9b12ac050f4534b218d201e3dd4f52e1, type: 3}
 --- !u!1 &7787944851098668074
 GameObject:
   m_ObjectHideFlags: 0

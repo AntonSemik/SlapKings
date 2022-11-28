@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 public class Singletons : MonoBehaviour
@@ -12,6 +13,7 @@ public class Singletons : MonoBehaviour
     public UI.HealthPanelAnimator HealthPanelAnimator;
     public GameStateMachine GameStateMachine;
     public PlayerTurn PlayerTurn;
+    public ThemeManager ThemeManager;
 
     private void Awake()
     {   
