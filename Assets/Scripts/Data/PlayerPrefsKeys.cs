@@ -14,5 +14,7 @@ public static class PlayerPrefsKeys
     public const string VibrationOffKey = "VibroOff";
 
     public const string PlayerSkinID = "PlayerSkinID";
+    public const string PlayerMegaslapSkinID = "PlayerMegaslapSkinID";
 
+    public const string ThemeUI = "ThemeUI";
 }

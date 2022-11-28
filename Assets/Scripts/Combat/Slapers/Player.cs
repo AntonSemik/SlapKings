@@ -2,10 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : Slaper
 {
+    [SerializeField] private Transform MegaSlapBone;
+
+    public MegaSlapObject _megaSlapObject;
     public GameObject MegaslapObject;
     public ParticleSystem MegaSlapHitEffect;
 
-    public const string MultiplierSingle = "single";
+    public const string MultiplierSingle = "single"; //Крайне некомфортно, нам надо будет менять множители потом
     public const string MultiplierDouble = "double";
     private PlayerStats _playerStats = new PlayerStats();
     public override int Damage => (int)(_playerStats.Damage);
@@ -24,4 +27,13 @@ public class Player : Slaper
 
     public void SetDamageDivider(string multiplier)
         => DamageDivider = _multiplier[multiplier];
+
+    public void SetNewMegaSlapper(MegaSlapObject newSlapper)
+    {
+        newSlapper.Transform = MegaSlapBone;
+        newSlapper.Transform.localPosition = new Vector3(0, 0, 0);
+        newSlapper.Transform.localEulerAngles = new Vector3(0, 0, 0);
+
+        _megaSlapObject = newSlapper;
+    }
 }

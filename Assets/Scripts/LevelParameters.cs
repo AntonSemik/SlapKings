@@ -15,16 +15,15 @@ public class LevelParameters : MonoBehaviour
     private int _locationID = 0;
     private int _currentLevel = 0;
     public int _totalLevel { private set; get; }
-    public int bonusLevelNumber { get; } = 4;
+    public int bonusLevelNumber { get; } = 4; //Грязненько
 
-    public bool _isBonus { private set; get; }
     public int _baseReward { private set; get; }
     public int _enemyHealth { private set; get; }
     public int _enemyDamageBase { private set; get; }
 
     public Slaper GetEnemy()
     {
-        return _isBonus ? _locations[_locationID]._enemies[_currentLevel] : _locations[_locationID]._enemies[_currentLevel];
+        return _locations[_locationID]._enemies[_currentLevel];
     }
 
     public void LoadCurrentLevel()
@@ -82,10 +81,5 @@ public class LevelParameters : MonoBehaviour
         _baseReward = BaseEnemyValues.BaseReward * _totalLevel;
         _enemyHealth = BaseEnemyValues.BaseHealth + BaseEnemyValues.HealthPerLevel * _totalLevel;
         _enemyDamageBase = BaseEnemyValues.BaseDamage + BaseEnemyValues.DamagePerLevel * _totalLevel;
-
-        if (_isBonus)
-        {
-            _baseReward += BaseEnemyValues.BonusLevelExtraReward;
-        }
     }
 }

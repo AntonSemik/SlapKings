@@ -27,7 +27,7 @@ public class EnemyTurn : Turn<Enemy>
 
     protected override void OnKnockedDown() //Ётот метод почему-то вызываетс€ и на бонусных уровн€х
     {
-        if (Singletons._singletons.LevelParameters._isBonus)
+        if (_slaper.Type == Enemy.EnemyType.bonus)
         {
             _slaper.ExplosionVFX?.Play();
         }

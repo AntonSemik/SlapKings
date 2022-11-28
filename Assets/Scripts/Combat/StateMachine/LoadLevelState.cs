@@ -6,7 +6,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
     [SerializeField] private GameObject _slap;
     [SerializeField] private GameObject _idleUI;
     [SerializeField] private GameStateMachine _stateMachine;
-    [SerializeField] private LevelParameters _levelLoader;
+    [SerializeField] private LevelParameters _levelparameters;
     [SerializeField] private Indicator _indicator;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private GameObject[] _screenUI;
@@ -40,11 +40,12 @@ public class LoadLevelState : MonoBehaviour, IGameState
         HideIdleUI();
 
     private void LoadLocation() =>
-        _levelLoader.LoadCurrentLevel();
+        _levelparameters.LoadCurrentLevel();
+
     private void LoadEnemy()
     {
-        _stateMachine.Enemy?.gameObject.SetActive(false);       
-        _stateMachine.Enemy = (Enemy)_levelLoader.GetEnemy();
+        _stateMachine.Enemy?.gameObject.SetActive(false);
+        _stateMachine.Enemy = (Enemy)_levelparameters.GetEnemy();
         _stateMachine.Enemy.gameObject.SetActive(true);
     }
 

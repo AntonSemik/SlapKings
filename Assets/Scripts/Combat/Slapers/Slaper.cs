@@ -76,7 +76,7 @@ public abstract class Slaper : MonoBehaviour
         }
         
         _transform.localPosition = new Vector3(0, 0, 0);
-        _transform.localEulerAngles = new Vector3(0,0,0);
+        _transform.localEulerAngles = new Vector3(0, 0, 0); //ѕросто обнул€ть позицию каждый ход это не решение проблемы - ошибка все еще где-то есть
 
         _animator.enabled = true;
     }

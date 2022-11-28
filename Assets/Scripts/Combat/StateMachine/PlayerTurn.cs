@@ -35,7 +35,7 @@ public class PlayerTurn : Turn<Player>
         _megaSlap.SetActive(false);
         _slaper.MegaslapObject.SetActive(false);
 
-        if (!Singletons._singletons.LevelParameters._isBonus)
+        if (_fightState.Enemy.Type != Enemy.EnemyType.bonus)
             _indicator.gameObject.SetActive(false);
     }
 
