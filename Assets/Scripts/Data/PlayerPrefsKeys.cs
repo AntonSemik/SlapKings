@@ -13,4 +13,6 @@ public static class PlayerPrefsKeys
     public const string SoundsPausedKey = "SoundsPaused";
     public const string VibrationOffKey = "VibroOff";
 
+    public const string PlayerSkinID = "PlayerSkinID";
+
 }

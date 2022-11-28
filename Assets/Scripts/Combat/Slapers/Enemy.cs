@@ -2,6 +2,15 @@ using UnityEngine;
 
 public class Enemy : Slaper
 {
+    public enum EnemyType
+    {
+        common,
+        boss,
+        bonus
+    }
+
+    public EnemyType Type;
+
     public ParticleSystem ExplosionVFX;
 
     public bool UsedArmor = false;

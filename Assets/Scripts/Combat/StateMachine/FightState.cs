@@ -24,7 +24,7 @@ public class FightState : MonoBehaviour, IGameState
 
     public void StartPlayerTurn()
     {
-        if (Singletons._singletons.LevelParameters._isBonus)
+        if (Enemy.Type == Enemy.EnemyType.bonus)
             _bonusEnemyTurn.EndTurn();
         else
             _enemyTurn.EndTurn();
@@ -35,7 +35,7 @@ public class FightState : MonoBehaviour, IGameState
     public void StartEnemyTurn()
     {
         _playerTurn.EndTurn();
-        if (Singletons._singletons.LevelParameters._isBonus)
+        if (Enemy.Type == Enemy.EnemyType.bonus)
             _bonusEnemyTurn.StartTurn();
         else
             _enemyTurn.StartTurn();
