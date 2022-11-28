@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UI;
 
 public class LevelParameters : MonoBehaviour
 {
     [SerializeField] Location[] _locations;
-
     [SerializeField] TMP_Text _levelText;
 
     private int _locationID = 0;
@@ -19,15 +19,6 @@ public class LevelParameters : MonoBehaviour
     public int _enemyDamageBase { private set; get; }
 
     public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[(_level % 4) - 1];
-
-    public event Action ChangeThemeUI;
-    public enum Themes { King, Princess }
-    public Themes GameTheme { private set; get; } = Themes.King;
-
-    private void Awake()
-    {
-        // GameTheme = Themes.King;
-    }
 
     public void Load(int level)
     {
@@ -47,7 +38,6 @@ public class LevelParameters : MonoBehaviour
         Singletons._singletons.SaveGameState.SaveInt("Level", _level);
         
         _isBonus = _level % bonusLevelNumber == 0;
-        SwitchThemeUI();
     }
     
     private void SetLevelScene()
@@ -80,29 +70,4 @@ public class LevelParameters : MonoBehaviour
             _baseReward += 75;
         }
     }
-
-    #if UNITY_EDITOR
-    private void Update()
-    {
-        if (UnityEngine.Input.GetKeyUp(KeyCode.T))
-        {
-            SwitchThemeUI();
-            Debug.Log("KeyCode");
-        }
-    }
-    #endif
-    
-    public void SwitchThemeUI()
-    {
-        Debug.Log("SwitchThemeUI");
-        SetThemeUI(GameTheme == Themes.King ? Themes.Princess : Themes.King);
-    }
-
-    private void SetThemeUI(Themes theme)
-    {
-        GameTheme = theme;
-        Debug.Log("SetThemeUI " + GameTheme);
-        ChangeThemeUI?.Invoke();
-    }
-    
 }

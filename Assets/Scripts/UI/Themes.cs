@@ -9,73 +9,42 @@ namespace UI
     {
         [SerializeField] private List<Sprite> _sprites;
 
-        private int _currentTheme;
-        private int _defaultTheme;
+        private int _currentThemeIndex;
         private Image _image;
-
         private bool _canChangeTheme;
-
-        private void Awake()
-        {
-            
-        }
-
-        private void OnEnable()
-        {
-            // TODO: скрытая win панель
-            
-            // _image = GetComponent<Image>();
-            // if (_image != null)
-            // {
-            //     _sprites.Insert(0, _image.sprite);
-            //     _canChangeTheme = true;
-            // }
-            // Debug.Log(gameObject.SetActive());
-            // Debug.Log(Singletons._singletons.LevelParameters.GetTheme());
-            // if (Singletons._singletons.LevelParameters.GetTheme() != null)
-                // OnChangeThemeUI();
-        }
 
         private void Start()
         {
             SubscribeOnChangeThemeUI();
-            // Debug.Log(Singletons._singletons.LevelParameters.GameTheme);
-            
+            InitDefautTheme();
+            OnChangeThemeUI();
+        }
+
+        private void InitDefautTheme()
+        {
             _image = GetComponent<Image>();
             if (_image != null)
             {
                 _sprites.Insert(0, _image.sprite);
                 _canChangeTheme = true;
             }
-            // Debug.Log(gameObject.name);
-            OnChangeThemeUI();
         }
 
         private void OnChangeThemeUI()
         {
             if (!_canChangeTheme) return;
 
-            int indexTheme = (int) Singletons._singletons.LevelParameters.GameTheme;
-            if (indexTheme > _sprites.Count - 1) return;
+            int themeIndex = (int) Singletons._singletons.ThemeManager.GameTheme;
+            if (themeIndex > _sprites.Count - 1) return;
+            if (themeIndex == _currentThemeIndex) return;
             
-            _image.sprite = _sprites[indexTheme];
-            Debug.Log("OnChangeThemeUI " + Singletons._singletons.LevelParameters.GameTheme);
+            _image.sprite = _sprites[themeIndex];
+            _currentThemeIndex = themeIndex;
         }
 
         private void SubscribeOnChangeThemeUI()
         {
-            Singletons._singletons.LevelParameters.ChangeThemeUI += OnChangeThemeUI;
+            Singletons._singletons.ThemeManager.ChangeThemeUI += OnChangeThemeUI;
         }
-        
-        private void UnSubscribeOnChangeThemeUI()
-        {
-            Singletons._singletons.LevelParameters.ChangeThemeUI -= OnChangeThemeUI;
-        }
-        
-        private void OnDisable()
-        {
-            UnSubscribeOnChangeThemeUI();
-        }
-        
     }
 }
