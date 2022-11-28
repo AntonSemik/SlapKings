@@ -40,7 +40,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
         HideIdleUI();
 
     private void LoadLocation() =>
-        _levelLoader.Load(Singletons._singletons.SaveGameState._level);
+        _levelLoader.LoadCurrentLevel();
     private void LoadEnemy()
     {
         _stateMachine.Enemy?.gameObject.SetActive(false);       

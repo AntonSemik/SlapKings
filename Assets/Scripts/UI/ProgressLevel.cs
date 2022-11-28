@@ -25,7 +25,7 @@ namespace UI
 
         private void OnEnable()
         {
-            _levelNumber = Singletons._singletons.LevelParameters._level;
+            _levelNumber = Singletons._singletons.LevelParameters._totalLevel;
             _levelIndex = GetLevelIndex();
             _currentProgressBackground.sprite = _progressSprites[_levelIndex];
             

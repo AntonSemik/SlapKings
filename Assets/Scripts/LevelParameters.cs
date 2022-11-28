@@ -3,13 +3,16 @@ using TMPro;
 
 public class LevelParameters : MonoBehaviour
 {
+    [SerializeField] BaseEnemyValues BaseEnemyValues;
+
     [SerializeField] Location[] _locations;
+    private Location _currentLocation;
 
     [SerializeField] TMP_Text _levelText;
 
     private int _locationID = 0;
-
-    public int _level { private set; get; }
+    private int _currentLevel = 0;
+    public int _totalLevel { private set; get; }
     public int bonusLevelNumber { get; } = 4;
 
     public bool _isBonus { private set; get; }
@@ -17,56 +20,70 @@ public class LevelParameters : MonoBehaviour
     public int _enemyHealth { private set; get; }
     public int _enemyDamageBase { private set; get; }
 
-    public Slaper GetEnemy() => _isBonus ? _locations[_locationID]._bonusLevelEnemy : _locations[_locationID]._characters[(_level % 4) - 1];
-
-    public void Load(int level)
+    public Slaper GetEnemy()
     {
-        _level = level;
+        return _isBonus ? _locations[_locationID]._enemies[_currentLevel] : _locations[_locationID]._enemies[_currentLevel];
+    }
 
-        _isBonus = _level % bonusLevelNumber == 0;
+    public void LoadCurrentLevel()
+    {
+        _totalLevel = Singletons._singletons.SaveGameState._totalLevel;
+        _locationID = Singletons._singletons.SaveGameState._locationID;
+        _currentLevel = Singletons._singletons.SaveGameState._currentLevel;
 
         SetNewLocation();
         SetLevelScene();
-        _levelText.text = "Level: " + _level.ToString();
+
+        _levelText.text = "Level: " + _totalLevel.ToString();
     }
-    
+
     public void IncreaseLevel()
     {   
-        _level++;
-        
-        Singletons._singletons.SaveGameState.SaveInt("Level", _level);
-        
-        _isBonus = _level % bonusLevelNumber == 0;
+        _totalLevel++;
+        _currentLevel++;
+
+        if (_currentLevel >= _currentLocation._enemies.Length)
+        {
+            _locationID++;
+            _currentLevel = 0;
+
+            if (_locationID >= _locations.Length)
+            {
+                _locationID = 0;
+            }
+
+            SetNewLocation();
+        }
+
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.TotalLevelKey, _totalLevel);
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.CurrentLevelKey, _currentLevel);
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.LocationIDKey, _locationID);
     }
-    
+
     private void SetLevelScene()
     {
         CalculateLevelParameters();
 
-        if (_locationID != Mathf.FloorToInt(_level / bonusLevelNumber)) SetNewLocation();
-
-        _levelText.text = "Level: " + _level.ToString();
+        _levelText.text = "Level: " + _totalLevel.ToString();
     }
     
     private void SetNewLocation()
     {
-        _locations[_locationID].gameObject.SetActive(false);
+        _currentLocation?.gameObject.SetActive(false);
 
-        _locationID = Mathf.FloorToInt((_level - 1) / bonusLevelNumber);
-        while (_locationID >= _locations.Length) _locationID -= _locations.Length;
-
-        _locations[_locationID].gameObject.SetActive(true);
+        _currentLocation = _locations[_locationID];
+        _currentLocation.gameObject.SetActive(true);
     }
 
     private void CalculateLevelParameters()
     {
-        _baseReward = 25 * _level;
-        _enemyHealth = 70 + 30 * _level;
-        _enemyDamageBase = 10 + 15 * _level;
+        _baseReward = BaseEnemyValues.BaseReward * _totalLevel;
+        _enemyHealth = BaseEnemyValues.BaseHealth + BaseEnemyValues.HealthPerLevel * _totalLevel;
+        _enemyDamageBase = BaseEnemyValues.BaseDamage + BaseEnemyValues.DamagePerLevel * _totalLevel;
 
         if (_isBonus)
         {
-            _baseReward += 75;
+            _baseReward += BaseEnemyValues.BonusLevelExtraReward;
         }
     }
 }
