@@ -89,4 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909e4faee0fb72143be135925e299db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldButtonPrefab: {fileID: 8222896853106890634, guid: 3eeedc93fe6d22c41a8eca1bf1155577, type: 3}
+  _buttonPrefabs:
+  - {fileID: 8222896853106890634, guid: 18aa65a5b196ea6478d540022b49ea89, type: 3}
+  - {fileID: 8222896853106890634, guid: 3eeedc93fe6d22c41a8eca1bf1155577, type: 3}
+  - {fileID: 8222896853106890634, guid: 59ccb15d8da00c149a1d01894dd3b0a4, type: 3}
