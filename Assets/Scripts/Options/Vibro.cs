@@ -25,6 +25,6 @@ public class Vibro : MonoBehaviour
     {
         _isVibroOff = !_isVibroOff;
 
-        Singletons._singletons.SaveGameState.SaveInt("VibroOff", _isVibroOff ? 1 : 0);
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.VibrationOffKey, _isVibroOff ? 1 : 0);
     }
 }

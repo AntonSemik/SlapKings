@@ -31,7 +31,7 @@ public class Coins : MonoBehaviour
     {
         _coins += _amount;
 
-        Singletons._singletons.SaveGameState.SaveInt("Coins", _coins);
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.CoinsKey, _coins);
 
         foreach (TMP_Text text in _coinsUI)
         {

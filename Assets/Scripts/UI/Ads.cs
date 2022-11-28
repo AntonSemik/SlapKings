@@ -18,7 +18,7 @@ public class Ads : MonoBehaviour
     {
         _payment.SetActive(true);
         _adsActive = false;
-        Singletons._singletons.SaveGameState.SaveInt("AdsActive", _adsActive ? 1 : 0);
+        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.AdsActiveKey, _adsActive ? 1 : 0);
     }
 
     public void ShowAd()
