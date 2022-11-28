@@ -9,7 +9,7 @@ namespace UI
         public enum GameThemes { King, Princess }
         public GameThemes GameTheme { private set; get; } = GameThemes.King;
 
-        private void Start()
+        private void Awake()
         {
             GameTheme = Singletons._singletons.SaveGameState.GameThemeUI;
         }
