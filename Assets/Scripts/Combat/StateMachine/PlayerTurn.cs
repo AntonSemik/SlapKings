@@ -33,7 +33,7 @@ public class PlayerTurn : Turn<Player>
     public override void EndTurn()
     {
         _megaSlap.SetActive(false);
-        _slaper.MegaslapObject.SetActive(false);
+        _slaper._megaSlapObject.VisibleModelOrigin.SetActive(false);
 
         if (_fightState.Enemy.Type != Enemy.EnemyType.bonus)
             _indicator.gameObject.SetActive(false);
@@ -59,9 +59,9 @@ public class PlayerTurn : Turn<Player>
 
     protected override void OnSlapedOpponent()
     {
-        if (_slaper.MegaslapObject.activeSelf)
+        if (_slaper._megaSlapObject.VisibleModelOrigin.activeSelf)
         {
-            _slaper.MegaSlapHitEffect?.Play();
+            _slaper._megaSlapObject.HitVFX?.Play();
         } else
         {
             _slaper.NormalSlapHitEffect?.Play();
@@ -74,7 +74,7 @@ public class PlayerTurn : Turn<Player>
     public void MegaSlap()
     {
         _slaper.UsedMegaSlap = true;
-        _slaper.MegaslapObject.SetActive(true);
+        _slaper._megaSlapObject.VisibleModelOrigin.SetActive(true);
         _slaper.SetDamageMultiplier(Player.MultiplierDouble);
         ChangeIndicatorText(_playerStats.Damage * _slaper.DamageMultiplier);
         _megaSlap.gameObject.SetActive(false);

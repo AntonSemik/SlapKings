@@ -17,7 +17,7 @@ public class SaveGameState : MonoBehaviour
     public bool _soundsPaused => PlayerPrefs.GetInt(PlayerPrefsKeys.SoundsPausedKey, 0) != 0;
     public bool _vibroOff => PlayerPrefs.GetInt(PlayerPrefsKeys.VibrationOffKey, 0) != 0;
     
-    public ThemeManager.GameThemes GameThemeUI => (ThemeManager.GameThemes) PlayerPrefs.GetInt(PlayerPrefsKeys.ThemeUI, 0);
+    public ThemeManager.GameThemes GameThemeUI => (ThemeManager.GameThemes) PlayerPrefs.GetInt(PlayerPrefsKeys.ThemeUI, 0); //ѕж выносите все ключи в PlayerPrefsKeys
 
     public void SaveInt(string _key, int _value)
     {

@@ -5,8 +5,6 @@ public class Player : Slaper
     [SerializeField] private Transform MegaSlapBone;
 
     public MegaSlapObject _megaSlapObject;
-    public GameObject MegaslapObject;
-    public ParticleSystem MegaSlapHitEffect;
 
     public const string MultiplierSingle = "single"; //Крайне некомфортно, нам надо будет менять множители потом
     public const string MultiplierDouble = "double";
@@ -28,12 +26,13 @@ public class Player : Slaper
     public void SetDamageDivider(string multiplier)
         => DamageDivider = _multiplier[multiplier];
 
-    public void SetNewMegaSlapper(MegaSlapObject newSlapper)
+    public void SetNewMegaSlap(MegaSlapObject newSlap)
     {
-        newSlapper.Transform = MegaSlapBone;
-        newSlapper.Transform.localPosition = new Vector3(0, 0, 0);
-        newSlapper.Transform.localEulerAngles = new Vector3(0, 0, 0);
+        newSlap.Transform.parent = MegaSlapBone;
+        newSlap.Transform.localPosition = new Vector3(0, 0, 0);
+        newSlap.Transform.localEulerAngles = new Vector3(0, 0, 0);
+        newSlap.Transform.localScale = new Vector3(1, 1, 1);
 
-        _megaSlapObject = newSlapper;
+        _megaSlapObject = newSlap;
     }
 }

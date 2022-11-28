@@ -46,7 +46,7 @@ public class FightState : MonoBehaviour, IGameState
         Enemy.UsedArmor = false;
         Player.UsedMegaSlap = false;
 
-        Player.MegaslapObject.SetActive(false);
+        Player._megaSlapObject.VisibleModelOrigin.SetActive(false);
 
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();

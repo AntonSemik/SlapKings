@@ -8,10 +8,12 @@ public class PlayerContainer : MonoBehaviour
     [SerializeField] private MegaSlapObject[] MegaSlaps;
 
     private int SkinID => Singletons._singletons.SaveGameState._playerSkinID;
+    private int SlapID => Singletons._singletons.SaveGameState._playerMegaslapSkinID;
 
     private void Start()
     {
         SetNewPlayer(SkinID);
+        SetNewMegaslap(SlapID);
     }
 
     public void SetNewPlayer(int NewID)
@@ -23,8 +25,8 @@ public class PlayerContainer : MonoBehaviour
         Players[NewID].gameObject.SetActive(true);
     }
 
-    public void SetNewMegaslap()
+    public void SetNewMegaslap(int NewID)
     {
-
+        Players[SkinID].SetNewMegaSlap(MegaSlaps[NewID]);
     }
 }
