@@ -46,5 +46,15 @@ namespace UI
         {
             Singletons._singletons.ThemeManager.ChangeThemeUI += OnChangeThemeUI;
         }
+        
+        private void UnSubscribeOnChangeThemeUI()
+        {
+            Singletons._singletons.ThemeManager.ChangeThemeUI -= OnChangeThemeUI;
+        }
+
+        private void OnDestroy()
+        {
+            UnSubscribeOnChangeThemeUI();
+        }
     }
 }

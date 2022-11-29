@@ -23,7 +23,7 @@ namespace UI
         public void SetThemeUI(GameThemes gameTheme)
         {
             GameTheme = gameTheme;
-            Singletons._singletons.SaveGameState.SaveTheme(GameTheme);
+            Singletons._singletons.SaveGameState.GameThemeUI = GameTheme;
             ChangeThemeUI?.Invoke();
         }
         

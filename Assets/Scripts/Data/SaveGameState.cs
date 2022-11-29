@@ -16,16 +16,16 @@ public class SaveGameState : MonoBehaviour
     public bool _adsActive => PlayerPrefs.GetInt(PlayerPrefsKeys.AdsActiveKey, 1) != 0;
     public bool _soundsPaused => PlayerPrefs.GetInt(PlayerPrefsKeys.SoundsPausedKey, 0) != 0;
     public bool _vibroOff => PlayerPrefs.GetInt(PlayerPrefsKeys.VibrationOffKey, 0) != 0;
-    
-    public ThemeManager.GameThemes GameThemeUI => (ThemeManager.GameThemes) PlayerPrefs.GetInt(PlayerPrefsKeys.ThemeUI, 0); //ѕж выносите все ключи в PlayerPrefsKeys
+
+    public ThemeManager.GameThemes GameThemeUI
+    {
+        get { return (ThemeManager.GameThemes) PlayerPrefs.GetInt(PlayerPrefsKeys.ThemeUI, 0); }
+        set { PlayerPrefs.SetInt(PlayerPrefsKeys.ThemeUI, (int) value); }
+    }
 
     public void SaveInt(string _key, int _value)
     {
         PlayerPrefs.SetInt(_key, _value);
     }
-    
-    public void SaveTheme(ThemeManager.GameThemes gameTheme)
-    {
-        PlayerPrefs.SetInt(PlayerPrefsKeys.ThemeUI, (int) gameTheme);
-    }
+
 }
