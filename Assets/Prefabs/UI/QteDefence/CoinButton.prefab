@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8222896853106890638}
   - component: {fileID: 8222896853106890637}
   - component: {fileID: 8222896853106890636}
-  - component: {fileID: 1271657152}
+  - component: {fileID: 3564276420131693840}
   m_Layer: 5
   m_Name: CoinButton
   m_TagString: Untagged
@@ -121,20 +121,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8222896853106890637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2186051503224579854, guid: e905ea6e08244484683a52cb82d6461c, type: 3}
-        m_TargetAssemblyTypeName: QtePanel, Assembly-CSharp
-        m_MethodName: GetCoin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1271657152
+      m_Calls: []
+--- !u!114 &3564276420131693840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8222896853106890634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98aca69d1f3343e7865b65550a929abe, type: 3}
+  m_Script: {fileID: 11500000, guid: 29c7fc503b44a524c9fa1e6c54dd014f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToHide: 2
+  buttonType: 1
