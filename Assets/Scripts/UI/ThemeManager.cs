@@ -5,7 +5,7 @@ namespace UI
 {
     public class ThemeManager : MonoBehaviour
     {
-        public event Action ChangeThemeUI;
+        public event Action<GameThemes> OnChangeThemeUI;
         public enum GameThemes { King, Princess }
         public GameThemes GameTheme { private set; get; } = GameThemes.King;
 
@@ -24,7 +24,7 @@ namespace UI
         {
             GameTheme = gameTheme;
             Singletons._singletons.SaveGameState.GameThemeUI = GameTheme;
-            ChangeThemeUI?.Invoke();
+            OnChangeThemeUI?.Invoke(GameTheme);
         }
         
         #if UNITY_EDITOR

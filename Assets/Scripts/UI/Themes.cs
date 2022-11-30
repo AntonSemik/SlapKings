@@ -17,7 +17,7 @@ namespace UI
         {
             SubscribeOnChangeThemeUI();
             InitDefaultTheme();
-            OnChangeThemeUI();
+            ChangeThemeUI(Singletons._singletons.ThemeManager.GameTheme);
         }
 
         private void InitDefaultTheme()
@@ -30,11 +30,11 @@ namespace UI
             }
         }
 
-        private void OnChangeThemeUI()
+        private void ChangeThemeUI(ThemeManager.GameThemes gameTheme)
         {
             if (!_canChangeTheme) return;
 
-            int themeIndex = (int) Singletons._singletons.ThemeManager.GameTheme;
+            int themeIndex = (int) gameTheme;
             if (themeIndex > _sprites.Count - 1) return;
             if (themeIndex == _currentThemeIndex) return;
             
@@ -44,12 +44,12 @@ namespace UI
 
         private void SubscribeOnChangeThemeUI()
         {
-            Singletons._singletons.ThemeManager.ChangeThemeUI += OnChangeThemeUI;
+            Singletons._singletons.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
         }
         
         private void UnSubscribeOnChangeThemeUI()
         {
-            Singletons._singletons.ThemeManager.ChangeThemeUI -= OnChangeThemeUI;
+            Singletons._singletons.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
         }
 
         private void OnDestroy()

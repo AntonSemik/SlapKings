@@ -19,7 +19,21 @@ namespace UI
         private void Start()
         {
             Singletons._singletons.CurrencyManager[currencyType].OnChanged += UpdateText;
+            Singletons._singletons.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
+
+            gameObject.SetActive(!CanToggleActive());
+            
             UpdateText(Singletons._singletons.CurrencyManager[currencyType].Total);
+        }
+
+        private bool CanToggleActive()
+        {
+            return currencyType != CurrencyType.Coins && Singletons._singletons.ThemeManager.GameTheme != ThemeManager.GameThemes.Princess;
+        }
+
+        private void ChangeThemeUI(ThemeManager.GameThemes theme)
+        {
+            gameObject.SetActive(!CanToggleActive());  
         }
 
         private void UpdateText(int value)
@@ -30,6 +44,7 @@ namespace UI
         private void OnDestroy()
         {
             Singletons._singletons.CurrencyManager[currencyType].OnChanged -= UpdateText;
+            Singletons._singletons.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
         }
     }
 }
