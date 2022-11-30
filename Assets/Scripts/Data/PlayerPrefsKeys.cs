@@ -17,4 +17,5 @@ public static class PlayerPrefsKeys
     public const string PlayerMegaslapSkinID = "PlayerMegaslapSkinID";
 
     public const string ThemeUI = "ThemeUI";
+    public const string MarshmallowsKey = "Marshmallows";
 }

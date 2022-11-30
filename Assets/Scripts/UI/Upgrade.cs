@@ -18,11 +18,11 @@ public class Upgrade : MonoBehaviour
 
     private void Start()
     {
-        Singletons._singletons.Coins.CoinsChanged += OnCoinsChanged;
+        Singletons._singletons.Coins.OnChanged += OnCoinsChanged;
         UpdateUI();
     }
 
-    private void OnCoinsChanged()
+    private void OnCoinsChanged(int value)
     {
         UpdateUI();
     }
@@ -44,7 +44,7 @@ public class Upgrade : MonoBehaviour
     private void UpgrageForPriceOrAds(int level)
     {
         if (IsEnough(level))
-            Singletons._singletons.Coins.ChangeCoins(-CalculateCost(level));
+            Singletons._singletons.Coins.ChangeValue(-CalculateCost(level));
         else
             Singletons._singletons.AdsPlaceholder.ShowAd();
     }
