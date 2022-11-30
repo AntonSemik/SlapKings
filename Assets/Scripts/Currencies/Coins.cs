@@ -1,58 +1,38 @@
 using System;
+using Currencies;
 using UnityEngine;
 using TMPro;
 
-public class Coins : MonoBehaviour
+public class Coins : Currency
 {
-    [SerializeField] private TMP_Text[] _coinsUI;
     private GameStateMachine _stateMachine;
-    private int _coins;
 
-    public event Action CoinsChanged;
-
-    private void Awake()
+    public Coins()
     {
         SetDependencies();
-
-        foreach (TMP_Text text in _coinsUI)
-        {
-            text.text = _coins.ToString();
-        }
     }
 
     public void GiveReward(int _multyplier)
     {
         int _reward;
         _reward = Singletons._singletons.LevelParameters._baseReward * _multyplier;
-        ChangeCoins(_reward);
+        ChangeValue(_reward);
     }
 
-    public void ChangeCoins(int _amount)
+    public virtual void ChangeValue(int value)
     {
-        _coins += _amount;
-
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.CoinsKey, _coins);
-
-        foreach (TMP_Text text in _coinsUI)
-        {
-            text.text = _coins.ToString();
-        }
-        
-        CoinsChanged?.Invoke();
-    }
-
-    public bool IsEnough(int _amountNeeded)
-    {
-        return _amountNeeded <= _coins;
+        base.ChangeValue(value);
+        Save(PlayerPrefsKeys.CoinsKey);
     }
 
     private void OnLevelComplete() =>
         GiveReward(4);
     private void OnLevelFailed() =>
         GiveReward(1);
+    
     private void SetDependencies()
     {
-        _coins = Singletons._singletons.SaveGameState._coins;
+        _total = Singletons._singletons.SaveGameState._coins;
         _stateMachine = Singletons._singletons.GameStateMachine;
         _stateMachine.LevelComplete += OnLevelComplete;
         _stateMachine.LevelFailed += OnLevelFailed;
