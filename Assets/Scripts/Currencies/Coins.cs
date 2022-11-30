@@ -19,7 +19,7 @@ public class Coins : Currency
         ChangeValue(_reward);
     }
 
-    public virtual void ChangeValue(int value)
+    public override void ChangeValue(int value)
     {
         base.ChangeValue(value);
         Save(PlayerPrefsKeys.CoinsKey);
@@ -32,7 +32,7 @@ public class Coins : Currency
     
     private void SetDependencies()
     {
-        _total = Singletons._singletons.SaveGameState._coins;
+        Total = Singletons._singletons.SaveGameState._coins;
         _stateMachine = Singletons._singletons.GameStateMachine;
         _stateMachine.LevelComplete += OnLevelComplete;
         _stateMachine.LevelFailed += OnLevelFailed;

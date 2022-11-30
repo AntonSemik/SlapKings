@@ -22,7 +22,7 @@ public class Upgrade : MonoBehaviour
         UpdateUI();
     }
 
-    private void OnCoinsChanged()
+    private void OnCoinsChanged(int value)
     {
         UpdateUI();
     }

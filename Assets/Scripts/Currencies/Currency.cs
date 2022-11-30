@@ -4,23 +4,23 @@ namespace Currencies
 {
     public class Currency
     {
-        protected int _total;
-        public event Action OnChanged;
+        public int Total { get; protected set; }
+        public event Action<int> OnChanged;
         
-        protected virtual void ChangeValue(int value)
+        public virtual void ChangeValue(int value)
         {
-            _total += value;
-            OnChanged?.Invoke();
+            Total += value;
+            OnChanged?.Invoke(Total);
         }
         
         public bool IsEnough(int _amountNeeded)
         {
-            return _amountNeeded <= _total;
+            return _amountNeeded <= Total;
         }
         
         protected void Save(string key)
         {
-            Singletons._singletons.SaveGameState.SaveInt(key, _total);
+            Singletons._singletons.SaveGameState.SaveInt(key, Total);
         }
     }
 }
