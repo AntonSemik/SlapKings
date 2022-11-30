@@ -2,9 +2,13 @@ using System;
 
 namespace Currencies
 {
+    
+    public enum CurrencyType { Coins, Marshmallows }
+    
     public class Currency
     {
         public int Total { get; protected set; }
+        public CurrencyType CurrencyType { get; protected set; }
         public event Action<int> OnChanged;
         
         public virtual void ChangeValue(int value)
@@ -16,11 +20,6 @@ namespace Currencies
         public bool IsEnough(int _amountNeeded)
         {
             return _amountNeeded <= Total;
-        }
-        
-        protected void Save(string key)
-        {
-            Singletons._singletons.SaveGameState.SaveInt(key, Total);
         }
     }
 }

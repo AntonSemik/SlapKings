@@ -1,11 +1,15 @@
+using System.Collections.Generic;
+using Currencies;
 using UI;
 using UnityEngine;
 
 public class Singletons : MonoBehaviour
 {
     public static Singletons _singletons;
-
+    
     public Coins Coins;
+    public Marshmallows Marshmallows;
+    public Dictionary<CurrencyType, Currency> CurrencyManager = new Dictionary<CurrencyType, Currency>();
     public SaveGameState SaveGameState;
     public Ads AdsPlaceholder;
     public LevelParameters LevelParameters;
@@ -18,6 +22,10 @@ public class Singletons : MonoBehaviour
     private void Awake()
     {   
         _singletons = this;
+
         Coins = new Coins();
+        Marshmallows = new Marshmallows();
+        CurrencyManager.Add(Coins.CurrencyType, Coins);
+        CurrencyManager.Add(Marshmallows.CurrencyType, Marshmallows);
     }
 }
