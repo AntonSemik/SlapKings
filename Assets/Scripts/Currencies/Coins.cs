@@ -26,6 +26,13 @@ public class Coins : Currency
         base.ChangeValue(value);
         Singletons._singletons.SaveGameState._coins = Total;
     }
+    
+    public override bool TryChangeValue(int value)
+    {
+        bool result = base.TryChangeValue(value);
+        Singletons._singletons.SaveGameState._coins = Total;
+        return result;
+    }
 
     private void OnLevelComplete() =>
         GiveReward(4);

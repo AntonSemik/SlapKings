@@ -28,7 +28,7 @@ namespace UI
 
         private bool CanToggleActive()
         {
-            return currencyType != CurrencyType.Coins && Singletons._singletons.ThemeManager.GameTheme != ThemeManager.GameThemes.Princess;
+            return currencyType != CurrencyType.Coins && Singletons._singletons.ThemeManager.IsDefault;
         }
 
         private void ChangeThemeUI(ThemeManager.GameThemes theme)

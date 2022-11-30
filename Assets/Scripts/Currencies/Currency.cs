@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Currencies
 {
@@ -17,9 +18,19 @@ namespace Currencies
             OnChanged?.Invoke(Total);
         }
         
+        public virtual bool TryChangeValue(int value)
+        {
+            if (IsEnough(value))
+            {
+                ChangeValue(value);
+                return true;
+            }
+            return false;
+        }
+        
         public bool IsEnough(int _amountNeeded)
         {
-            return _amountNeeded <= Total;
+            return Math.Abs(_amountNeeded) <= Total;
         }
     }
 }
