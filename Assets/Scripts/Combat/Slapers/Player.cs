@@ -6,19 +6,20 @@ public class Player : Slaper
 
     public MegaSlapObject _megaSlapObject;
 
-    public const string MultiplierSingle = "single"; //Крайне некомфортно, нам надо будет менять множители потом
-    public const string MultiplierDouble = "double";
+    public const string NormalSlap = "single"; //Крайне некомфортно, нам надо будет менять множители потом
+    public const string MegaSlap = "double";
     private PlayerStats _playerStats = new PlayerStats();
     public override int Damage => (int)(_playerStats.Damage);
     public override int MaxHealth => (int)(_playerStats.Health);
+    public float MegaslapTime => (float)(_playerStats.MegaslapTime);
 
-    public bool UsedMegaSlap = false;
+    [HideInInspector]public bool UsedMegaSlap = false;
 
-    public int DamageMultiplier { get => _damageMultiplier; private set => _damageMultiplier = value; }
-    public int DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
-    private int _damageMultiplier = 1;
-    private int _damageDivider = 1;
-    private Dictionary<string, int> _multiplier = new Dictionary<string, int>() { { MultiplierSingle, 1 }, { MultiplierDouble, 2 } };
+    public float DamageMultiplier { get => _damageMultiplier; private set => _damageMultiplier = value; }
+    public float DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
+    private float _damageMultiplier = 1;
+    private float _damageDivider = 1;
+    private Dictionary<string, float> _multiplier = new Dictionary<string, float>() { { NormalSlap, 1 }, { MegaSlap, 0.2f } };
 
     public void SetDamageMultiplier(string multiplier)
         => DamageMultiplier = _multiplier[multiplier];
