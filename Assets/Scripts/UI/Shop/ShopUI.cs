@@ -5,17 +5,15 @@ using UnityEngine;
 
 namespace UI.Shop
 {
-    public class Shop : MonoBehaviour
+    public class ShopUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _marshmallowsText;
         [SerializeField] private GameObject _newFeatures;
         [SerializeField] private GameObject _oldFeatures;
+        
         public void BuyMarshmallows()
         {
-            if (Singletons._singletons.Coins.TryChangeValue(-Singletons._singletons.Marshmallows.CostPerCoins))
-            {
-                Singletons._singletons.Marshmallows.ChangeValue(1);
-            }
+            Singletons._singletons.Shop.Buy(Singletons._singletons.Marshmallows, Singletons._singletons.Coins);
         }
 
         private void OnEnable()
@@ -29,7 +27,7 @@ namespace UI.Shop
             {
                 _newFeatures.SetActive(true);
                 _oldFeatures.SetActive(false);
-                _marshmallowsText.text = Singletons._singletons.Marshmallows.CostPerCoins.ToString();
+                _marshmallowsText.text = Singletons._singletons.Marshmallows.Price.ToString();
             }
             
         }

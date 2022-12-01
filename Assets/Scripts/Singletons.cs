@@ -10,6 +10,7 @@ public class Singletons : MonoBehaviour
     public Coins Coins;
     public Marshmallows Marshmallows;
     public Dictionary<CurrencyType, Currency> CurrencyManager = new Dictionary<CurrencyType, Currency>();
+    public Shop Shop;
     public SaveGameState SaveGameState;
     public Ads AdsPlaceholder;
     public LevelParameters LevelParameters;
@@ -27,5 +28,6 @@ public class Singletons : MonoBehaviour
         Marshmallows = new Marshmallows();
         CurrencyManager.Add(Coins.CurrencyType, Coins);
         CurrencyManager.Add(Marshmallows.CurrencyType, Marshmallows);
+        Shop = new Shop();
     }
 }

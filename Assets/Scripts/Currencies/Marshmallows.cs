@@ -3,7 +3,8 @@ namespace Currencies
     public class Marshmallows : Currency
     {
 
-        public int CostPerCoins { get; private set; } = 500;
+        public int Price { get; private set; } = 500;
+        public int QuantityPerPrice { get; } = 1;
 
         public Marshmallows()
         {
