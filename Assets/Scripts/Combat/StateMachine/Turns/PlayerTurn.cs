@@ -16,6 +16,7 @@ public class PlayerTurn : Turn<Player>
 
     public void Slap()
     {
+        StartCoroutine(EndTurnWithDelay(2f));
         _indicator.Stop();
 
         if (!_isMegaslapping)
@@ -24,7 +25,8 @@ public class PlayerTurn : Turn<Player>
 
             _slaper.Slap();
             _slap.SetActive(false);
-        } else
+        }
+        else
         {
             if (!_megaslappingStarted)
             {
@@ -40,18 +42,12 @@ public class PlayerTurn : Turn<Player>
         }
     }
 
-    private IEnumerator SlapWithDelay(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
 
-        _megaslappingStarted = false;
-
-        _slaper.Slap();
-        _slap.SetActive(false);
-    }
 
     public override void StartTurn()
     {
+        if (_slaper.CurrentHealth <= 0)
+            return;
         _slap.SetActive(true);
 
         if (!_slaper.UsedMegaSlap)
@@ -65,7 +61,6 @@ public class PlayerTurn : Turn<Player>
         _indicator.SetDamageText(_slaper.Damage.ToString());
 
         _fightState.CameraMover.LookAtPlayer();
-
         _slaper.ResetSlaper(false);
     }
 
@@ -76,41 +71,6 @@ public class PlayerTurn : Turn<Player>
 
         if (_fightState.Enemy.Type != Enemy.EnemyType.bonus)
             _indicator.gameObject.SetActive(false);
-    }
-
-    protected override void OnKnockedDown()
-    {
-        StartCoroutine(EndLevelWithDelay(1));
-    }
-
-    private IEnumerator EndLevelWithDelay(float seconds)
-    {
-        _slaper.EnableRagdoll();
-
-        yield return new WaitForSeconds(seconds);
-
-        _megaSlap.SetActive(true);
-        _fightState.StateMachine.InvokeLevelFailed();
-    }
-
-    protected override void OnHittedAnimationEnd() =>
-        _fightState.StartPlayerTurn();
-
-    protected override void OnSlapedOpponent()
-    {
-        if (_slaper._megaSlapObject.VisibleModelOrigin.activeSelf)
-        {
-            _slaper._megaSlapObject.HitVFX?.Play();
-        } else
-        {
-            _slaper.NormalSlapHitEffect?.Play();
-        }
-
-        if(!_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
-        if(_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * _megaSlapTapCounter * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
-
-        _slaper.SetDamageMultiplier(Player.NormalSlap);
-        _isMegaslapping = false;
     }
 
     public void MegaSlap()
@@ -124,6 +84,50 @@ public class PlayerTurn : Turn<Player>
         Singletons._singletons.AdsPlaceholder.ShowAd();
     }
 
+    protected override void OnKnockedDown()
+    {
+        StartCoroutine(EndLevelWithDelay(1));
+    }
+    protected override IEnumerator EndTurnWithDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _fightState.StartEnemyTurn();
+    }
+    protected override void OnSlapedOpponent()
+    {
+        if (_slaper._megaSlapObject.VisibleModelOrigin.activeSelf)
+        {
+            _slaper._megaSlapObject.HitVFX?.Play();
+        }
+        else
+        {
+            _slaper.NormalSlapHitEffect?.Play();
+        }
+
+        if (!_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
+        if (_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * _megaSlapTapCounter * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
+
+        _slaper.SetDamageMultiplier(Player.NormalSlap);
+        _isMegaslapping = false;
+    }
+    private IEnumerator SlapWithDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        _megaslappingStarted = false;
+
+        _slaper.Slap();
+        _slap.SetActive(false);
+    }
+    private IEnumerator EndLevelWithDelay(float seconds)
+    {
+        _slaper.EnableRagdoll();
+
+        yield return new WaitForSeconds(seconds);
+
+        _megaSlap.SetActive(true);
+        _fightState.StateMachine.InvokeLevelFailed();
+    }
     private void ChangeIndicatorText(int value) =>
         _indicator.SetDamageText(value.ToString());
 }

@@ -18,30 +18,25 @@ public class EnemyTurn : Turn<Enemy>
     public override void StartTurn()
     {
         if (!_slaper.UsedArmor) _armorButton.SetActive(true);
-        StartCoroutine(SlapWithDelay(0.5f));
         _fightState.CameraMover.LookAtEnemy();
+
+        if(_slaper.CurrentHealth <= 0)
+            return;
+        StartCoroutine(SlapWithDelay(0.5f));
+        StartCoroutine(EndTurnWithDelay(2f));
     }
 
-    public override void EndTurn() => 
+    public override void EndTurn() =>
         _armorButton.SetActive(false);
 
-    protected override void OnKnockedDown() //Этот метод почему-то вызывается и на бонусных уровнях
+    protected override void OnKnockedDown() //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     {
         if (_slaper.Type == Enemy.EnemyType.bonus)
         {
             _slaper.ExplosionVFX?.Play();
         }
 
-        StartCoroutine(EndLevelWithDelay(1.0f));
-    }
-
-    private IEnumerator EndLevelWithDelay(float seconds)
-    {
-        _slaper.EnableRagdoll();
-
-        yield return new WaitForSeconds(seconds);
-
-        _fightState.StateMachine.InvokeLevelComplete();
+        StartCoroutine(EndLevelWithDelay(1.0f));       
     }
 
     protected override void OnSlapedOpponent()
@@ -52,12 +47,24 @@ public class EnemyTurn : Turn<Enemy>
         _fightState.Player.SetDamageDivider(Player.NormalSlap);
     }
 
+    protected override IEnumerator EndTurnWithDelay(float seconds)
+    {        
+        yield return new WaitForSeconds(seconds);
+        _fightState.StartPlayerTurn();
+    }
+
+    private IEnumerator EndLevelWithDelay(float seconds)
+    {
+        _slaper.EnableRagdoll();
+
+        yield return new WaitForSeconds(seconds);
+
+        _fightState.StateMachine.InvokeLevelComplete();
+    }
     private IEnumerator SlapWithDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         _slaper.Slap();
     }
 
-    protected override void OnHittedAnimationEnd() =>
-        _fightState.StartEnemyTurn();
 }

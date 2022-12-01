@@ -706,7 +706,8 @@ MonoBehaviour:
   _stateMachine: {fileID: 656770923}
   _cameraMover: {fileID: 514531423}
   _playerTurn: {fileID: 656770927}
-  _enemyTurn: {fileID: 656770926}
+  _enemyTurn: {fileID: 0}
+  _defaultEnemyTurn: {fileID: 656770926}
   _bonusEnemyTurn: {fileID: 656770928}
 --- !u!114 &656770925
 MonoBehaviour:
@@ -780,6 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fightState: {fileID: 656770924}
+  _armorButton: {fileID: 0}
 --- !u!1 &673274377
 GameObject:
   m_ObjectHideFlags: 0

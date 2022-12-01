@@ -5,7 +5,9 @@ public class FightState : MonoBehaviour, IGameState
     [SerializeField] private GameStateMachine _stateMachine;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private PlayerTurn _playerTurn;
-    [SerializeField] private EnemyTurn _enemyTurn;
+    [SerializeField]  private EnemyTurn _enemyTurn;
+
+    [SerializeField] private EnemyTurn _defaultEnemyTurn;
     [SerializeField] private BonusEnemyTurn _bonusEnemyTurn;
 
     public GameStateMachine StateMachine => _stateMachine;
@@ -15,7 +17,9 @@ public class FightState : MonoBehaviour, IGameState
 
     public void Enter()
     {
-        _enemyTurn.SubscribeToSlaperEvents(); //Где подписка на BonusEnemyTurn??
+        SetEnymyTurnType();
+
+        _enemyTurn.SubscribeToSlaperEvents(); 
         _playerTurn.SubscribeToSlaperEvents();
 
         Enemy.ResetSlaper(true);
@@ -23,22 +27,14 @@ public class FightState : MonoBehaviour, IGameState
     }
 
     public void StartPlayerTurn()
-    {
-        if (Enemy.Type == Enemy.EnemyType.bonus)
-            _bonusEnemyTurn.EndTurn();
-        else
-            _enemyTurn.EndTurn();
-
+    {   
+        _enemyTurn.EndTurn();
         _playerTurn.StartTurn();
     }
-
     public void StartEnemyTurn()
-    {
+    {   
         _playerTurn.EndTurn();
-        if (Enemy.Type == Enemy.EnemyType.bonus)
-            _bonusEnemyTurn.StartTurn();
-        else
-            _enemyTurn.StartTurn();
+        _enemyTurn.StartTurn();
     }
 
     public void Exit()
@@ -51,4 +47,13 @@ public class FightState : MonoBehaviour, IGameState
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();
     }
+
+    private void SetEnymyTurnType()
+    {
+        if (Enemy.Type == Enemy.EnemyType.bonus)
+            _enemyTurn = _bonusEnemyTurn;
+        else
+            _enemyTurn = _defaultEnemyTurn;
+    }
+
 }

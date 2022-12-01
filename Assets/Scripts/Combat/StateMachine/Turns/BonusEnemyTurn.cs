@@ -1,32 +1,33 @@
 using UnityEngine;
 using System.Collections;
 
-public class BonusEnemyTurn : Turn<BonusEnemy>
+public class BonusEnemyTurn : EnemyTurn
 {
     private const int MaxTurnsAmount = 3;
-    protected override BonusEnemy _slaper => (BonusEnemy)_fightState.Enemy; //Вот этот каст не работает и все ложится.
+    protected override Enemy _slaper => (BonusEnemy)_fightState.Enemy;
     private int _turnsAmount;
-    private Rotator _rotator => _slaper.Rotator;
+    private Rotator _rotator => ((BonusEnemy)_slaper).Rotator;
 
     public override void EndTurn() =>
         _rotator.Reset();
 
     public override void StartTurn()
     {
+        if (_slaper.CurrentHealth <= 0)
+            return;
         _turnsAmount++;
         if (_turnsAmount == MaxTurnsAmount)
         {
             _fightState.StateMachine.InvokeLevelComplete();
             _turnsAmount = 0;
+            return;
         }
         _fightState.StartPlayerTurn();
     }
 
-
-    protected override void OnKnockedDown() //ДАНИЛ ЭТОТ МЕТОД НЕ ВЫЗЫВАЕТСЯ
+    protected override void OnKnockedDown()
     {
         _slaper.ExplosionVFX.Play();
-
         StartCoroutine(EndLevelWithDelay(2.0f));
     }
 
@@ -38,9 +39,4 @@ public class BonusEnemyTurn : Turn<BonusEnemy>
         yield return new WaitForSeconds(seconds);
         _fightState.StateMachine.InvokeLevelComplete();
     }
-
-    protected override void OnHittedAnimationEnd() =>
-        _fightState.StartEnemyTurn();
-    
-    protected override void OnSlapedOpponent() { }
 }
