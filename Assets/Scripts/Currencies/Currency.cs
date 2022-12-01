@@ -4,12 +4,15 @@ using UnityEngine;
 namespace Currencies
 {
     
-    public enum CurrencyType { Coins, Marshmallows }
+    public enum CurrencyType { Coins, Marshmallows, Skins, Boosters }
     
     public class Currency
     {
         public int Total { get; protected set; }
         public CurrencyType CurrencyType { get; protected set; }
+        public CurrencyType BuyingPerCurrencyType { get; protected set; }
+        public int Price { get; protected set; } = 1;
+        public int QuantityPerPrice { get; protected set; } = 1;
         public event Action<int> OnChanged;
         
         public virtual void ChangeValue(int value)

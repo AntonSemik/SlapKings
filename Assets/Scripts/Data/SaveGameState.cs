@@ -33,6 +33,12 @@ public class SaveGameState : MonoBehaviour
         get { return PlayerPrefs.GetInt(PlayerPrefsKeys.MarshmallowsKey, 0); }
         set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
     }
+    
+    public int Skins
+    {
+        get { return PlayerPrefs.GetInt(PlayerPrefsKeys.MarshmallowsKey, 0); }
+        set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
+    }
 
     public void SaveInt(string key, int value)
     {

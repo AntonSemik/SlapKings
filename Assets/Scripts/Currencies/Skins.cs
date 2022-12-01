@@ -1,18 +1,17 @@
 namespace Currencies
 {
-    public class Marshmallows : Currency
+    public class Skins : Currency
     {
 
-        // public int Price { get; } = 500;
+        // public int Price { get; private set; } = 1000;
         // public int QuantityPerPrice { get; } = 1;
-        // public Currency buyingCurrency = new Coins();
 
-        public Marshmallows()
+        public Skins()
         {
-            CurrencyType = CurrencyType.Marshmallows;
-            BuyingPerCurrencyType = CurrencyType.Coins;
-            Price = 110;
-            Total = Singletons._singletons.SaveGameState.Marshmallows;
+            CurrencyType = CurrencyType.Skins;
+            BuyingPerCurrencyType = CurrencyType.Marshmallows;
+            Price = 2;
+            Total = Singletons._singletons.SaveGameState.Skins;
         }
 
         public override void ChangeValue(int value)

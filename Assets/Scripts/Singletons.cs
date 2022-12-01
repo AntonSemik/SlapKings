@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Currencies;
+using Shop;
 using UI;
 using UnityEngine;
 
@@ -9,8 +10,9 @@ public class Singletons : MonoBehaviour
     
     public Coins Coins;
     public Marshmallows Marshmallows;
+    public Skins Skins;
     public Dictionary<CurrencyType, Currency> CurrencyManager = new Dictionary<CurrencyType, Currency>();
-    public Shop Shop;
+    public GameShop Shop;
     public SaveGameState SaveGameState;
     public Ads AdsPlaceholder;
     public LevelParameters LevelParameters;
@@ -24,10 +26,19 @@ public class Singletons : MonoBehaviour
     {   
         _singletons = this;
 
+        InitCurrencies();
+
+        Shop = new GameShop();
+        // PlayerPrefs.DeleteAll();
+    }
+
+    private void InitCurrencies()
+    {
         Coins = new Coins();
         Marshmallows = new Marshmallows();
+        Skins = new Skins();
         CurrencyManager.Add(Coins.CurrencyType, Coins);
         CurrencyManager.Add(Marshmallows.CurrencyType, Marshmallows);
-        Shop = new Shop();
+        CurrencyManager.Add(Skins.CurrencyType, Skins);
     }
 }
