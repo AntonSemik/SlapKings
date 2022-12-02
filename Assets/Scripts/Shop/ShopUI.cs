@@ -10,18 +10,6 @@ namespace Shop
         [SerializeField] private GameObject _newFeatures;
         [SerializeField] private GameObject _oldFeatures;
     
-        public void BuyMarshmallows()
-        {
-            // Singletons._singletons.Shop.Buy(Singletons._singletons.Marshmallows, Singletons._singletons.Coins);
-            // Singletons._singletons.Shop.Buy(CurrencyType.Marshmallows);
-        }
-        
-        public void BuySkins()
-        {
-            // Singletons._singletons.Shop.Buy(Singletons._singletons.Marshmallows, Singletons._singletons.Coins);
-            // Singletons._singletons.Shop.Buy2(CurrencyType.Skins);
-        }
-
         private void OnEnable()
         {
             if (Singletons._singletons.ThemeManager.IsDefault)
@@ -33,7 +21,6 @@ namespace Shop
             {
                 _newFeatures.SetActive(true);
                 _oldFeatures.SetActive(false);
-                // _marshmallowsText.text = Singletons._singletons.Marshmallows.Price.ToString();
             }
         
         }

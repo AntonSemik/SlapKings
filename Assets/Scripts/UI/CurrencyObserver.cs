@@ -9,6 +9,7 @@ namespace UI
     public class CurrencyObserver : MonoBehaviour
     {
         [SerializeField] private CurrencyType currencyType;
+        [SerializeField] private bool _dontToggle;
         private TMP_Text _currency;
 
         private void Awake()
@@ -28,6 +29,7 @@ namespace UI
 
         private bool CanToggleActive()
         {
+            if (_dontToggle) return false;
             return currencyType != CurrencyType.Coins && Singletons._singletons.ThemeManager.IsDefault;
         }
 
