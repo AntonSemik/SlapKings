@@ -7,7 +7,9 @@ namespace UI
     {
         public event Action<GameThemes> OnChangeThemeUI;
         public enum GameThemes { King, Princess }
-        public GameThemes GameTheme { private set; get; } = GameThemes.King;
+
+        private const GameThemes defaultTheme = GameThemes.King;
+        public GameThemes GameTheme { private set; get; } = defaultTheme;
 
         private void Awake()
         {
@@ -26,6 +28,8 @@ namespace UI
             Singletons._singletons.SaveGameState.GameThemeUI = GameTheme;
             OnChangeThemeUI?.Invoke(GameTheme);
         }
+
+        public bool IsDefault => Singletons._singletons.ThemeManager.GameTheme == defaultTheme;
         
         #if UNITY_EDITOR
         private void Update()

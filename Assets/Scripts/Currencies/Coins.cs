@@ -1,5 +1,6 @@
 using System;
 using Currencies;
+using Shop;
 using UnityEngine;
 using TMPro;
 
@@ -7,9 +8,9 @@ public class Coins : Currency
 {
     private GameStateMachine _stateMachine;
 
-    public Coins()
+    public Coins(CurrencyData settings)
     {
-        CurrencyType = CurrencyType.Coins;
+        Init(settings);
         Total = Singletons._singletons.SaveGameState._coins;
         SetDependencies();
     }

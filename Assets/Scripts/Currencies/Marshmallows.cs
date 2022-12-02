@@ -1,10 +1,12 @@
+using Shop;
+
 namespace Currencies
 {
     public class Marshmallows : Currency
     {
-        public Marshmallows()
+        public Marshmallows(CurrencyData settings)
         {
-            CurrencyType = CurrencyType.Marshmallows;
+            Init(settings);
             Total = Singletons._singletons.SaveGameState.Marshmallows;
         }
 
@@ -13,5 +15,6 @@ namespace Currencies
             base.ChangeValue(value);
             Singletons._singletons.SaveGameState.Marshmallows = Total;
         }
+        
     }
 }
