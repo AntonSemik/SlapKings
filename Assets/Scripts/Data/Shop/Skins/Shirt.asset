@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c909c47280aa44c4ad9a98c4c22f044b, type: 3}
+  m_Script: {fileID: 11500000, guid: abc0e939b786249b685ed4bfe58e59d9, type: 3}
   m_Name: Shirt
   m_EditorClassIdentifier: 
   title: Shirt
   icon: {fileID: 21300000, guid: fd9c70c7aee3aa4418dedfe9f8871971, type: 3}
   price: 2
+  currencyType: 2
   buyingPerCurrency: 1
+  quantityPerPrice: 1

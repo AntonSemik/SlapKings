@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Shop
 {
-    [CreateAssetMenu(menuName = "Currency Data", fileName = "BaseCurrencyData")]
+    [CreateAssetMenu(menuName = "Currency|Skins|Boosters Data", fileName = "New Data")]
     public class CurrencyData : ScriptableObject
     {
         public string title;
@@ -11,5 +11,6 @@ namespace Shop
         public int price;
         public CurrencyType currencyType;
         public CurrencyType buyingPerCurrency;
+        public int quantityPerPrice = 1;
     }
 }

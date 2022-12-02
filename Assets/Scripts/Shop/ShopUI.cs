@@ -13,7 +13,7 @@ namespace Shop
         public void BuyMarshmallows()
         {
             // Singletons._singletons.Shop.Buy(Singletons._singletons.Marshmallows, Singletons._singletons.Coins);
-            Singletons._singletons.Shop.Buy2(CurrencyType.Marshmallows);
+            // Singletons._singletons.Shop.Buy(CurrencyType.Marshmallows);
         }
         
         public void BuySkins()
@@ -33,7 +33,7 @@ namespace Shop
             {
                 _newFeatures.SetActive(true);
                 _oldFeatures.SetActive(false);
-                _marshmallowsText.text = Singletons._singletons.Marshmallows.Price.ToString();
+                // _marshmallowsText.text = Singletons._singletons.Marshmallows.Price.ToString();
             }
         
         }

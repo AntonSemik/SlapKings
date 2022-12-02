@@ -10,13 +10,22 @@ namespace Currencies
     public class Currency
     {
         public int Total { get; protected set; }
-        public CurrencyType CurrencyType { get; protected set; }
-        public CurrencyType BuyingPerCurrency { get; protected set; }
-        public int Price { get; protected set; } = 1;
-        public int QuantityPerPrice { get; protected set; } = 1;
-        public CurrencyData Settings { get; protected set; }
-
+        public CurrencyType CurrencyType { get; private set; }
+        public CurrencyType BuyingPerCurrency { get; private set; }
+        public int Price { get; private set; } = 1;
+        public int QuantityPerPrice { get; private set; } = 1;
+        public CurrencyData Settings { get; private set; }
+        
         public event Action<int> OnChanged;
+
+        public void Init(CurrencyData settings)
+        {
+            Settings = settings;
+            CurrencyType = Settings.currencyType;
+            BuyingPerCurrency = Settings.buyingPerCurrency;
+            Price = Settings.price;
+            QuantityPerPrice = Settings.quantityPerPrice;
+        }
         
         public virtual void ChangeValue(int value)
         {
@@ -24,7 +33,7 @@ namespace Currencies
             OnChanged?.Invoke(Total);
         }
         
-        public virtual bool TryChangeValue(int value)
+        public bool TryChangeValue(int value)
         {
             if (IsEnough(value))
             {
@@ -34,9 +43,9 @@ namespace Currencies
             return false;
         }
         
-        public bool IsEnough(int _amountNeeded)
+        public bool IsEnough(int value)
         {
-            return Math.Abs(_amountNeeded) <= Total;
+            return Math.Abs(value) <= Total;
         }
     }
 }

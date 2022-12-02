@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc0e939b786249b685ed4bfe58e59d9, type: 3}
-  m_Name: Marshmallow
+  m_Name: Phone
   m_EditorClassIdentifier: 
-  title: Marshmallow
-  icon: {fileID: 21300000, guid: 5aad0d3bb4a064c1596348980834eb05, type: 3}
-  price: 125
-  currencyType: 1
-  buyingPerCurrency: 0
+  title: Phone
+  icon: {fileID: 21300000, guid: 2677171da87ec13438d17fbee36b9d6a, type: 3}
+  price: 500
+  currencyType: 3
+  buyingPerCurrency: 1
   quantityPerPrice: 1

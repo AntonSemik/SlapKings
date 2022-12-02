@@ -2,13 +2,13 @@ using Shop;
 
 namespace Currencies
 {
-    public class Skins : Currency
+    public class Boosters : Currency
     {
-        public Skins(CurrencyData settings)
+        public Boosters(CurrencyData settings)
         {
             Init(settings);
             // TODO: Get from Inventory
-            // Total = Singletons._singletons.SaveGameState.Skins;
+            // Total = Singletons._singletons.SaveGameState.Boosters;
         }
 
         public override void ChangeValue(int value)
