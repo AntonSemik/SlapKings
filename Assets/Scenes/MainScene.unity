@@ -998,14 +998,14 @@ GameObject:
   - component: {fileID: 654419498}
   - component: {fileID: 654419497}
   - component: {fileID: 654419496}
-  - component: {fileID: 654419495}
+  - component: {fileID: 654419499}
   m_Layer: 5
   m_Name: BuyBoosterButton (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &654419494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1029,23 +1029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 103, y: -273}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &654419495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654419493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e67a049d194355b341c75c03d1a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _whatsBuySettings: {fileID: 11400000, guid: b0a7df67cd77f0144ac24b62392aa8ca, type: 2}
-  _title: {fileID: 221800779}
-  _icon: {fileID: 1442835864}
-  _coin: {fileID: 1980692882}
-  _price: {fileID: 1725930537}
 --- !u!114 &654419496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,6 +1111,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654419493}
   m_CullTransparentMesh: 1
+--- !u!114 &654419499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654419493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ec4228d6e35544b81039f0f9f845a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whatsBuySettings: {fileID: 11400000, guid: 80d020dd897f77040b203d89805ccfd3, type: 2}
+  _title: {fileID: 221800779}
+  _icon: {fileID: 1442835864}
+  _coin: {fileID: 1980692882}
+  _price: {fileID: 1725930537}
 --- !u!1 &656770921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,14 +2588,14 @@ GameObject:
   - component: {fileID: 1765664243}
   - component: {fileID: 1765664242}
   - component: {fileID: 1765664241}
-  - component: {fileID: 1765664240}
+  - component: {fileID: 1765664244}
   m_Layer: 5
   m_Name: BuyBoosterButton (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1765664239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2619,23 +2619,6 @@ RectTransform:
   m_AnchoredPosition: {x: -80, y: -273}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1765664240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765664238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e67a049d194355b341c75c03d1a9f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _whatsBuySettings: {fileID: 11400000, guid: 80d020dd897f77040b203d89805ccfd3, type: 2}
-  _title: {fileID: 1489017750}
-  _icon: {fileID: 641921485}
-  _coin: {fileID: 1021734787}
-  _price: {fileID: 1918511990}
 --- !u!114 &1765664241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2718,6 +2701,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765664238}
   m_CullTransparentMesh: 1
+--- !u!114 &1765664244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765664238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ec4228d6e35544b81039f0f9f845a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whatsBuySettings: {fileID: 11400000, guid: b0a7df67cd77f0144ac24b62392aa8ca, type: 2}
+  _title: {fileID: 1489017750}
+  _icon: {fileID: 641921485}
+  _coin: {fileID: 1021734787}
+  _price: {fileID: 1918511990}
 --- !u!1 &1848697335
 GameObject:
   m_ObjectHideFlags: 0

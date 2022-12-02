@@ -7,13 +7,13 @@ using UnityEngine.UI;
 namespace Shop
 {
     [RequireComponent(typeof(Button))]
-    public class BuySkinButton : BuyButton
+    public class BuyBoosterButton : BuyButton
     {
-        private Skins _whatsBuy;
+        private Boosters _whatsBuy;
         
         protected override void GetWhatsBuy()
         {
-            _whatsBuy = new Skins(_whatsBuySettings);
+            _whatsBuy = new Boosters(_whatsBuySettings);
         }
         
         protected override void Buy()
