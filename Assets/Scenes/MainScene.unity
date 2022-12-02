@@ -3258,6 +3258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1279773096}
     m_Modifications:
+    - target: {fileID: 174257550686112602, guid: b6d1a9ab909358a44b118e525ac188f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 174257551334594916, guid: b6d1a9ab909358a44b118e525ac188f2, type: 3}
       propertyPath: m_Name
       value: Shlepanez
@@ -3304,6 +3308,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 174257551334594917, guid: b6d1a9ab909358a44b118e525ac188f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881730221906332856, guid: b6d1a9ab909358a44b118e525ac188f2, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881730221906332856, guid: b6d1a9ab909358a44b118e525ac188f2, type: 3}
+      propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

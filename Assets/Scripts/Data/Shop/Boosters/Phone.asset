@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Phone
   icon: {fileID: 21300000, guid: 2677171da87ec13438d17fbee36b9d6a, type: 3}
-  price: 500
+  price: 10
   currencyType: 3
   buyingPerCurrency: 1
   quantityPerPrice: 1
+  prefab: {fileID: 0}
