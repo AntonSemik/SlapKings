@@ -18,6 +18,9 @@ namespace Shop
             _title.text = "Skin: " + _skinData.title;
             _price.text = _skinData.price.ToString();
             _icon.sprite = _skinData.icon;
+            Debug.Log(_skinData.buyingPerCurrency);
+            Debug.Log(Singletons._singletons.CurrencyManager[_skinData.buyingPerCurrency]);
+            // _coin.sprite = Singletons._singletons.CurrencyManager[_skinData.buyingPerCurrency].Settings.icon;
         }
         
         public void BuySkins()

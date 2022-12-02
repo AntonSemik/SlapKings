@@ -15,7 +15,7 @@ namespace Shop
             Debug.Log("Buy2 " + whatsBuyingType);
             
             var whatsBuying = Singletons._singletons.CurrencyManager[whatsBuyingType];
-            var currencyForPay = Singletons._singletons.CurrencyManager[whatsBuying.BuyingPerCurrencyType];
+            var currencyForPay = Singletons._singletons.CurrencyManager[whatsBuying.BuyingPerCurrency];
             
             Debug.Log(whatsBuying);
             Debug.Log(currencyForPay);

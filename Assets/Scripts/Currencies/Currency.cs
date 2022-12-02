@@ -1,4 +1,5 @@
 using System;
+using Shop;
 using UnityEngine;
 
 namespace Currencies
@@ -10,9 +11,11 @@ namespace Currencies
     {
         public int Total { get; protected set; }
         public CurrencyType CurrencyType { get; protected set; }
-        public CurrencyType BuyingPerCurrencyType { get; protected set; }
+        public CurrencyType BuyingPerCurrency { get; protected set; }
         public int Price { get; protected set; } = 1;
         public int QuantityPerPrice { get; protected set; } = 1;
+        public CurrencyData Settings { get; protected set; }
+
         public event Action<int> OnChanged;
         
         public virtual void ChangeValue(int value)

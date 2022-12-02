@@ -1,3 +1,5 @@
+using Shop;
+
 namespace Currencies
 {
     public class Marshmallows : Currency
@@ -7,11 +9,12 @@ namespace Currencies
         // public int QuantityPerPrice { get; } = 1;
         // public Currency buyingCurrency = new Coins();
 
-        public Marshmallows()
+        public Marshmallows(CurrencyData settings)
         {
-            CurrencyType = CurrencyType.Marshmallows;
-            BuyingPerCurrencyType = CurrencyType.Coins;
-            Price = 110;
+            Settings = settings;
+            CurrencyType = settings.currencyType;
+            BuyingPerCurrency = settings.buyingPerCurrency;
+            Price = settings.price;
             Total = Singletons._singletons.SaveGameState.Marshmallows;
         }
 

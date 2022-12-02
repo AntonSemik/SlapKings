@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Shop
 {
-    [CreateAssetMenu(menuName = "Skin Data", fileName = "BaseSkinData")]
-    public class SkinsData : ScriptableObject
+    [CreateAssetMenu(menuName = "Currency Data", fileName = "BaseCurrencyData")]
+    public class CurrencyData : ScriptableObject
     {
         public string title;
         public Sprite icon;

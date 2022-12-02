@@ -1047,6 +1047,9 @@ MonoBehaviour:
   GameStateMachine: {fileID: 656770923}
   PlayerTurn: {fileID: 656770927}
   ThemeManager: {fileID: 863135941}
+  _coinsData: {fileID: 11400000, guid: 00bd28a61f957429a94398b0f9b88f00, type: 2}
+  _marshmallowsData: {fileID: 11400000, guid: 803a23b6d8e484ece8889bb5b88b551d, type: 2}
+  _skinsData: {fileID: 11400000, guid: b03b167eef2604454a5ef4145d8fcc2e, type: 2}
 --- !u!1 &480762349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1214425586954764097, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
