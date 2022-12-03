@@ -7,7 +7,7 @@ namespace Shop
     {
         public void Buy(Currency whatsBuying)
         {
-            var currencyForPay = Singletons._singletons.CurrencyManager[whatsBuying.BuyingPerCurrency];;
+            var currencyForPay = Singletons._singletons.CurrencyManager[whatsBuying.BuyingPerCurrency];
             
             if (currencyForPay.TryChangeValue(-whatsBuying.Price))
                 whatsBuying.ChangeValue(whatsBuying.QuantityPerPrice);
