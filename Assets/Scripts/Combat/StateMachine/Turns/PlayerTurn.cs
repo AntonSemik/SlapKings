@@ -16,7 +16,6 @@ public class PlayerTurn : Turn<Player>
 
     public void Slap()
     {
-        StartCoroutine(EndTurnWithDelay(2f));
         _indicator.Stop();
 
         if (!_isMegaslapping)
@@ -95,6 +94,8 @@ public class PlayerTurn : Turn<Player>
     }
     protected override void OnSlapedOpponent()
     {
+        StartCoroutine(EndTurnWithDelay(0.75f));
+
         if (_slaper._megaSlapObject.VisibleModelOrigin.activeSelf)
         {
             _slaper._megaSlapObject.HitVFX?.Play();
@@ -110,6 +111,7 @@ public class PlayerTurn : Turn<Player>
         _slaper.SetDamageMultiplier(Player.NormalSlap);
         _isMegaslapping = false;
     }
+
     private IEnumerator SlapWithDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -119,6 +121,7 @@ public class PlayerTurn : Turn<Player>
         _slaper.Slap();
         _slap.SetActive(false);
     }
+
     private IEnumerator EndLevelWithDelay(float seconds)
     {
         _slaper.EnableRagdoll();
