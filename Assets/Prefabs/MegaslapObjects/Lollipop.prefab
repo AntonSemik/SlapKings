@@ -131,8 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a6aaf52c973e4993c592946a8433a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transform: {fileID: 1384530464700548707}
-  HitVFX: {fileID: 3936206620260839291}
+  isUnlockedByDefault: 0
+  damageFactor: 0.25
+  OnChargeVFX: []
+  OnHitVFX: {fileID: 3936206620260839291}
   VisibleModelOrigin: {fileID: 5929595739782559619}
 --- !u!1 &3936206618391323075
 GameObject:

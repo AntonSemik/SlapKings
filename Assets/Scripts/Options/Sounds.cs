@@ -19,6 +19,6 @@ public class Sounds : MonoBehaviour
     {
         AudioListener.pause = !AudioListener.pause;
 
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.SoundsPausedKey, AudioListener.pause ? 1 : 0);
+        Singletons._singletons.SaveGameState.SaveBool(PlayerPrefsKeys.SoundsPausedKey, AudioListener.pause);
     }
 }

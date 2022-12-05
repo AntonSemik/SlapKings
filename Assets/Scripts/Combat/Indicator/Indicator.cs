@@ -19,7 +19,7 @@ public class Indicator : MonoBehaviour
         StartPointerMovement();
     private void Update()
     {
-        if (_updatePointerPosition)            
+        if (_updatePointerPosition)
             MovePointer();
     }
 
@@ -40,5 +40,5 @@ public class Indicator : MonoBehaviour
         _time += Time.deltaTime * _speed;
         _pointerPosition = Mathf.PingPong(_time, 2) - 1;
         _powerPercent = 1 - Mathf.Abs(_pointerPosition);
-    }    
+    }
 }

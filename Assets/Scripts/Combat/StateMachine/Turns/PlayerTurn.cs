@@ -66,7 +66,7 @@ public class PlayerTurn : Turn<Player>
     public override void EndTurn()
     {
         _megaSlap.SetActive(false);
-        _slaper._megaSlapObject.VisibleModelOrigin.SetActive(false);
+        _slaper._megaSlapObject.ToggleVisibility(false);
 
         if (_fightState.Enemy.Type != Enemy.EnemyType.bonus)
             _indicator.gameObject.SetActive(false);
@@ -76,8 +76,7 @@ public class PlayerTurn : Turn<Player>
     {
         _isMegaslapping = true;
         _slaper.UsedMegaSlap = true;
-        _slaper._megaSlapObject.VisibleModelOrigin.SetActive(true);
-        _slaper.SetDamageMultiplier(Player.MegaSlap);
+        _slaper._megaSlapObject.ToggleVisibility(true);
         ChangeIndicatorText(Mathf.FloorToInt(_playerStats.Damage * _slaper.DamageMultiplier));
         _megaSlap.gameObject.SetActive(false);
         Singletons._singletons.AdsPlaceholder.ShowAd();
@@ -96,19 +95,18 @@ public class PlayerTurn : Turn<Player>
     {
         StartCoroutine(EndTurnWithDelay(0.75f));
 
-        if (_slaper._megaSlapObject.VisibleModelOrigin.activeSelf)
+        if (_slaper._megaSlapObject.isVisible)
         {
-            _slaper._megaSlapObject.HitVFX?.Play();
+            _slaper._megaSlapObject.OnMegaHit();
         }
         else
         {
             _slaper.NormalSlapHitEffect?.Play();
         }
 
-        if (!_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
+        if (!_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
         if (_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * _megaSlapTapCounter * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
 
-        _slaper.SetDamageMultiplier(Player.NormalSlap);
         _isMegaslapping = false;
     }
 

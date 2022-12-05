@@ -17,7 +17,7 @@ public class FightState : MonoBehaviour, IGameState
 
     public void Enter()
     {
-        SetEnymyTurnType();
+        SetEnemyTurnType();
 
         _enemyTurn.SubscribeToSlaperEvents(); 
         _playerTurn.SubscribeToSlaperEvents();
@@ -42,13 +42,13 @@ public class FightState : MonoBehaviour, IGameState
         Enemy.UsedArmor = false;
         Player.UsedMegaSlap = false;
 
-        Player._megaSlapObject.VisibleModelOrigin.SetActive(false);
+        Player._megaSlapObject.ToggleVisibility(false);
 
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();
     }
 
-    private void SetEnymyTurnType()
+    private void SetEnemyTurnType()
     {
         if (Enemy.Type == Enemy.EnemyType.bonus)
             _enemyTurn = _bonusEnemyTurn;

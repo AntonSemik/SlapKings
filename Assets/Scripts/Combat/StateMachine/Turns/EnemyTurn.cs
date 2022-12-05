@@ -11,7 +11,7 @@ public class EnemyTurn : Turn<Enemy>
     {
         _slaper.UsedArmor = true;
 
-        _fightState.Player.SetDamageDivider(Player.ArmorDivider);
+        _fightState.Player.SetDamageDivider(Player.HalfProtection);
         _armorButton.gameObject.SetActive(false);
         Singletons._singletons.AdsPlaceholder.ShowAd();
     }
@@ -45,7 +45,7 @@ public class EnemyTurn : Turn<Enemy>
         _slaper.NormalSlapHitEffect?.Play();
 
         _fightState.Player.ReceiveDamage(Mathf.FloorToInt(_slaper.Damage / _fightState.Player.DamageDivider));
-        _fightState.Player.SetDamageDivider(Player.NormalSlap);
+        _fightState.Player.SetDamageDivider(Player.DefaultValue);
     }
 
     protected override IEnumerator EndTurnWithDelay(float seconds)

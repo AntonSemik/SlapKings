@@ -1,6 +1,7 @@
 using Currencies;
 using UI;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SaveGameState : MonoBehaviour
 {
@@ -34,14 +35,25 @@ public class SaveGameState : MonoBehaviour
         set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
     }
     
-    public int Skins
+    public int Skins //Dont see any links, what is it?
     {
         get { return PlayerPrefs.GetInt(PlayerPrefsKeys.MarshmallowsKey, 0); }
         set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
     }
 
+    //Save and load methods
     public void SaveInt(string key, int value)
     {
         PlayerPrefs.SetInt(key, value);
+    }
+
+    public void SaveBool(string key, bool value)
+    {
+        PlayerPrefs.SetInt(key, value ? 1 : 0);
+    }
+
+    public bool LoadBool(string key)
+    {
+        return PlayerPrefs.GetInt(key) != 0;
     }
 }

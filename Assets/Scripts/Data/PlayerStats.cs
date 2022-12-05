@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class PlayerStats
 {
-    public const float BaseMegaslapTime = 2f;
-
     private const int StartHealth = 75;
     private const int StartDamage = 20;
     private const int HealthProgressionPerLevel = 25;
     private const int DamageProgressionPerLevel = 15;
     public const int StartCost = 50;
     public const int CostProgressPerLevel = 50;
-
-    public float MegaslapTime => BaseMegaslapTime;
 
     public int HealthLevel => PlayerPrefs.GetInt(PlayerPrefsKeys.HealthLevelKey, 1);
     public int DamageLevel => PlayerPrefs.GetInt(PlayerPrefsKeys.DamageLevelKey, 1);

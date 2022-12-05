@@ -6,35 +6,34 @@ public class Player : Slaper
 
     public MegaSlapObject _megaSlapObject;
 
-    public const string NormalSlap = "single"; //Крайне некомфортно, нам надо будет менять множители потом
-    public const string MegaSlap = "double";
-    public const string ArmorDivider = "Armor";
-
     private PlayerStats _playerStats = new PlayerStats();
     public override int Damage => (int)(_playerStats.Damage);
     public override int MaxHealth => (int)(_playerStats.Health);
-    public float MegaslapTime => (float)(_playerStats.MegaslapTime);
+    public float MegaslapTime => _megaSlapObject.MegaslapDuration;
+    public float DamageMultiplier => _megaSlapObject.DamageFactor;
 
     [HideInInspector]public bool UsedMegaSlap = false;
 
-    public float DamageMultiplier { get => _damageMultiplier; private set => _damageMultiplier = value; }
-    public float DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
-    private float _damageMultiplier = 1;
-    private float _damageDivider = 1;
-    private Dictionary<string, float> _multiplier = new Dictionary<string, float>() { {NormalSlap, 1 }, {MegaSlap, 0.2f}, {ArmorDivider, 2f} };
+    public const string DefaultValue = "single"; //Heresy.
+    public const string HalfProtection = "Division by 2";
 
-    public void SetDamageMultiplier(string multiplier)
-        => DamageMultiplier = _multiplier[multiplier];
+    public float DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
+    private float _damageDivider = 1;
+    private Dictionary<string, float> _multiplier = new Dictionary<string, float>()
+    {
+        {DefaultValue, 1 },
+        {HalfProtection, 2f}
+    };
 
     public void SetDamageDivider(string multiplier)
         => DamageDivider = _multiplier[multiplier];
 
     public void SetNewMegaSlap(MegaSlapObject newSlap)
     {
-        newSlap.Transform.parent = MegaSlapBone;
-        newSlap.Transform.localPosition = new Vector3(0, 0, 0);
-        newSlap.Transform.localEulerAngles = new Vector3(0, 0, 0);
-        newSlap.Transform.localScale = new Vector3(1, 1, 1);
+        newSlap.transform.parent = MegaSlapBone;
+        newSlap.transform.localPosition = new Vector3(0, 0, 0);
+        newSlap.transform.localEulerAngles = new Vector3(0, 0, 0);
+        newSlap.transform.localScale = new Vector3(1, 1, 1);
 
         _megaSlapObject = newSlap;
     }
