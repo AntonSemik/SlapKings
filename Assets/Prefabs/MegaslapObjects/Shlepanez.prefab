@@ -330,7 +330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnlockedByDefault: 1
-  damageFactor: 0.2
+  damageFactor: 0.25
+  megaslapDuration: 1
   OnChargeVFX: []
   OnHitVFX: {fileID: 2881730221862858877}
   VisibleModelOrigin: {fileID: 174257550686112602}
