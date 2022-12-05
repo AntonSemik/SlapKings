@@ -8,6 +8,8 @@ public class Player : Slaper
 
     public const string NormalSlap = "single"; //Крайне некомфортно, нам надо будет менять множители потом
     public const string MegaSlap = "double";
+    public const string ArmorDivider = "Armor";
+
     private PlayerStats _playerStats = new PlayerStats();
     public override int Damage => (int)(_playerStats.Damage);
     public override int MaxHealth => (int)(_playerStats.Health);
@@ -19,7 +21,7 @@ public class Player : Slaper
     public float DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
     private float _damageMultiplier = 1;
     private float _damageDivider = 1;
-    private Dictionary<string, float> _multiplier = new Dictionary<string, float>() { { NormalSlap, 1 }, { MegaSlap, 0.2f } };
+    private Dictionary<string, float> _multiplier = new Dictionary<string, float>() { {NormalSlap, 1 }, {MegaSlap, 0.2f}, {ArmorDivider, 2f} };
 
     public void SetDamageMultiplier(string multiplier)
         => DamageMultiplier = _multiplier[multiplier];

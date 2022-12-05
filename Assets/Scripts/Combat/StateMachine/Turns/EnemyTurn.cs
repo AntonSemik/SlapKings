@@ -11,10 +11,11 @@ public class EnemyTurn : Turn<Enemy>
     {
         _slaper.UsedArmor = true;
 
-        _fightState.Player.SetDamageDivider(Player.MegaSlap);
+        _fightState.Player.SetDamageDivider(Player.ArmorDivider);
         _armorButton.gameObject.SetActive(false);
         Singletons._singletons.AdsPlaceholder.ShowAd();
     }
+
     public override void StartTurn()
     {
         if (!_slaper.UsedArmor) _armorButton.SetActive(true);
@@ -36,7 +37,7 @@ public class EnemyTurn : Turn<Enemy>
             _slaper.ExplosionVFX?.Play();
         }
 
-        StartCoroutine(EndLevelWithDelay(1.0f));       
+        StartCoroutine(EndLevelWithDelay(1.0f));
     }
 
     protected override void OnSlapedOpponent()

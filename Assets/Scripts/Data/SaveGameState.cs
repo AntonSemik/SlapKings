@@ -44,5 +44,4 @@ public class SaveGameState : MonoBehaviour
     {
         PlayerPrefs.SetInt(key, value);
     }
-
 }
