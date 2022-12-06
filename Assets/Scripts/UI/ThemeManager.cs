@@ -13,7 +13,7 @@ namespace UI
 
         private void Awake()
         {
-            GameTheme = Singletons._singletons.SaveGameState.GameThemeUI;
+            GameTheme = Singletons.Instance.SaveGameState.GameThemeUI;
         }
 
         public void SwitchThemeUI()
@@ -25,11 +25,11 @@ namespace UI
         public void SetThemeUI(GameThemes gameTheme)
         {
             GameTheme = gameTheme;
-            Singletons._singletons.SaveGameState.GameThemeUI = GameTheme;
+            Singletons.Instance.SaveGameState.GameThemeUI = GameTheme;
             OnChangeThemeUI?.Invoke(GameTheme);
         }
 
-        public bool IsDefault => Singletons._singletons.ThemeManager.GameTheme == defaultTheme;
+        public bool IsDefault => Singletons.Instance.ThemeManager.GameTheme == defaultTheme;
         
         #if UNITY_EDITOR
         private void Update()

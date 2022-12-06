@@ -27,19 +27,19 @@ namespace Shop
             _title.text = _whatsBuySettings.title;
             _price.text = _whatsBuySettings.price.ToString();
             _icon.sprite = _whatsBuySettings.icon;
-            _coin.sprite = Singletons._singletons.CurrencyManager[_whatsBuySettings.buyingPerCurrency].Settings.icon;
+            _coin.sprite = Singletons.Instance.CurrencyManager[_whatsBuySettings.buyingPerCurrency].Settings.icon;
             
             GetWhatsBuy();
         }
 
         protected virtual void GetWhatsBuy()
         {
-            _whatsBuy = Singletons._singletons.CurrencyManager[_whatsBuySettings.currencyType];
+            _whatsBuy = Singletons.Instance.CurrencyManager[_whatsBuySettings.currencyType];
         }
 
         protected virtual void Buy()
         {
-            Singletons._singletons.Shop.Buy(_whatsBuy);
+            Singletons.Instance.Shop.Buy(_whatsBuy);
         }
         
         

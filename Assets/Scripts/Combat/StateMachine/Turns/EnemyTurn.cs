@@ -13,7 +13,7 @@ public class EnemyTurn : Turn<Enemy>
 
         _fightState.Player.SetDamageDivider(Player.HalfProtection);
         _armorButton.gameObject.SetActive(false);
-        Singletons._singletons.AdsPlaceholder.ShowAd();
+        Singletons.Instance.AdsPlaceholder.ShowAd();
     }
 
     public override void StartTurn()

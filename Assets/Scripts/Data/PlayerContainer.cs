@@ -7,8 +7,8 @@ public class PlayerContainer : MonoBehaviour
     [SerializeField] private Player[] Players;
     [SerializeField] private MegaSlapObject[] MegaSlaps;
 
-    private int SkinID => Singletons._singletons.SaveGameState._playerSkinID;
-    private int SlapID => Singletons._singletons.SaveGameState._playerMegaslapSkinID;
+    private int SkinID => Singletons.Instance.SaveGameState._playerSkinID;
+    private int SlapID => Singletons.Instance.SaveGameState._playerMegaslapSkinID;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class PlayerContainer : MonoBehaviour
         Players[0]?.gameObject.SetActive(false);
 
 
-        Singletons._singletons.GameStateMachine.Player = Players[NewID];
+        Singletons.Instance.GameStateMachine.Player = Players[NewID];
         Players[NewID].gameObject.SetActive(true);
     }
 

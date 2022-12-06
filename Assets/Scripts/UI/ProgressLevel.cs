@@ -20,12 +20,12 @@ namespace UI
         private void Awake()
         {
             _currentProgressBackground = GetComponent<Image>();
-            _bonusLevelNumber = Singletons._singletons.LevelParameters.bonusLevelNumber;
+            _bonusLevelNumber = Singletons.Instance.LevelParameters.bonusLevelNumber;
         }
 
         private void OnEnable()
         {
-            _levelNumber = Singletons._singletons.LevelParameters._totalLevel;
+            _levelNumber = Singletons.Instance.LevelParameters._totalLevel;
             _levelIndex = GetLevelIndex();
             _currentProgressBackground.sprite = _progressSprites[_levelIndex];
             

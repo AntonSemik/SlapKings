@@ -18,12 +18,12 @@ public class PlayerStats
     public void SaveHealthLevel(int level)
     {
         PlayerPrefs.SetInt(PlayerPrefsKeys.HealthLevelKey, level);
-        Singletons._singletons.HealthPanelAnimator.SetDefaultValues(Health);
+        Singletons.Instance.HealthPanelAnimator.SetDefaultValues(Health);
     }
 
     public void SaveDamageLevel(int level)
     {
         PlayerPrefs.SetInt(PlayerPrefsKeys.DamageLevelKey, level);
-        Singletons._singletons.Indicator.SetDamageText(Damage.ToString());
+        Singletons.Instance.Indicator.SetDamageText(Damage.ToString());
     }
 }

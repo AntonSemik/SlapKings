@@ -12,7 +12,7 @@ namespace Shop
     
         private void OnEnable()
         {
-            if (Singletons._singletons.ThemeManager.IsDefault)
+            if (Singletons.Instance.ThemeManager.IsDefault)
             {
                 _newFeatures.SetActive(false);
                 _oldFeatures.SetActive(true);

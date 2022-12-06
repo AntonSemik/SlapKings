@@ -19,18 +19,18 @@ namespace UI
 
         private void Start()
         {
-            Singletons._singletons.CurrencyManager[currencyType].OnChanged += UpdateText;
-            Singletons._singletons.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
+            Singletons.Instance.CurrencyManager[currencyType].OnChanged += UpdateText;
+            Singletons.Instance.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
 
             gameObject.SetActive(!CanToggleActive());
             
-            UpdateText(Singletons._singletons.CurrencyManager[currencyType].Total);
+            UpdateText(Singletons.Instance.CurrencyManager[currencyType].Total);
         }
 
         private bool CanToggleActive()
         {
             if (_dontToggle) return false;
-            return currencyType != CurrencyType.Coins && Singletons._singletons.ThemeManager.IsDefault;
+            return currencyType != CurrencyType.Coins && Singletons.Instance.ThemeManager.IsDefault;
         }
 
         private void ChangeThemeUI(ThemeManager.GameThemes theme)
@@ -45,8 +45,8 @@ namespace UI
 
         private void OnDestroy()
         {
-            Singletons._singletons.CurrencyManager[currencyType].OnChanged -= UpdateText;
-            Singletons._singletons.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
+            Singletons.Instance.CurrencyManager[currencyType].OnChanged -= UpdateText;
+            Singletons.Instance.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
         }
     }
 }

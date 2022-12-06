@@ -7,13 +7,13 @@ namespace Currencies
         public Marshmallows(CurrencyData settings)
         {
             Init(settings);
-            Total = Singletons._singletons.SaveGameState.Marshmallows;
+            Total = Singletons.Instance.SaveGameState.Marshmallows;
         }
 
         public override void ChangeValue(int value)
         {
             base.ChangeValue(value);
-            Singletons._singletons.SaveGameState.Marshmallows = Total;
+            Singletons.Instance.SaveGameState.Marshmallows = Total;
         }
         
     }

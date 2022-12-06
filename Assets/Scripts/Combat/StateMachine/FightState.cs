@@ -46,6 +46,11 @@ public class FightState : MonoBehaviour, IGameState
 
         _enemyTurn.UnsubscribeFromSlaperEvents();
         _playerTurn.UnsubscribeFromSlaperEvents();
+
+        if(Enemy.Type == Enemy.EnemyType.bonus)
+        {
+            Singletons.Instance.ExitLocation.LoadLoadingScene();
+        }
     }
 
     private void SetEnemyTurnType()

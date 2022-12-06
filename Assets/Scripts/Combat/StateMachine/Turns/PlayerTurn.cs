@@ -79,7 +79,7 @@ public class PlayerTurn : Turn<Player>
         _slaper._megaSlapObject.ToggleVisibility(true);
         ChangeIndicatorText(Mathf.FloorToInt(_playerStats.Damage * _slaper.DamageMultiplier));
         _megaSlap.gameObject.SetActive(false);
-        Singletons._singletons.AdsPlaceholder.ShowAd();
+        Singletons.Instance.AdsPlaceholder.ShowAd();
     }
 
     protected override void OnKnockedDown()
@@ -93,7 +93,7 @@ public class PlayerTurn : Turn<Player>
     }
     protected override void OnSlapedOpponent()
     {
-        StartCoroutine(EndTurnWithDelay(0.75f));
+        StartCoroutine(EndTurnWithDelay(1.5f));
 
         if (_slaper._megaSlapObject.isVisible)
         {

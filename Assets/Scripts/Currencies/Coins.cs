@@ -11,21 +11,21 @@ public class Coins : Currency
     public Coins(CurrencyData settings)
     {
         Init(settings);
-        Total = Singletons._singletons.SaveGameState._coins;
+        Total = Singletons.Instance.SaveGameState._coins;
         SetDependencies();
     }
 
     public void GiveReward(int _multyplier)
     {
         int _reward;
-        _reward = Singletons._singletons.LevelParameters._baseReward * _multyplier;
+        _reward = Singletons.Instance.LevelParameters._baseReward * _multyplier;
         ChangeValue(_reward);
     }
 
     public override void ChangeValue(int value)
     {
         base.ChangeValue(value);
-        Singletons._singletons.SaveGameState._coins = Total;
+        Singletons.Instance.SaveGameState._coins = Total;
     }
 
     private void OnLevelComplete() =>
@@ -35,7 +35,7 @@ public class Coins : Currency
     
     private void SetDependencies()
     {
-        _stateMachine = Singletons._singletons.GameStateMachine;
+        _stateMachine = Singletons.Instance.GameStateMachine;
         _stateMachine.LevelComplete += OnLevelComplete;
         _stateMachine.LevelFailed += OnLevelFailed;
     }

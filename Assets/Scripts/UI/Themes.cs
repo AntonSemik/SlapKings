@@ -17,7 +17,7 @@ namespace UI
         {
             SubscribeOnChangeThemeUI();
             InitDefaultTheme();
-            ChangeThemeUI(Singletons._singletons.ThemeManager.GameTheme);
+            ChangeThemeUI(Singletons.Instance.ThemeManager.GameTheme);
         }
 
         private void InitDefaultTheme()
@@ -44,12 +44,12 @@ namespace UI
 
         private void SubscribeOnChangeThemeUI()
         {
-            Singletons._singletons.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
+            Singletons.Instance.ThemeManager.OnChangeThemeUI += ChangeThemeUI;
         }
         
         private void UnSubscribeOnChangeThemeUI()
         {
-            Singletons._singletons.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
+            Singletons.Instance.ThemeManager.OnChangeThemeUI -= ChangeThemeUI;
         }
 
         private void OnDestroy()

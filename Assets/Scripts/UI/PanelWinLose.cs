@@ -8,7 +8,7 @@ namespace UI
         
         private void Awake()
         {
-            _loadLevelState = Singletons._singletons.GameStateMachine.GetComponent<LoadLevelState>();
+            _loadLevelState = Singletons.Instance.GameStateMachine.GetComponent<LoadLevelState>();
         }
 
         private void OnEnable()

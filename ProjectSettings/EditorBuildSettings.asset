@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
-    guid: 411b224901c5c7645abeabc8019ae29b
-  - enabled: 0
-    path: Assets/Scenes/MainSceneWebGL.unity
-    guid: 6cdfaf731d8b6ee44a38ac60fef215e9
+    path: Assets/Scenes/Loading.unity
+    guid: 276dff710cb96bf46a9f38b54681de3e
+  - enabled: 1
+    path: Assets/Scenes/Location_Ring.unity
+    guid: 7455c39912bf5d64b9e917dc573ce87f
+  - enabled: 1
+    path: Assets/Scenes/Location_Cubes.unity
+    guid: a8c2b1bc973c829499358d020a27a056
+  - enabled: 1
+    path: Assets/Scenes/Location_Sphere.unity
+    guid: aa2dd115aab4ee74787859f604d9378a
   m_configObjects: {}

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Singletons : MonoBehaviour
 {
-    public static Singletons _singletons;
+    public static Singletons Instance;
     
     public Coins Coins;
     public Marshmallows Marshmallows;
@@ -20,13 +20,14 @@ public class Singletons : MonoBehaviour
     public GameStateMachine GameStateMachine;
     public PlayerTurn PlayerTurn;
     public ThemeManager ThemeManager;
+    public ExitLocation ExitLocation;
 
     [SerializeField] private CurrencyData _coinsData;
     [SerializeField] private CurrencyData _marshmallowsData;
 
     private void Awake()
     {   
-        _singletons = this;
+        Instance = this;
 
         InitCurrencies();
         Shop = new GameShop();

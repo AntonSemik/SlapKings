@@ -72,14 +72,14 @@ public class GameStateMachine : MonoBehaviour
     
     private void SubscribeOnAdsPanel()
     {
-        Singletons._singletons.AdsPlaceholder.AdsOpen += OnAdsOpen;
-        Singletons._singletons.AdsPlaceholder.AdsClose += OnAdsClose;
+        Singletons.Instance.AdsPlaceholder.AdsOpen += OnAdsOpen;
+        Singletons.Instance.AdsPlaceholder.AdsClose += OnAdsClose;
     }
     
     private void UnSubscribeOnAdsPanel()
     {
-        Singletons._singletons.AdsPlaceholder.AdsOpen -= OnAdsOpen;
-        Singletons._singletons.AdsPlaceholder.AdsClose -= OnAdsClose;
+        Singletons.Instance.AdsPlaceholder.AdsOpen -= OnAdsOpen;
+        Singletons.Instance.AdsPlaceholder.AdsClose -= OnAdsClose;
     }
 
     private void OnDisable()

@@ -9,42 +9,42 @@ public class FightEndedMenu : MonoBehaviour
 
     private void Start()
     {
-        Singletons._singletons.GameStateMachine.LevelComplete += OpenWinMenu;
-        Singletons._singletons.GameStateMachine.LevelFailed += OpenLoseMenu;
+        Singletons.Instance.GameStateMachine.LevelComplete += OpenWinMenu;
+        Singletons.Instance.GameStateMachine.LevelFailed += OpenLoseMenu;
     }
 
     public void ExtraReward()
     {
         _extraRewardButton.SetActive(false);
 
-        Singletons._singletons.AdsPlaceholder.ShowAd();
-        Singletons._singletons.Coins.GiveReward(4);
+        Singletons.Instance.AdsPlaceholder.ShowAd();
+        Singletons.Instance.Coins.GiveReward(4);
 
         _WinMenu.SetActive(false);
 
-        Singletons._singletons.GameStateMachine.IncreaseLevel();
+        Singletons.Instance.GameStateMachine.IncreaseLevel();
     }
 
     public void PlusOneSlap()
     {
         _extraSlapButton.SetActive(false);
 
-        Singletons._singletons.AdsPlaceholder.ShowAd();
-        Singletons._singletons.PlayerTurn.StartTurn();
-        Singletons._singletons.GameStateMachine.TookExtraSlap = true;
-        Singletons._singletons.GameStateMachine.Player.ResetSlaper(false); 
+        Singletons.Instance.AdsPlaceholder.ShowAd();
+        Singletons.Instance.PlayerTurn.StartTurn();
+        Singletons.Instance.GameStateMachine.TookExtraSlap = true;
+        Singletons.Instance.GameStateMachine.Player.ResetSlaper(false); 
 
         _LoseMenu.SetActive(false);
     }
 
     public void NoThanks()
     {
-        Singletons._singletons.AdsPlaceholder.ShowAd();
+        Singletons.Instance.AdsPlaceholder.ShowAd();
         
         if (_WinMenu.activeSelf)
-            Singletons._singletons.GameStateMachine.IncreaseLevel(); 
+            Singletons.Instance.GameStateMachine.IncreaseLevel(); 
         else if (_LoseMenu.activeSelf)
-            Singletons._singletons.GameStateMachine.ReloadLevel();
+            Singletons.Instance.GameStateMachine.ReloadLevel();
         
         _WinMenu.SetActive(false);
         _LoseMenu.SetActive(false);
@@ -60,7 +60,7 @@ public class FightEndedMenu : MonoBehaviour
     {
         _LoseMenu.SetActive(true);
 
-        if (!Singletons._singletons.GameStateMachine.TookExtraSlap)
+        if (!Singletons.Instance.GameStateMachine.TookExtraSlap)
         {
             _extraSlapButton.SetActive(true);
         }

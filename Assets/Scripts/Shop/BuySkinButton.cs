@@ -18,7 +18,7 @@ namespace Shop
         
         protected override void Buy()
         {
-            Singletons._singletons.Shop.Buy(_whatsBuy);
+            Singletons.Instance.Shop.Buy(_whatsBuy);
         }
         
     }

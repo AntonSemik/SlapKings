@@ -23,7 +23,7 @@ public class MegaSlapObject : MonoBehaviour
     {
         if (isUnlockedByDefault) OnUnlock();
 
-        isUnlocked = Singletons._singletons.SaveGameState.LoadBool(Name);
+        isUnlocked = Singletons.Instance.SaveGameState.LoadBool(Name);
     }
 
     public void ToggleVisibility(bool isVisible)
@@ -33,7 +33,7 @@ public class MegaSlapObject : MonoBehaviour
 
     public void OnUnlock()
     {
-        Singletons._singletons.SaveGameState.SaveBool(Name, isUnlocked);
+        Singletons.Instance.SaveGameState.SaveBool(Name, isUnlocked);
     }
 
     public void OnChargeTrigger(int chargeLevel)

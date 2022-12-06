@@ -7,6 +7,6 @@ public class UpdateReward : MonoBehaviour
     [SerializeField] private int _X = 1;
     private void OnEnable()
     {
-        _text.text = (Singletons._singletons.LevelParameters._baseReward * _X).ToString();
+        _text.text = (Singletons.Instance.LevelParameters._baseReward * _X).ToString();
     }
 }

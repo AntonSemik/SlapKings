@@ -13,7 +13,7 @@ public class Vibro : MonoBehaviour
     {
         _inst = this;
 
-        _isVibroOff = Singletons._singletons.SaveGameState._vibroOff;
+        _isVibroOff = Singletons.Instance.SaveGameState._vibroOff;
         if (_toggleVibroUI.isOn != _isVibroOff)
         {
             _toggleVibroUI.isOn = _isVibroOff;
@@ -25,6 +25,6 @@ public class Vibro : MonoBehaviour
     {
         _isVibroOff = !_isVibroOff;
 
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.VibrationOffKey, _isVibroOff ? 1 : 0);
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.VibrationOffKey, _isVibroOff ? 1 : 0);
     }
 }

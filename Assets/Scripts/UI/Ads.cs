@@ -11,14 +11,14 @@ public class Ads : MonoBehaviour
 
     private void Start()
     {
-        _adsActive = Singletons._singletons.SaveGameState._adsActive;
+        _adsActive = Singletons.Instance.SaveGameState._adsActive;
     }
 
     public void NoMoreAds()
     {
         _payment.SetActive(true);
         _adsActive = false;
-        Singletons._singletons.SaveGameState.SaveBool(PlayerPrefsKeys.AdsActiveKey, _adsActive);
+        Singletons.Instance.SaveGameState.SaveBool(PlayerPrefsKeys.AdsActiveKey, _adsActive);
     }
 
     public void ShowAd()

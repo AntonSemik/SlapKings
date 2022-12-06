@@ -28,9 +28,9 @@ public class LevelParameters : MonoBehaviour
 
     public void LoadCurrentLevel()
     {
-        _totalLevel = Singletons._singletons.SaveGameState._totalLevel;
-        _locationID = Singletons._singletons.SaveGameState._locationID;
-        _currentLevel = Singletons._singletons.SaveGameState._currentLevel;
+        _totalLevel = Singletons.Instance.SaveGameState._totalLevel;
+        _locationID = Singletons.Instance.SaveGameState._locationID;
+        _currentLevel = Singletons.Instance.SaveGameState._currentLevel;
 
         SetNewLocation();
         SetLevelScene();
@@ -56,9 +56,9 @@ public class LevelParameters : MonoBehaviour
             SetNewLocation();
         }
 
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.TotalLevelKey, _totalLevel);
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.CurrentLevelKey, _currentLevel);
-        Singletons._singletons.SaveGameState.SaveInt(PlayerPrefsKeys.LocationIDKey, _locationID);
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.TotalLevelKey, _totalLevel);
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.CurrentLevelKey, _currentLevel);
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.LocationIDKey, _locationID);
     }
 
     private void SetLevelScene()
