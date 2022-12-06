@@ -10,7 +10,7 @@ namespace Shop
     [RequireComponent(typeof(Button))]
     public class BuyButton : MonoBehaviour
     {
-        [SerializeField] protected CurrencyData _whatsBuySettings;
+        public CurrencyData _whatsBuySettings;
         [SerializeField] private TMP_Text _title;
         [SerializeField] private Image _icon;
         [SerializeField] private Image _coin;
