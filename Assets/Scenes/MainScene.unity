@@ -527,6 +527,7 @@ MonoBehaviour:
   GameStateMachine: {fileID: 656770923}
   PlayerTurn: {fileID: 656770927}
   ThemeManager: {fileID: 863135941}
+  ExitLocation: {fileID: 0}
   _coinsData: {fileID: 11400000, guid: 00bd28a61f957429a94398b0f9b88f00, type: 2}
   _marshmallowsData: {fileID: 11400000, guid: 803a23b6d8e484ece8889bb5b88b551d, type: 2}
 --- !u!1 &480762349 stripped
@@ -754,6 +755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fightState: {fileID: 656770924}
   _armorButton: {fileID: 214302024560576721}
+  _qtePanel: {fileID: 1022204250}
 --- !u!114 &656770927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,6 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fightState: {fileID: 656770924}
   _armorButton: {fileID: 0}
+  _qtePanel: {fileID: 0}
 --- !u!1 &673274377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1068,11 @@ Transform:
   m_Father: {fileID: 514531424}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.1, y: 30, z: 0}
+--- !u!1 &1022204250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 912430759595625124, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
+  m_PrefabInstance: {fileID: 6228513347274324519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1030152366
 GameObject:
   m_ObjectHideFlags: 0

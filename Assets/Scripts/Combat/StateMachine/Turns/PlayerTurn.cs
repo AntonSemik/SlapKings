@@ -41,8 +41,6 @@ public class PlayerTurn : Turn<Player>
         }
     }
 
-
-
     public override void StartTurn()
     {
         if (_slaper.CurrentHealth <= 0)

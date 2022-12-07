@@ -5,19 +5,21 @@ using Random = UnityEngine.Random;
 public class QtePanel : MonoBehaviour
 {
     [SerializeField] private GameObject[] _buttonPrefabs;
-    private int _shieldsCollected;
-    private int _coinsCollected;
+    public  int _shieldsCollected { get; private set; }
+    public  int _coinsCollected { get; private set; }
+
     private Vector3[] _buttonsGrid = new Vector3[28];
 
     private void OnEnable()
     {
         InitializeButtonsGrid();
         CreateButtons(_buttonsGrid);
+        ResetRewards();
     }
 
     private void OnDisable()
     {
-        ResetRewards();
+        
     }
 
     private void InitializeButtonsGrid()
