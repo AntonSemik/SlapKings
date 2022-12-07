@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Shop;
 using UnityEngine;
 public class Player : Slaper
 {
@@ -24,6 +25,12 @@ public class Player : Slaper
         {DefaultValue, 1 },
         {HalfProtection, 2f}
     };
+    
+    // for shop
+    public CurrencyData settingsForShop;
+    [SerializeField] private bool isUnlockedByDefault;
+    public bool IsUnlockedByDefault => isUnlockedByDefault;
+    //
 
     public void SetDamageDivider(string multiplier)
         => DamageDivider = _multiplier[multiplier];

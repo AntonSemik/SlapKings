@@ -1,9 +1,13 @@
+using System;
 using Shop;
+using UnityEngine;
 
 namespace Currencies
 {
     public class Boosters : Currency
     {
+        public event Action<string> OnBuyed;
+        
         public Boosters(CurrencyData settings)
         {
             Init(settings);
@@ -15,6 +19,8 @@ namespace Currencies
         {
             base.ChangeValue(value);
             // TODO: Add to Inventory
+            Debug.Log("Add to Inventory");
+            OnBuyed?.Invoke("Shlepanez");
         }
         
     }

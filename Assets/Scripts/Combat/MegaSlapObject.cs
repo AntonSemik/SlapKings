@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Shop;
 using UnityEngine;
 
 public class MegaSlapObject : MonoBehaviour
 {
     [SerializeField] private bool isUnlockedByDefault;
+    public bool IsUnlockedByDefault => isUnlockedByDefault;
 
     public string Name { get; private set; }
 
@@ -19,6 +22,8 @@ public class MegaSlapObject : MonoBehaviour
     [SerializeField] private ParticleSystem[] OnChargeVFX;
     [SerializeField] private ParticleSystem OnHitVFX;
     [SerializeField] private GameObject VisibleModelOrigin;
+    public CurrencyData settingsForShop;
+    
     private void Start()
     {
         if (isUnlockedByDefault) OnUnlock();

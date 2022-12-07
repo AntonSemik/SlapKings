@@ -1833,7 +1833,7 @@ GameObject:
   - component: {fileID: 3705043062157832390}
   - component: {fileID: 3705043062157832388}
   m_Layer: 0
-  m_Name: PlayerBasicMale
+  m_Name: TEST PlayerBasicMale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   _megaSlapObject: {fileID: 0}
   UsedMegaSlap: 0
   settingsForShop: {fileID: 11400000, guid: 3ccf5f9eaa2e0fc468c3b774e3029a32, type: 2}
-  isUnlockedByDefault: 1
+  isUnlockedByDefault: 0
 --- !u!1 &4244572473365242363
 GameObject:
   m_ObjectHideFlags: 0

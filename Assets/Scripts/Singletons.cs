@@ -23,15 +23,24 @@ public class Singletons : MonoBehaviour
 
     [SerializeField] private CurrencyData _coinsData;
     [SerializeField] private CurrencyData _marshmallowsData;
+    [SerializeField] private PlayerContainer _playerContainer;
 
     private void Awake()
     {   
         _singletons = this;
 
         InitCurrencies();
-        Shop = new GameShop();
+        InitShop();
 
         // PlayerPrefs.DeleteAll();
+    }
+
+    private void InitShop()
+    {
+        Shop = new GameShop();
+        Shop.InitBoosters(_playerContainer.MegaSlaps);
+        Debug.Log(_playerContainer.Players.Length);
+        Shop.InitSkins(_playerContainer.Players);
     }
 
     private void InitCurrencies()
