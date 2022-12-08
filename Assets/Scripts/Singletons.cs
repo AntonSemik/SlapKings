@@ -20,7 +20,6 @@ public class Singletons : MonoBehaviour
     public GameStateMachine GameStateMachine;
     public PlayerTurn PlayerTurn;
     public ThemeManager ThemeManager;
-    public ExitLocation ExitLocation;
 
     [SerializeField] private CurrencyData _coinsData;
     [SerializeField] private CurrencyData _marshmallowsData;
@@ -33,6 +32,7 @@ public class Singletons : MonoBehaviour
         Shop = new GameShop();
 
         // PlayerPrefs.DeleteAll();
+        // PREVIOUS LINE IS APOCALIPTICALLY DANGEROUS WTF c. Anton
     }
 
     private void InitCurrencies()

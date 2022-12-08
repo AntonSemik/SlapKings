@@ -36,8 +36,6 @@ public class PlayerTurn : Turn<Player>
             _indicator.SetDamageText(((int)(_megaSlapTapCounter * _slaper.DamageMultiplier * _slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent))).ToString());
 
             _megaSlapTapCounter++;
-
-            Debug.Log("Total multiplier = " + _megaSlapTapCounter + "; Total damage = " + (_megaSlapTapCounter * _slaper.DamageMultiplier * _slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)).ToString());
         }
     }
 
@@ -74,7 +72,9 @@ public class PlayerTurn : Turn<Player>
     {
         _isMegaslapping = true;
         _slaper.UsedMegaSlap = true;
+
         _slaper._megaSlapObject.ToggleVisibility(true);
+
         ChangeIndicatorText(Mathf.FloorToInt(_playerStats.Damage * _slaper.DamageMultiplier));
         _megaSlap.gameObject.SetActive(false);
 

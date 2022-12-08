@@ -4,7 +4,7 @@ using System.Collections;
 public class BonusEnemyTurn : EnemyTurn
 {
     private const int MaxTurnsAmount = 3;
-    protected override Enemy _slaper => (BonusEnemy)_fightState.Enemy;
+    protected override Enemy _slaper => (BonusEnemy)_fightState.Enemy; //Not valid?
     private int _turnsAmount;
     private Rotator _rotator => ((BonusEnemy)_slaper).Rotator;
 
