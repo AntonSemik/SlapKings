@@ -18,10 +18,7 @@ namespace Currencies
         public override void ChangeValue(int value)
         {
             base.ChangeValue(value);
-            // TODO: Add to Inventory
-            Debug.Log("Add to Inventory");
-            OnBuyed?.Invoke("Shlepanez");
+            OnBuyed?.Invoke(Settings.title);
         }
-        
     }
 }

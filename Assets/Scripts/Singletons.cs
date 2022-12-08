@@ -37,10 +37,9 @@ public class Singletons : MonoBehaviour
 
     private void InitShop()
     {
-        Shop = new GameShop();
-        Shop.InitBoosters(_playerContainer.MegaSlaps);
-        Debug.Log(_playerContainer.Players.Length);
-        Shop.InitSkins(_playerContainer.Players);
+        // Shop = new GameShop();
+        Shop.InitGoods(_playerContainer.MegaSlaps);
+        Shop.InitGoods(_playerContainer.Players);
     }
 
     private void InitCurrencies()

@@ -1909,7 +1909,7 @@ MonoBehaviour:
   MegaSlapBone: {fileID: 3236965046045209251}
   _megaSlapObject: {fileID: 0}
   UsedMegaSlap: 0
-  settingsForShop: {fileID: 11400000, guid: 3ccf5f9eaa2e0fc468c3b774e3029a32, type: 2}
+  _settingsForShop: {fileID: 11400000, guid: 3ccf5f9eaa2e0fc468c3b774e3029a32, type: 2}
   isUnlockedByDefault: 1
 --- !u!1 &4244572473365242363
 GameObject:

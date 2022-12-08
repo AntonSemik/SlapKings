@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Shop;
 using UnityEngine;
-public class Player : Slaper
+public class Player : Slaper, IGoods
 {
     [SerializeField] private Transform MegaSlapBone;
 
@@ -27,9 +27,14 @@ public class Player : Slaper
     };
     
     // for shop
-    public CurrencyData settingsForShop;
+    [SerializeField] private CurrencyData _settingsForShop;
     [SerializeField] private bool isUnlockedByDefault;
-    public bool IsUnlockedByDefault => isUnlockedByDefault;
+    public CurrencyData GetSettingsForShop() => _settingsForShop;
+    public bool IsUnlockedByDefault() => isUnlockedByDefault;
+    public void Buyed(string value)
+    {
+        Debug.Log("Buyed " + value);
+    }
     //
 
     public void SetDamageDivider(string multiplier)

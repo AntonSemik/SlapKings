@@ -9,8 +9,8 @@ namespace Shop
     [RequireComponent(typeof(Button))]
     public class BuyBoosterButton : BuyButton
     {
-        private Boosters _whatsBuy;
-        
+        public Boosters _whatsBuy;
+
         protected override void GetWhatsBuy()
         {
             _whatsBuy = new Boosters(_whatsBuySettings);

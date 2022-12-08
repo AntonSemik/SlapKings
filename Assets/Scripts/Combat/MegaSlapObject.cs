@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using Shop;
 using UnityEngine;
 
-public class MegaSlapObject : MonoBehaviour
+public class MegaSlapObject : MonoBehaviour, IGoods
 {
     [SerializeField] private bool isUnlockedByDefault;
-    public bool IsUnlockedByDefault => isUnlockedByDefault;
 
     public string Name { get; private set; }
 
@@ -22,8 +21,24 @@ public class MegaSlapObject : MonoBehaviour
     [SerializeField] private ParticleSystem[] OnChargeVFX;
     [SerializeField] private ParticleSystem OnHitVFX;
     [SerializeField] private GameObject VisibleModelOrigin;
-    public CurrencyData settingsForShop;
     
+    // for shop
+    [SerializeField] private CurrencyData _settingsForShop;
+    public CurrencyData GetSettingsForShop() => _settingsForShop;
+    public bool IsUnlockedByDefault() => isUnlockedByDefault;
+
+    public void Buyed(string value)
+    {
+        Debug.Log("Buyed " + value);
+        OnUnlock();
+    }
+    //
+
+    private void Awake()
+    {
+        Name = _settingsForShop.title;
+    }
+
     private void Start()
     {
         if (isUnlockedByDefault) OnUnlock();
@@ -38,6 +53,7 @@ public class MegaSlapObject : MonoBehaviour
 
     public void OnUnlock()
     {
+        isUnlocked = true;
         Singletons._singletons.SaveGameState.SaveBool(Name, isUnlocked);
     }
 
