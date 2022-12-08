@@ -4,6 +4,6 @@ namespace Shop
     {
         public bool IsUnlockedByDefault();
         public CurrencyData GetSettingsForShop();
-        public void Buyed(string value);
+        public void Buyed(string goodsTitle);
     }
 }

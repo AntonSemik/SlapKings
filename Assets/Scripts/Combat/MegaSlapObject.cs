@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Data.Shop;
 using Shop;
 using UnityEngine;
 
@@ -27,9 +28,14 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     public CurrencyData GetSettingsForShop() => _settingsForShop;
     public bool IsUnlockedByDefault() => isUnlockedByDefault;
 
-    public void Buyed(string value)
+    public void Buyed(string goodsTitle)
     {
-        Debug.Log("Buyed " + value);
+        Debug.Log("Buyed " + goodsTitle);
+
+        SaveObject saveObject = Singletons._singletons.SaveGameState.GetJsonValue("Boosters", goodsTitle);
+        saveObject.count++;
+        Singletons._singletons.SaveGameState.SetJsonValue("Boosters", goodsTitle, saveObject.count);
+
         OnUnlock();
     }
     //
@@ -54,7 +60,7 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     public void OnUnlock()
     {
         isUnlocked = true;
-        Singletons._singletons.SaveGameState.SaveBool(Name, isUnlocked);
+        // Singletons._singletons.SaveGameState.SaveBool(Name, isUnlocked);
     }
 
     public void OnChargeTrigger(int chargeLevel)

@@ -1182,6 +1182,7 @@ MonoBehaviour:
   MegaSlaps:
   - {fileID: 306547892}
   - {fileID: 4718911456206985749}
+  - {fileID: 1384530464700548708, guid: 4037799bfd6134401aa5efb5787ca275, type: 3}
 --- !u!1 &1214388284 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5943553279765672841, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}

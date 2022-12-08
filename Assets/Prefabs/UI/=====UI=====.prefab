@@ -2650,6 +2650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6637933673676830676}
     m_Modifications:
+    - target: {fileID: 615468051064905919, guid: 952e5c2bb1433464aa045b65214920a9, type: 3}
+      propertyPath: whatsBuySettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 803a23b6d8e484ece8889bb5b88b551d, type: 2}
     - target: {fileID: 2729983021660544438, guid: 952e5c2bb1433464aa045b65214920a9, type: 3}
       propertyPath: m_Name
       value: ShopPanel

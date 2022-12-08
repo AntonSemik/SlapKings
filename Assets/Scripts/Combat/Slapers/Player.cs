@@ -31,9 +31,9 @@ public class Player : Slaper, IGoods
     [SerializeField] private bool isUnlockedByDefault;
     public CurrencyData GetSettingsForShop() => _settingsForShop;
     public bool IsUnlockedByDefault() => isUnlockedByDefault;
-    public void Buyed(string value)
+    public void Buyed(string goodsTitle)
     {
-        Debug.Log("Buyed " + value);
+        Debug.Log("Buyed " + goodsTitle);
     }
     //
 

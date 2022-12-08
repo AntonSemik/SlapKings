@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Lollipop
   icon: {fileID: 21300000, guid: 503d44a503d478e41b0ec09db73c9f53, type: 3}
-  price: 7
+  price: 2
   currencyType: 3
   buyingPerCurrency: 1
   quantityPerPrice: 1
-  prefab: {fileID: 1384530464700548706, guid: f0a063f6db8998149a88c68651b39cda, type: 3}

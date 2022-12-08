@@ -9,16 +9,16 @@ namespace Shop
     [RequireComponent(typeof(Button))]
     public class BuyBoosterButton : BuyButton
     {
-        public Boosters _whatsBuy;
+        public Boosters whatsBuy;
 
         protected override void GetWhatsBuy()
         {
-            _whatsBuy = new Boosters(_whatsBuySettings);
+            whatsBuy = new Boosters(whatsBuySettings);
         }
         
         protected override void Buy()
         {
-            Singletons._singletons.Shop.Buy(_whatsBuy);
+            Singletons._singletons.Shop.Buy(whatsBuy);
         }
         
     }

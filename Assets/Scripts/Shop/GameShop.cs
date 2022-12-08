@@ -19,29 +19,45 @@ namespace Shop
             foreach (var item in goods)
             {
                 if (item.IsUnlockedByDefault()) continue;
+                
                 var settings = item.GetSettingsForShop();
 
                 if (!GoodsButtons.ContainsKey(settings.currencyType))
                     GoodsButtons.Add(settings.currencyType, new List<BuyButton>());
-                
-                if (settings.currencyType == CurrencyType.Boosters)
+
+                switch (settings.currencyType)
                 {
-                    var prefab = _buttonBoostersPrefab; 
-                    prefab._whatsBuySettings = settings;
-                    
-                    var button = Instantiate(prefab, _buttonBoostersContainer);
-                    button._whatsBuy.OnBuyed += item.Buyed;
-                    
-                    GoodsButtons[settings.currencyType].Add(button);
-                    // Debug.Log(button);
+                    case CurrencyType.Boosters:
+                        InstantiateBoosterButton(item, settings);
+                        break;
+                    // case CurrencyType.Skins:
+                    //     button = InstantiateBoosterButton(item, settings);
+                    //     break;
                 }
             }
         }
 
-        private void InstantiateButton()
+        private void InstantiateBoosterButton(IGoods item, CurrencyData settings)
         {
-            
+            var prefab = _buttonBoostersPrefab; 
+            _buttonBoostersPrefab.whatsBuySettings = settings;
+                    
+            var button = Instantiate(prefab, _buttonBoostersContainer);
+            button.whatsBuy.OnBuyed += item.Buyed;
+
+            GoodsButtons[settings.currencyType].Add(button);
         }
+        
+        // private void InstantiateSkinButton(IGoods item, CurrencyData settings)
+        // {
+            // var prefab = _buttonSkinsPrefab; 
+            // _buttonBoostersPrefab.whatsBuySettings = settings;
+            //         
+            // var button = Instantiate(prefab, _buttonSkinsContainer);
+            // button._whatsBuy.OnBuyed += item.Buyed;
+            //
+            // GoodsButtons[settings.currencyType].Add(button);
+        // }
 
         public void Buy(Currency whatsBuying)
         {

@@ -13,7 +13,7 @@ namespace Shop
         
         protected override void GetWhatsBuy()
         {
-            _whatsBuy = new Skins(_whatsBuySettings);
+            _whatsBuy = new Skins(whatsBuySettings);
         }
         
         protected override void Buy()
