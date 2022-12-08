@@ -7,14 +7,15 @@ namespace Currencies
         public Boosters(CurrencyData settings)
         {
             Init(settings);
-            // TODO: Get from Inventory
-            // Total = Singletons._singletons.SaveGameState.Boosters;
+
+            // Total = Singletons._singletons.SaveGameState.Boosters // Amounts saved, default to 0; Anton
         }
 
         public override void ChangeValue(int value)
         {
             base.ChangeValue(value);
-            // TODO: Add to Inventory
+
+            //Call from shop to add, call from usage to subtract
         }
         
     }
