@@ -23,7 +23,8 @@ public class EnemyTurn : Turn<Enemy>
         _slaper.UsedArmor = true;
 
         _armorButton.gameObject.SetActive(false);
-        Singletons.Instance.AdsPlaceholder.ShowAd();
+
+        //Subtract from total Armor boosters
     }
 
     private void StartQte()

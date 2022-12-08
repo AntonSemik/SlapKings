@@ -77,7 +77,8 @@ public class PlayerTurn : Turn<Player>
         _slaper._megaSlapObject.ToggleVisibility(true);
         ChangeIndicatorText(Mathf.FloorToInt(_playerStats.Damage * _slaper.DamageMultiplier));
         _megaSlap.gameObject.SetActive(false);
-        Singletons.Instance.AdsPlaceholder.ShowAd();
+
+        //Subtract from total Megaslaps
     }
 
     protected override void OnKnockedDown()

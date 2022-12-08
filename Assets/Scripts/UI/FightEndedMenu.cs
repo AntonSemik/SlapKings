@@ -17,7 +17,7 @@ public class FightEndedMenu : MonoBehaviour
     {
         _extraRewardButton.SetActive(false);
 
-        Singletons.Instance.AdsPlaceholder.ShowAd();
+        Singletons.Instance.AdsPlaceholder.ShowDemandedAd();
         Singletons.Instance.Coins.GiveReward(4);
 
         _WinMenu.SetActive(false);
@@ -29,7 +29,7 @@ public class FightEndedMenu : MonoBehaviour
     {
         _extraSlapButton.SetActive(false);
 
-        Singletons.Instance.AdsPlaceholder.ShowAd();
+        Singletons.Instance.AdsPlaceholder.ShowDemandedAd();
         Singletons.Instance.PlayerTurn.StartTurn();
         Singletons.Instance.GameStateMachine.TookExtraSlap = true;
         Singletons.Instance.GameStateMachine.Player.ResetSlaper(false); 
@@ -39,8 +39,8 @@ public class FightEndedMenu : MonoBehaviour
 
     public void NoThanks()
     {
-        Singletons.Instance.AdsPlaceholder.ShowAd();
-        
+        Singletons.Instance.AdsPlaceholder.ShowForcedAd();
+
         if (_WinMenu.activeSelf)
             Singletons.Instance.GameStateMachine.IncreaseLevel(); 
         else if (_LoseMenu.activeSelf)

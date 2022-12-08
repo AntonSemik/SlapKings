@@ -7,18 +7,23 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private GameObject _damageCost;
     [SerializeField] private GameObject _damageAd;
     [SerializeField] private GameObject _damageIcon;
+    private bool _adsDamageUpgradeAvailable = true;
     
     [SerializeField] TMP_Text _healthCostText;
     [SerializeField] TMP_Text _healthLevelText;
     [SerializeField] private GameObject _healthCost;
     [SerializeField] private GameObject _healthAd;
     [SerializeField] private GameObject _healthIcon;
-    
+    private bool _adsHealthUpgradeAvailable = true;
+
     private PlayerStats _playerStats = new PlayerStats();
 
     private void Start()
     {
         Singletons.Instance.Coins.OnChanged += OnCoinsChanged;
+        Singletons.Instance.GameStateMachine.LevelComplete += ResetAds;
+        Singletons.Instance.GameStateMachine.LevelFailed += ResetAds;
+
         UpdateUI();
     }
 
@@ -35,18 +40,49 @@ public class Upgrade : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        _playerStats.SaveHealthLevel(_playerStats.HealthLevel + 1);
+        if (IsEnough(_playerStats.HealthLevel))
+        {
+            _playerStats.SaveHealthLevel(_playerStats.HealthLevel + 1);
+            UpdateUI();
 
-        UpgrageForPriceOrAds(_playerStats.HealthLevel);
-        UpdateUI();
+            return;
+        }
+
+        if (_adsHealthUpgradeAvailable)
+        {
+            UpgrageForAd();
+            _playerStats.SaveHealthLevel(_playerStats.HealthLevel + 1);
+
+            _adsHealthUpgradeAvailable = false;
+
+            UpdateUI();
+        }
     }
 
-    private void UpgrageForPriceOrAds(int level)
+    public void UpgradeDamage()
     {
-        if (IsEnough(level))
-            Singletons.Instance.Coins.ChangeValue(-CalculateCost(level));
-        else
-            Singletons.Instance.AdsPlaceholder.ShowAd();
+        if (IsEnough(_playerStats.DamageLevel))
+        {
+            _playerStats.SaveDamageLevel(_playerStats.DamageLevel + 1);
+            UpdateUI();
+
+            return;
+        }
+
+        if (_adsDamageUpgradeAvailable)
+        {
+            UpgrageForAd();
+            _playerStats.SaveDamageLevel(_playerStats.DamageLevel + 1);
+
+            _adsDamageUpgradeAvailable = false;
+
+            UpdateUI();
+        }
+    }
+
+    private void UpgrageForAd()
+    {
+            Singletons.Instance.AdsPlaceholder.ShowDemandedAd();
     }
 
     private bool IsEnough(int value)
@@ -76,16 +112,14 @@ public class Upgrade : MonoBehaviour
         _damageIcon.SetActive(isEnough);
     }
 
-    public void UpgradeDamage()
-    {
-        _playerStats.SaveDamageLevel(_playerStats.DamageLevel + 1);
-        
-        UpgrageForPriceOrAds(_playerStats.DamageLevel);
-        UpdateUI();
-    }
-
     private int CalculateCost(int _level)
     {
         return PlayerStats.StartCost + PlayerStats.CostProgressPerLevel * _level;
+    }
+
+    private void ResetAds()
+    {
+        _adsDamageUpgradeAvailable = true;
+        _adsHealthUpgradeAvailable = true;
     }
 }
