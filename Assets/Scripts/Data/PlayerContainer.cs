@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerContainer : MonoBehaviour
 {
-    [SerializeField] private Player[] Players;
-    [SerializeField] private MegaSlapObject[] MegaSlaps;
+    public Player[] Players;
+    public MegaSlapObject[] MegaSlaps;
 
     private int SkinID => Singletons.Instance.SaveGameState._playerSkinID;
     private int SlapID => Singletons.Instance.SaveGameState._playerMegaslapSkinID;

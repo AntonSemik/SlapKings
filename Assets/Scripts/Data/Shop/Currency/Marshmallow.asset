@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Marshmallow
   icon: {fileID: 21300000, guid: 5aad0d3bb4a064c1596348980834eb05, type: 3}
-  price: 125
+  price: 5
   currencyType: 1
   buyingPerCurrency: 0
   quantityPerPrice: 1

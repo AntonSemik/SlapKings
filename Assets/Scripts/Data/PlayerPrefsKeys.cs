@@ -22,4 +22,8 @@ public static class PlayerPrefsKeys
     public const string Boosters_MegaslapKey = "Boosters_Megaslap";
     public const string Boosters_ProtectionKey = "Boosters_Protection";
 
+    public const string PlayerSkinStringID = "PlayerSkinStringID";
+    public const string PlayerMegaslapStringID = "PlayerMegaslapStringID";
+    public const string SkinsJsonKey = "SkinsJson";
+    public const string BostersJsonKey = "BostersJson";
 }

@@ -10,7 +10,7 @@ namespace Shop
     [RequireComponent(typeof(Button))]
     public class BuyButton : MonoBehaviour
     {
-        [SerializeField] protected CurrencyData _whatsBuySettings;
+        public CurrencyData whatsBuySettings;
         [SerializeField] private TMP_Text _title;
         [SerializeField] private Image _icon;
         [SerializeField] private Image _coin;
@@ -24,17 +24,17 @@ namespace Shop
             _button = GetComponent<Button>();
             _button.onClick.AddListener(Buy);
             
-            _title.text = _whatsBuySettings.title;
-            _price.text = _whatsBuySettings.price.ToString();
-            _icon.sprite = _whatsBuySettings.icon;
-            _coin.sprite = Singletons.Instance.CurrencyManager[_whatsBuySettings.buyingPerCurrency].Settings.icon;
+            _title.text = whatsBuySettings.title;
+            _price.text = whatsBuySettings.price.ToString();
+            _icon.sprite = whatsBuySettings.icon;
+            _coin.sprite = Singletons.Instance.CurrencyManager[whatsBuySettings.buyingPerCurrency].Settings.icon;
             
             GetWhatsBuy();
         }
 
         protected virtual void GetWhatsBuy()
         {
-            _whatsBuy = Singletons.Instance.CurrencyManager[_whatsBuySettings.currencyType];
+            _whatsBuy = Singletons.Instance.CurrencyManager[whatsBuySettings.currencyType];
         }
 
         protected virtual void Buy()
