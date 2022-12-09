@@ -41,7 +41,21 @@ public class SaveGameState : MonoBehaviour
         set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
     }
 
+    public int Booster_Megaslap
+    {
+        get { return PlayerPrefs.GetInt(PlayerPrefsKeys.Boosters_MegaslapKey, 0); }
+        set { PlayerPrefs.SetInt(PlayerPrefsKeys.Boosters_MegaslapKey, value); }
+    }
+
+    public int Booster_Protection
+    {
+        get { return PlayerPrefs.GetInt(PlayerPrefsKeys.Boosters_ProtectionKey, 0); }
+        set { PlayerPrefs.SetInt(PlayerPrefsKeys.Boosters_ProtectionKey, value); }
+    }
+
+    //=====================
     //Save and load methods
+    //=====================
     public void SaveInt(string key, int value)
     {
         PlayerPrefs.SetInt(key, value);

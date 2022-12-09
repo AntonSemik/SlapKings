@@ -4,16 +4,44 @@ using System.Collections;
 public class EnemyTurn : Turn<Enemy>
 {
     [SerializeField] private GameObject _armorButton;
+    [SerializeField] private GameObject _qtePanel;
 
     protected override Enemy _slaper => _fightState.Enemy;
+
+    private void Awake()
+    {
+        Singletons.Instance.AdsPlaceholder.AdsClose += StartQte;
+    }
+
+    private void OnDisable()
+    {
+        Singletons.Instance.AdsPlaceholder.AdsClose -= StartQte;
+    }
 
     public void SetArmor()
     {
         _slaper.UsedArmor = true;
 
-        _fightState.Player.SetDamageDivider(Player.HalfProtection);
         _armorButton.gameObject.SetActive(false);
-        Singletons.Instance.AdsPlaceholder.ShowAd();
+
+        //Subtract from total Armor boosters
+    }
+
+    private void StartQte()
+    {
+        if (!_slaper.UsedArmor)
+            return;
+
+        _qtePanel.SetActive(true);
+        Time.timeScale = 0.1f;
+        StartCoroutine(QteDelay(0.2f));
+    }
+
+    private void GetQteRewards()
+    {
+        var qte = _qtePanel.GetComponent<QtePanel>();
+        _fightState.Player.SetNewDamageDivider(qte._shieldsCollected);
+        Singletons.Instance.Coins.ChangeValue(qte._coinsCollected * 10);
     }
 
     public override void StartTurn()
@@ -21,7 +49,7 @@ public class EnemyTurn : Turn<Enemy>
         if (!_slaper.UsedArmor) _armorButton.SetActive(true);
         _fightState.CameraMover.LookAtEnemy();
 
-        if(_slaper.CurrentHealth <= 0)
+        if (_slaper.CurrentHealth <= 0)
             return;
         StartCoroutine(SlapWithDelay(0.5f));
         StartCoroutine(EndTurnWithDelay(2f));
@@ -49,7 +77,7 @@ public class EnemyTurn : Turn<Enemy>
     }
 
     protected override IEnumerator EndTurnWithDelay(float seconds)
-    {        
+    {
         yield return new WaitForSeconds(seconds);
         _fightState.StartPlayerTurn();
     }
@@ -62,10 +90,18 @@ public class EnemyTurn : Turn<Enemy>
 
         _fightState.StateMachine.InvokeLevelComplete();
     }
+
     private IEnumerator SlapWithDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         _slaper.Slap();
     }
 
+    private IEnumerator QteDelay(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Time.timeScale = 1;
+        _qtePanel.SetActive(false);
+        GetQteRewards();
+    }
 }

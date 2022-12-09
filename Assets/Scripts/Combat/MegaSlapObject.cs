@@ -44,6 +44,6 @@ public class MegaSlapObject : MonoBehaviour
 
     public void OnMegaHit()
     {
-        OnHitVFX.Play();
+        OnHitVFX?.Play();
     }
 }

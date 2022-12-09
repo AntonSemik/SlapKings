@@ -18,4 +18,8 @@ public static class PlayerPrefsKeys
 
     public const string ThemeUI = "ThemeUI";
     public const string MarshmallowsKey = "Marshmallows";
+
+    public const string Boosters_MegaslapKey = "Boosters_Megaslap";
+    public const string Boosters_ProtectionKey = "Boosters_Protection";
+
 }

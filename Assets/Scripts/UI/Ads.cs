@@ -4,30 +4,36 @@ using UnityEngine;
 public class Ads : MonoBehaviour
 {
     [SerializeField] GameObject _payment;
-    [SerializeField] bool _adsActive = true;
+    [SerializeField] bool _ForcedAdsActive = true;
     [SerializeField] GameObject _placeholderAd;
     public event Action AdsOpen; 
     public event Action AdsClose; 
 
     private void Start()
     {
-        _adsActive = Singletons.Instance.SaveGameState._adsActive;
+        _ForcedAdsActive = Singletons.Instance.SaveGameState._adsActive;
     }
 
-    public void NoMoreAds()
+    public void DisableForcedAds()
     {
         _payment.SetActive(true);
-        _adsActive = false;
-        Singletons.Instance.SaveGameState.SaveBool(PlayerPrefsKeys.AdsActiveKey, _adsActive);
+        _ForcedAdsActive = false;
+        Singletons.Instance.SaveGameState.SaveBool(PlayerPrefsKeys.AdsActiveKey, _ForcedAdsActive);
     }
 
-    public void ShowAd()
+    public void ShowForcedAd()
     {
-        if (_adsActive)
+        if (_ForcedAdsActive)
         {
             _placeholderAd.SetActive(true);
             AdsOpen?.Invoke();
         }
+    }
+
+    public void ShowDemandedAd()
+    {
+        _placeholderAd.SetActive(true);
+        AdsOpen?.Invoke();
     }
 
     public void CloseAd()

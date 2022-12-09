@@ -31,10 +31,17 @@ public class Player : Slaper
     public void SetNewMegaSlap(MegaSlapObject newSlap)
     {
         newSlap.transform.parent = MegaSlapBone;
+
         newSlap.transform.localPosition = new Vector3(0, 0, 0);
         newSlap.transform.localEulerAngles = new Vector3(0, 0, 0);
         newSlap.transform.localScale = new Vector3(1, 1, 1);
 
         _megaSlapObject = newSlap;
+    }
+
+    public void SetNewDamageDivider (int bonusDefenceCollected)
+    {
+        float basicDamageDivider = 1.5f;
+        DamageDivider = basicDamageDivider + (bonusDefenceCollected * 0.25f);
     }
 }
