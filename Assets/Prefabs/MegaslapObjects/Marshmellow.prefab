@@ -19403,6 +19403,7 @@ MonoBehaviour:
   OnChargeVFX: []
   OnHitVFX: {fileID: 1455594493766616742}
   VisibleModelOrigin: {fileID: 1907302140784454648}
+  _settingsForShop: {fileID: 11400000, guid: fa48114a41209814bac150b0f631de2b, type: 2}
 --- !u!1001 &5711096988289263644
 PrefabInstance:
   m_ObjectHideFlags: 0

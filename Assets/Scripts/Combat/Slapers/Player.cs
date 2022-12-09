@@ -48,9 +48,9 @@ public class Player : Slaper, IGoods
         Debug.Log("Buyed " + goodsTitle);
 
         // Save skins count
-        SaveObject savedSkins = Singletons._singletons.SaveGameState.GetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle);
+        SaveObject savedSkins = Singletons.Instance.SaveGameState.GetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle);
         savedSkins.count++;
-        Singletons._singletons.SaveGameState.SetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle, savedSkins.count);
+        Singletons.Instance.SaveGameState.SetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle, savedSkins.count);
         // Or save buyed title as key
         PlayerPrefs.SetString(PlayerPrefsKeys.PlayerSkinStringID, goodsTitle);
     }

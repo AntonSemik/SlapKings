@@ -89,7 +89,7 @@ public class SaveGameState : MonoBehaviour
      */
     public SaveObject GetJsonValue(string jsonKey, string dataTitle)
     {
-        var save = Singletons._singletons.SaveGameState.LoadFromJson(jsonKey);
+        var save = Singletons.Instance.SaveGameState.LoadFromJson(jsonKey);
         SaveObject saveData = new SaveObject(dataTitle);
         
         foreach (var saveObject in save.data)
@@ -106,7 +106,7 @@ public class SaveGameState : MonoBehaviour
     
     public void SetJsonValue(string jsonKey, string dataTitle, int dataCount)
     {
-        var save = Singletons._singletons.SaveGameState.LoadFromJson(jsonKey);
+        var save = Singletons.Instance.SaveGameState.LoadFromJson(jsonKey);
         bool isContains = false;
         
         foreach (var saveObject in save.data)
@@ -126,7 +126,7 @@ public class SaveGameState : MonoBehaviour
             save.data.Add(saveObject);
         }
   
-        Singletons._singletons.SaveGameState.SaveToJson(jsonKey, save);
+        Singletons.Instance.SaveGameState.SaveToJson(jsonKey, save);
     }
     
     public void SaveToJson(string key, Save save)

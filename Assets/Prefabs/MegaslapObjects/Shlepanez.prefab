@@ -84,6 +84,7 @@ MonoBehaviour:
   OnChargeVFX: []
   OnHitVFX: {fileID: 2881730221862858877}
   VisibleModelOrigin: {fileID: 174257550686112602}
+  _settingsForShop: {fileID: 11400000, guid: 80d020dd897f77040b203d89805ccfd3, type: 2}
 --- !u!1 &6625042117864133218
 GameObject:
   m_ObjectHideFlags: 0
