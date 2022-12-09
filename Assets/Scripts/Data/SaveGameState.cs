@@ -2,6 +2,7 @@ using Currencies;
 using UI;
 using UnityEngine;
 using System.Collections.Generic;
+using Data.Shop;
 
 public class SaveGameState : MonoBehaviour
 {
@@ -69,5 +70,69 @@ public class SaveGameState : MonoBehaviour
     public bool LoadBool(string key)
     {
         return PlayerPrefs.GetInt(key) != 0;
+    }
+
+    public Save LoadFromJson(string key)
+    {
+        if (!PlayerPrefs.HasKey(key))
+        {
+            var save = new Save();
+            return save;
+        }
+        return JsonUtility.FromJson<Save>(PlayerPrefs.GetString(key));
+    }
+
+    /*
+     * jsonKey - PlayerPrefs key, for example: Boosters, Skins
+     * dataTitle - IGoods -> MegaSlapObject.GetSettingsForShop().title
+     *                    -> Player.GetSettingsForShop().title
+     */
+    public SaveObject GetJsonValue(string jsonKey, string dataTitle)
+    {
+        var save = Singletons.Instance.SaveGameState.LoadFromJson(jsonKey);
+        SaveObject saveData = new SaveObject(dataTitle);
+        
+        foreach (var saveObject in save.data)
+        {
+            if (saveObject.title == dataTitle)
+            {
+                saveData = saveObject;
+                break;
+            }
+        }
+
+        return saveData;
+    }
+    
+    public void SetJsonValue(string jsonKey, string dataTitle, int dataCount)
+    {
+        var save = Singletons.Instance.SaveGameState.LoadFromJson(jsonKey);
+        bool isContains = false;
+        
+        foreach (var saveObject in save.data)
+        {
+            if (saveObject.title == dataTitle)
+            {
+                isContains = true;
+                saveObject.count = dataCount;
+                break;
+            }
+        }
+        
+        if (!isContains)
+        {
+            SaveObject saveObject = new SaveObject(dataTitle);
+            saveObject.count = dataCount;
+            save.data.Add(saveObject);
+        }
+  
+        Singletons.Instance.SaveGameState.SaveToJson(jsonKey, save);
+    }
+    
+    public void SaveToJson(string key, Save save)
+    {
+        string json = JsonUtility.ToJson(save);
+        PlayerPrefs.SetString(key, json);
+        Debug.Log(json);
     }
 }

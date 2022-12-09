@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -15.5, y: -11}
+  m_AnchoredPosition: {x: -15.500061, y: -11}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &547555642
@@ -481,7 +481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -107.99998}
+  m_AnchoredPosition: {x: 20.000061, y: -107.99998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1203007499081067737
@@ -527,7 +527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -107.99998}
+  m_AnchoredPosition: {x: 20.000061, y: -107.99998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7616689520365676170
@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -15.5, y: -108}
+  m_AnchoredPosition: {x: -15.500061, y: -108}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &483314630269988254
@@ -619,7 +619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: 0}
+  m_AnchoredPosition: {x: 20.000061, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1324826336481919863
@@ -3339,6 +3339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QtePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 1159632922267257795, guid: e905ea6e08244484683a52cb82d6461c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e905ea6e08244484683a52cb82d6461c, type: 3}
 --- !u!224 &912430759595625125 stripped
@@ -3574,37 +3578,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2275899298015914551, guid: 434eacf2e52c84a0fb053647dda86b55, type: 3}
   m_PrefabInstance: {fileID: 2988831539875940363}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8071294659730173207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6447054365335446812, guid: 434eacf2e52c84a0fb053647dda86b55, type: 3}
-  m_PrefabInstance: {fileID: 2988831539875940363}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &329542790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8071294659730173207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites: []
---- !u!114 &1009251170095329412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8071294659730173207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites: []
 --- !u!1001 &3157443065431290673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,25 +3680,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1159632922267257794, guid: 10fbe3a2fbf6e3343a92c0e06cff2d0b, type: 3}
   m_PrefabInstance: {fileID: 3157443065431290673}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4610490606269062529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1453182162864713392, guid: 10fbe3a2fbf6e3343a92c0e06cff2d0b, type: 3}
-  m_PrefabInstance: {fileID: 3157443065431290673}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1726396805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4610490606269062529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: 21300000, guid: 0f4da948c800e41b384611cda144a60b, type: 3}
 --- !u!1001 &4910865330225822376
 PrefabInstance:
   m_ObjectHideFlags: 0

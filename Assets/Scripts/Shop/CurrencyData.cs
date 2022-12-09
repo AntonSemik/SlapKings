@@ -12,6 +12,5 @@ namespace Shop
         public CurrencyType currencyType;
         public CurrencyType buyingPerCurrency;
         public int quantityPerPrice = 1;
-        public GameObject prefab;
     }
 }
