@@ -77,6 +77,7 @@ public class SaveGameState : MonoBehaviour
     /*
      * jsonKey - PlayerPrefs key, for example: Boosters, Skins
      * dataTitle - IGoods -> MegaSlapObject.GetSettingsForShop().title
+     *                    -> Player.GetSettingsForShop().title
      */
     public SaveObject GetJsonValue(string jsonKey, string dataTitle)
     {
@@ -122,7 +123,8 @@ public class SaveGameState : MonoBehaviour
     
     public void SaveToJson(string key, Save save)
     {
-        PlayerPrefs.SetString(key, JsonUtility.ToJson(save));
-        // Debug.Log(JsonUtility.ToJson(save));
+        string json = JsonUtility.ToJson(save);
+        PlayerPrefs.SetString(key, json);
+        Debug.Log(json);
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Shop;
+using Data.Shop;
 using UnityEngine;
+
 public class Player : Slaper, IGoods
 {
     [SerializeField] private Transform MegaSlapBone;
@@ -8,32 +10,43 @@ public class Player : Slaper, IGoods
     public MegaSlapObject _megaSlapObject;
 
     private PlayerStats _playerStats = new PlayerStats();
-    public override int Damage => (int)(_playerStats.Damage);
-    public override int MaxHealth => (int)(_playerStats.Health);
+    public override int Damage => (int) (_playerStats.Damage);
+    public override int MaxHealth => (int) (_playerStats.Health);
     public float MegaslapTime => _megaSlapObject.MegaslapDuration;
     public float DamageMultiplier => _megaSlapObject.DamageFactor;
 
-    [HideInInspector]public bool UsedMegaSlap = false;
+    [HideInInspector] public bool UsedMegaSlap = false;
 
     public const string DefaultValue = "single"; //Heresy.
     public const string HalfProtection = "Division by 2";
 
-    public float DamageDivider { get =>_damageDivider; private set => _damageDivider = value; }
+    public float DamageDivider
+    {
+        get => _damageDivider;
+        private set => _damageDivider = value;
+    }
+
     private float _damageDivider = 1;
+
     private Dictionary<string, float> _multiplier = new Dictionary<string, float>()
     {
-        {DefaultValue, 1 },
+        {DefaultValue, 1},
         {HalfProtection, 2f}
     };
-    
+
     // for shop
     [SerializeField] private CurrencyData _settingsForShop;
     [SerializeField] private bool isUnlockedByDefault;
     public CurrencyData GetSettingsForShop() => _settingsForShop;
     public bool IsUnlockedByDefault() => isUnlockedByDefault;
+
     public void Buyed(string goodsTitle)
     {
         Debug.Log("Buyed " + goodsTitle);
+
+        SaveObject savedSkins = Singletons._singletons.SaveGameState.GetJsonValue("Skins", goodsTitle);
+        savedSkins.count++;
+        Singletons._singletons.SaveGameState.SetJsonValue("Skins", goodsTitle, savedSkins.count);
     }
     //
 

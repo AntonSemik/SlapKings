@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4df8969c294baf920a2a2478363e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _whatsBuySettings: {fileID: 0}
+  whatsBuySettings: {fileID: 11400000, guid: d6ac0a074bf2cf7448fe2fc6d57c059b, type: 2}
   _title: {fileID: 3841566568797865283}
   _icon: {fileID: 3841566567401261802}
   _coin: {fileID: 3841566567519012614}

@@ -22,7 +22,7 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     [SerializeField] private ParticleSystem[] OnChargeVFX;
     [SerializeField] private ParticleSystem OnHitVFX;
     [SerializeField] private GameObject VisibleModelOrigin;
-    
+
     // for shop
     [SerializeField] private CurrencyData _settingsForShop;
     public CurrencyData GetSettingsForShop() => _settingsForShop;
@@ -32,9 +32,9 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     {
         Debug.Log("Buyed " + goodsTitle);
 
-        SaveObject saveObject = Singletons._singletons.SaveGameState.GetJsonValue("Boosters", goodsTitle);
-        saveObject.count++;
-        Singletons._singletons.SaveGameState.SetJsonValue("Boosters", goodsTitle, saveObject.count);
+        SaveObject savedBoosters = Singletons._singletons.SaveGameState.GetJsonValue("Boosters", goodsTitle);
+        savedBoosters.count++;
+        Singletons._singletons.SaveGameState.SetJsonValue("Boosters", goodsTitle, savedBoosters.count);
 
         OnUnlock();
     }

@@ -9,16 +9,16 @@ namespace Shop
     [RequireComponent(typeof(Button))]
     public class BuySkinButton : BuyButton
     {
-        private Skins _whatsBuy;
+        public Skins whatsBuy;
         
         protected override void GetWhatsBuy()
         {
-            _whatsBuy = new Skins(whatsBuySettings);
+            whatsBuy = new Skins(whatsBuySettings);
         }
         
         protected override void Buy()
         {
-            Singletons._singletons.Shop.Buy(_whatsBuy);
+            Singletons._singletons.Shop.Buy(whatsBuy);
         }
         
     }

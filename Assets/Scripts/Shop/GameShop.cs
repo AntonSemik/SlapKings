@@ -30,9 +30,9 @@ namespace Shop
                     case CurrencyType.Boosters:
                         InstantiateBoosterButton(item, settings);
                         break;
-                    // case CurrencyType.Skins:
-                    //     button = InstantiateBoosterButton(item, settings);
-                    //     break;
+                    case CurrencyType.Skins:
+                        InstantiateSkinButton(item, settings);
+                        break;
                 }
             }
         }
@@ -48,16 +48,16 @@ namespace Shop
             GoodsButtons[settings.currencyType].Add(button);
         }
         
-        // private void InstantiateSkinButton(IGoods item, CurrencyData settings)
-        // {
-            // var prefab = _buttonSkinsPrefab; 
-            // _buttonBoostersPrefab.whatsBuySettings = settings;
-            //         
-            // var button = Instantiate(prefab, _buttonSkinsContainer);
-            // button._whatsBuy.OnBuyed += item.Buyed;
-            //
-            // GoodsButtons[settings.currencyType].Add(button);
-        // }
+        private void InstantiateSkinButton(IGoods item, CurrencyData settings)
+        {
+            var prefab = _buttonSkinsPrefab; 
+            _buttonSkinsPrefab.whatsBuySettings = settings;
+                    
+            var button = Instantiate(prefab, _buttonSkinsContainer);
+            button.whatsBuy.OnBuyed += item.Buyed;
+            
+            GoodsButtons[settings.currencyType].Add(button);
+        }
 
         public void Buy(Currency whatsBuying)
         {

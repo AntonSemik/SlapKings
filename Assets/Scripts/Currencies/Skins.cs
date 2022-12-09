@@ -1,9 +1,12 @@
 using Shop;
+using System;
 
 namespace Currencies
 {
     public class Skins : Currency
     {
+        public event Action<string> OnBuyed;
+
         public Skins(CurrencyData settings)
         {
             Init(settings);
@@ -14,8 +17,7 @@ namespace Currencies
         public override void ChangeValue(int value)
         {
             base.ChangeValue(value);
-            // TODO: Add to Inventory
+            OnBuyed?.Invoke(Settings.title);
         }
-        
     }
 }
