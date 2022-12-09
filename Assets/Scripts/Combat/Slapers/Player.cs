@@ -40,13 +40,19 @@ public class Player : Slaper, IGoods
     public CurrencyData GetSettingsForShop() => _settingsForShop;
     public bool IsUnlockedByDefault() => isUnlockedByDefault;
 
+    /*
+     * Method subscribed on event when object buyed into Shop
+     */
     public void Buyed(string goodsTitle)
     {
         Debug.Log("Buyed " + goodsTitle);
 
-        SaveObject savedSkins = Singletons._singletons.SaveGameState.GetJsonValue("Skins", goodsTitle);
+        // Save skins count
+        SaveObject savedSkins = Singletons._singletons.SaveGameState.GetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle);
         savedSkins.count++;
-        Singletons._singletons.SaveGameState.SetJsonValue("Skins", goodsTitle, savedSkins.count);
+        Singletons._singletons.SaveGameState.SetJsonValue(PlayerPrefsKeys.SkinsJsonKey, goodsTitle, savedSkins.count);
+        // Or save buyed title as key
+        PlayerPrefs.SetString(PlayerPrefsKeys.PlayerSkinStringID, goodsTitle);
     }
     //
 

@@ -37,7 +37,6 @@ public class Singletons : MonoBehaviour
 
     private void InitShop()
     {
-        // Shop = new GameShop();
         Shop.InitGoods(_playerContainer.MegaSlaps);
         Shop.InitGoods(_playerContainer.Players);
     }

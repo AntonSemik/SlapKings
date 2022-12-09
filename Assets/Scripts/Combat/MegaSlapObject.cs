@@ -28,13 +28,19 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     public CurrencyData GetSettingsForShop() => _settingsForShop;
     public bool IsUnlockedByDefault() => isUnlockedByDefault;
 
+    /*
+     * Method subscribed on event when object buyed into Shop
+     */
     public void Buyed(string goodsTitle)
     {
         Debug.Log("Buyed " + goodsTitle);
 
-        SaveObject savedBoosters = Singletons._singletons.SaveGameState.GetJsonValue("Boosters", goodsTitle);
+        // Save Boosters count
+        SaveObject savedBoosters = Singletons._singletons.SaveGameState.GetJsonValue(PlayerPrefsKeys.BostersJsonKey, goodsTitle);
         savedBoosters.count++;
-        Singletons._singletons.SaveGameState.SetJsonValue("Boosters", goodsTitle, savedBoosters.count);
+        Singletons._singletons.SaveGameState.SetJsonValue(PlayerPrefsKeys.BostersJsonKey, goodsTitle, savedBoosters.count);
+        // Or save buyed title as key
+        PlayerPrefs.SetString(PlayerPrefsKeys.PlayerMegaslapStringID, goodsTitle);
 
         OnUnlock();
     }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1109025679886803587}
   - component: {fileID: 3685923641317666888}
   - component: {fileID: 1358868057778620130}
+  - component: {fileID: 329542790}
+  - component: {fileID: 1009251170095329412}
   m_Layer: 5
   m_Name: NoAdsButton
   m_TagString: Untagged
@@ -134,6 +136,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &329542790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447054365335446812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites: []
+--- !u!114 &1009251170095329412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447054365335446812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites: []
 --- !u!1 &7616768460146673837
 GameObject:
   m_ObjectHideFlags: 0

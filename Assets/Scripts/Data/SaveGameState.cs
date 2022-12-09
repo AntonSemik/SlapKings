@@ -41,12 +41,6 @@ public class SaveGameState : MonoBehaviour
         get { return PlayerPrefs.GetInt(PlayerPrefsKeys.MarshmallowsKey, 0); }
         set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, value); }
     }
-    
-    // public string Boosters
-    // {
-    //     get { return PlayerPrefs.GetInt(PlayerPrefsKeys.MarshmallowsKey, 0); }
-    //     set { PlayerPrefs.SetInt(PlayerPrefsKeys.MarshmallowsKey, dataTitle); }
-    // }
 
     //Save and load methods
     public void SaveInt(string key, int value)
