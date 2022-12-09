@@ -8,7 +8,7 @@ public class EnemyTurn : Turn<Enemy>
 
     protected override Enemy _slaper => _fightState.Enemy;
 
-    private void Awake()
+    private void OnEnable()
     {
         Singletons.Instance.AdsPlaceholder.AdsClose += StartQte;
     }
@@ -20,9 +20,10 @@ public class EnemyTurn : Turn<Enemy>
 
     public void SetArmor()
     {
-        _slaper.UsedArmor = true;
-
-        _armorButton.gameObject.SetActive(false);
+       _slaper.UsedArmor = true;
+       _armorButton.gameObject.SetActive(false);
+       
+        Singletons.Instance.AdsPlaceholder.ShowForcedAd();
 
         //Subtract from total Armor boosters
     }

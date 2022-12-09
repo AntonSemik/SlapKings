@@ -17,11 +17,6 @@ public class QtePanel : MonoBehaviour
         ResetRewards();
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     private void InitializeButtonsGrid()
     {
         int arrayIndex = 0;
