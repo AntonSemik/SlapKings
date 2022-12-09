@@ -30,6 +30,7 @@ public class MegaSlapObject : MonoBehaviour, IGoods
 
     /*
      * Method subscribed on event when object buyed into Shop
+     * goodsTitle - _settingsForShop.title on current prefab
      */
     public void Buyed(string goodsTitle)
     {
