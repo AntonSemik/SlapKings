@@ -9,12 +9,16 @@ public class EnemyTurn : Turn<Enemy>
     protected override Enemy _slaper => _fightState.Enemy;
 
     private void OnEnable()
-    {
+    {  
+        if(this.GetType() == typeof(BonusEnemyTurn))
+            return;
         Singletons.Instance.AdsPlaceholder.AdsClose += StartQte;
     }
 
     private void OnDisable()
-    {
+    {   
+        if(this.GetType() == typeof(BonusEnemyTurn))
+            return;
         Singletons.Instance.AdsPlaceholder.AdsClose -= StartQte;
     }
 
@@ -29,7 +33,7 @@ public class EnemyTurn : Turn<Enemy>
     }
 
     private void StartQte()
-    {
+    {   
         if (!_slaper.UsedArmor)
             return;
 
