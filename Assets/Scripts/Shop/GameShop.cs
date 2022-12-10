@@ -18,7 +18,6 @@ namespace Shop
         {
             foreach (var item in goods)
             {
-                if (item.IsUnlockedByDefault()) continue;
                 
                 var settings = item.GetSettingsForShop();
 
