@@ -30,7 +30,7 @@ public class Singletons : MonoBehaviour
         Instance = this;
 
         InitCurrencies();
-        InitShop();
+        //InitShop();
 
         // PlayerPrefs.DeleteAll();
         // PREVIOUS LINE IS APOCALIPTICALLY DANGEROUS WTF c. Anton
