@@ -36,6 +36,7 @@ public class PlayerTurn : Turn<Player>
             _indicator.SetDamageText(((int)(_megaSlapTapCounter * _slaper.DamageMultiplier * _slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent))).ToString());
 
             _megaSlapTapCounter++;
+            Singletons.Instance.HitComboIndicator.SetCounter(_megaSlapTapCounter);
         }
     }
 
@@ -70,6 +71,9 @@ public class PlayerTurn : Turn<Player>
 
     public void MegaSlap()
     {
+        //Subtract from total Megaslaps
+
+
         _isMegaslapping = true;
         _slaper.UsedMegaSlap = true;
 
@@ -78,7 +82,8 @@ public class PlayerTurn : Turn<Player>
         ChangeIndicatorText(Mathf.FloorToInt(_playerStats.Damage * _slaper.DamageMultiplier));
         _megaSlap.gameObject.SetActive(false);
 
-        //Subtract from total Megaslaps
+        Singletons.Instance.HitComboIndicator.ToggleCounter(true);
+        Singletons.Instance.HitComboIndicator.SetCounter(0);
     }
 
     protected override void OnKnockedDown()
@@ -88,6 +93,7 @@ public class PlayerTurn : Turn<Player>
     protected override IEnumerator EndTurnWithDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        Singletons.Instance.HitComboIndicator.ToggleCounter(false);
         _fightState.StartEnemyTurn();
     }
     protected override void OnSlapedOpponent()
@@ -104,8 +110,10 @@ public class PlayerTurn : Turn<Player>
         }
 
         if (!_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
-        if (_isMegaslapping) _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * _megaSlapTapCounter * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
-
+        if (_isMegaslapping)
+        {
+            _fightState.Enemy.ReceiveDamage((int)(_slaper.Damage * _slaper.DamageMultiplier * _megaSlapTapCounter * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent)));
+        }
         _isMegaslapping = false;
     }
 

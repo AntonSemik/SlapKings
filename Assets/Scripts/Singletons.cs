@@ -8,15 +8,20 @@ public class Singletons : MonoBehaviour
 {
     public static Singletons Instance;
     
+    [Header("Economy")]
     public Coins Coins;
     public Marshmallows Marshmallows;
     public Dictionary<CurrencyType, Currency> CurrencyManager = new Dictionary<CurrencyType, Currency>();
     public GameShop Shop;
-    public SaveGameState SaveGameState;
     public Ads AdsPlaceholder;
+    [Header("Data")]
+    public SaveGameState SaveGameState;
     public LevelParameters LevelParameters;
+    [Header("UI")]
     public Indicator Indicator;
+    public HitComboIndicator HitComboIndicator;
     public UI.HealthPanelAnimator HealthPanelAnimator;
+    [Header("Combat")]
     public GameStateMachine GameStateMachine;
     public PlayerTurn PlayerTurn;
     public ThemeManager ThemeManager;
