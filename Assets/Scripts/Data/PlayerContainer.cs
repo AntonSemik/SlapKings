@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerContainer : MonoBehaviour
 {
+    [SerializeField] private ChangeSkinOnPlayer _changeSkinsUI;
+    
     public Player[] Players;
     public MegaSlapObject[] MegaSlaps;
 
@@ -14,11 +16,14 @@ public class PlayerContainer : MonoBehaviour
     {
         SetNewPlayer(SkinID);
         SetNewMegaslap(SlapID);
+        
+        _changeSkinsUI.OnChangeSkin += SetNewPlayer;
     }
 
     public void SetNewPlayer(int NewID)
     {
-        Players[0]?.gameObject.SetActive(false);
+        foreach (var player in Players)
+            player?.gameObject.SetActive(false);
 
 
         Singletons.Instance.GameStateMachine.Player = Players[NewID];
@@ -28,5 +33,10 @@ public class PlayerContainer : MonoBehaviour
     public void SetNewMegaslap(int NewID)
     {
         Players[SkinID].SetNewMegaSlap(MegaSlaps[NewID]);
+    }
+    
+    private void OnDestroy()
+    {
+        _changeSkinsUI.OnChangeSkin -= SetNewPlayer;
     }
 }
