@@ -819,7 +819,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000040512532, y: 0.2250311, z: 0.000000052154064}
+  m_ConnectedAnchor: {x: -0.00000008614734, y: 0.22503112, z: 0.000000052154064}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -1002,6 +1002,7 @@ MonoBehaviour:
   _animator: {fileID: 5029744787524642969}
   _avatar: {fileID: 21300000, guid: 3d2310a7f7a27904a848a515dcca4b75, type: 3}
   NormalSlapHitEffect: {fileID: 1960533827211621885}
+  Type: 0
   ExplosionVFX: {fileID: 0}
   UsedArmor: 0
 --- !u!1 &404223548875059091
@@ -2133,7 +2134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7381135319316057750}
   m_Layer: 0
-  m_Name: hippie
+  m_Name: Hamster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3803,7 +3804,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000106636435, y: 0.22502239, z: -0.000000026077032}
+  m_ConnectedAnchor: {x: 0.000000027474016, y: 0.22502239, z: -0.000000026077032}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -5697,6 +5698,7 @@ MonoBehaviour:
   _animator: {fileID: 4144515647714443105}
   _avatar: {fileID: 21300000, guid: f96abdd76b59b424fb460b0b32f1fd85, type: 3}
   NormalSlapHitEffect: {fileID: 0}
+  Type: 0
   ExplosionVFX: {fileID: 1737425507006347270}
   UsedArmor: 0
   Rotator: {fileID: 6938574192877191764}
@@ -6409,7 +6411,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.17440742, y: 0.20538014, z: -0.0039777104}
+  m_ConnectedAnchor: {x: -0.17440742, y: 0.20538014, z: -0.0039777253}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -6624,6 +6626,7 @@ MonoBehaviour:
   _animator: {fileID: 8389198359587090331}
   _avatar: {fileID: 21300000, guid: f4456ca1ff84c424c8e9a24467be5c3e, type: 3}
   NormalSlapHitEffect: {fileID: 0}
+  Type: 0
   ExplosionVFX: {fileID: 0}
   UsedArmor: 0
 --- !u!1 &2850550173620307134
@@ -7265,7 +7268,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.17440686, y: 0.20533031, z: -0.0033048575}
+  m_ConnectedAnchor: {x: 0.17440686, y: 0.20533031, z: -0.0033049171}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -8715,7 +8718,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000023748726, y: 0.43563327, z: 0.000000024680048}
+  m_ConnectedAnchor: {x: -0.000000016065314, y: 0.43563327, z: -0.000000005122274}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -9748,7 +9751,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000017462298, y: 0.4356322, z: 0.000000009778887}
+  m_ConnectedAnchor: {x: 0.000000017462298, y: 0.4356322, z: -0.000000049825758}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -11053,11 +11056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _surroundings: {fileID: 4759317754666060632}
-  _characters:
-  - {fileID: 8403108874382833984}
-  - {fileID: 7685357252785050318}
-  - {fileID: 5854590371946567666}
-  _bonusLevelEnemy: {fileID: 269464270489114621}
+  _enemies: []
 --- !u!1 &4759317754666060632
 GameObject:
   m_ObjectHideFlags: 0
@@ -12617,7 +12616,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.08589366, y: -0.05019175, z: 0.00013625862}
+  m_ConnectedAnchor: {x: -0.08589367, y: -0.05019175, z: 0.00013610961}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -13237,7 +13236,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 787403798921188326, guid: 89096694f8236fd4295a87c2e5a2dee7, type: 3}
+  - {fileID: 2100000, guid: 1c9e2714022674e4baa5b08f0bd6770d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13262,7 +13261,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8190787177562669610, guid: 89096694f8236fd4295a87c2e5a2dee7, type: 3}
+  m_Mesh: {fileID: -4502491809231258111, guid: 0a828440127f2f04886855b6ae2be1c9, type: 3}
   m_Bones:
   - {fileID: 6350168385091132717}
   - {fileID: 7384410092605027330}
@@ -16638,7 +16637,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.08589366, y: -0.05019177, z: 0.0019421971}
+  m_ConnectedAnchor: {x: 0.08589366, y: -0.05019177, z: 0.0019420481}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -18537,7 +18536,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.297441e-10, y: 0.33769616, z: 0.02813937}
+  m_ConnectedAnchor: {x: -0.000000006089514, y: 0.33769616, z: 0.028139312}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -20379,7 +20378,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00001676863, y: 0.19572625, z: -0.0139094945}
+  m_ConnectedAnchor: {x: -0.000016774218, y: 0.19572625, z: -0.013909493}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -20792,6 +20791,7 @@ MonoBehaviour:
   _animator: {fileID: 5621672554255596669}
   _avatar: {fileID: 21300000, guid: a2b25ea6e75534e40b9e3c2d0e49d3ab, type: 3}
   NormalSlapHitEffect: {fileID: 0}
+  Type: 0
   ExplosionVFX: {fileID: 0}
   UsedArmor: 0
 --- !u!1 &9077773185288043156

@@ -9391,8 +9391,6 @@ MonoBehaviour:
   Type: 2
   ExplosionVFX: {fileID: 1640121549243196}
   UsedArmor: 0
-  FirstPiece: {fileID: 5688430643045222795}
-  SecondPiece: {fileID: 7676080433934255914}
   Rotator: {fileID: 4132829312892174565}
   _rope: {fileID: 7085906511390622912}
 --- !u!54 &660107746108524766

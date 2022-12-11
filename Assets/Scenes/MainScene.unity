@@ -495,13 +495,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5820996428750151241, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502690857244320403, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6710385672183555554, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_Name
       value: WeakEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6710385672183555554, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7481619937060484198, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
       propertyPath: _enemies.Array.size
@@ -583,6 +591,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoolEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8574497254301271295, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4502491809231258111, guid: 0a828440127f2f04886855b6ae2be1c9, type: 3}
+    - target: {fileID: 8574497254301271295, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d759d14576cde64b866265b6a8a0377, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867e83b64d67c6743addb4b2e8f4c7b5, type: 3}
 --- !u!4 &358804651 stripped
@@ -1409,8 +1425,8 @@ MonoBehaviour:
   - {fileID: 6}
   - {fileID: 574643874}
   MegaSlaps:
-  - {fileID: 20752722}
   - {fileID: 4718911456206985749}
+  - {fileID: 20752722}
   - {fileID: 306547892}
 --- !u!4 &1075433730 stripped
 Transform:
@@ -2716,6 +2732,14 @@ PrefabInstance:
       propertyPath: NormalSlapHitEffect
       value: 
       objectReference: {fileID: 501144446}
+    - target: {fileID: 2347646341863560551, guid: 6c13762e8f2db724e8eddefc1e7da5fd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4502491809231258111, guid: 0a828440127f2f04886855b6ae2be1c9, type: 3}
+    - target: {fileID: 2347646341863560551, guid: 6c13762e8f2db724e8eddefc1e7da5fd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c9e2714022674e4baa5b08f0bd6770d, type: 2}
     - target: {fileID: 2554244898745103729, guid: 6c13762e8f2db724e8eddefc1e7da5fd, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2995,6 +3019,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8265114586405428166, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3060572741055791050, guid: 845fa89dd764ff44aad379662916615c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
 --- !u!4 &4718911456206985746 stripped
@@ -3094,7 +3122,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 547555641, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.499985
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 877357699, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3414,7 +3442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6685742717429311691, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.499985
+      value: -15.5
       objectReference: {fileID: 0}
     - target: {fileID: 6743429067941991012, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
       propertyPath: m_AnchorMax.y
