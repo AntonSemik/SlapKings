@@ -33,7 +33,7 @@ public class EnemyTurn : Turn<Enemy>
     }
 
     private void StartQte()
-    {   
+    {
         if (!_slaper.UsedArmor)
             return;
 

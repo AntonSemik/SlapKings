@@ -71,7 +71,7 @@ public class Player : Slaper, IGoods
         _megaSlapObject = newSlap;
     }
 
-    public void SetNewDamageDivider (int bonusDefenceCollected)
+    public void SetNewDamageDivider(int bonusDefenceCollected)
     {
         float basicDamageDivider = 1.5f;
         DamageDivider = basicDamageDivider + (bonusDefenceCollected * 0.25f);

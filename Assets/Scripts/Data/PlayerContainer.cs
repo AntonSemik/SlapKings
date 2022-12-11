@@ -28,13 +28,19 @@ public class PlayerContainer : MonoBehaviour
 
         Singletons.Instance.GameStateMachine.Player = Players[NewID];
         Players[NewID].gameObject.SetActive(true);
+
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.PlayerSkinID, NewID);
+
+        SetNewMegaslap(SlapID);
     }
 
     public void SetNewMegaslap(int NewID)
     {
         Players[SkinID].SetNewMegaSlap(MegaSlaps[NewID]);
+
+        Singletons.Instance.SaveGameState.SaveInt(PlayerPrefsKeys.PlayerMegaslapSkinID, NewID);
     }
-    
+
     private void OnDestroy()
     {
         _changeSkinsUI.OnChangeSkin -= SetNewPlayer;
