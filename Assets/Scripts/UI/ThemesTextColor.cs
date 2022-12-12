@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class ThemesColor : MonoBehaviour
+    public class ThemesTextColor : MonoBehaviour
     {
         [SerializeField] private List<Color> _colors;
 
         private int _currentThemeIndex;
-        private Image _image;
+        private TMP_Text _text;
         private bool _canChangeTheme;
 
         private void Start()
@@ -22,10 +23,10 @@ namespace UI
 
         private void InitDefaultTheme()
         {
-            _image = GetComponent<Image>();
-            if (_image != null)
+            _text = GetComponent<TMP_Text>();
+            if (_text != null)
             {
-                _colors.Insert(0, _image.color);
+                _colors.Insert(0, _text.color);
                 _canChangeTheme = true;
             }
         }
@@ -38,7 +39,7 @@ namespace UI
             if (themeIndex > _colors.Count - 1) return;
             if (themeIndex == _currentThemeIndex) return;
             
-            _image.color = _colors[themeIndex];
+            _text.color = _colors[themeIndex];
             _currentThemeIndex = themeIndex;
         }
 
