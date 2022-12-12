@@ -16,6 +16,7 @@ public class PlayerTurn : Turn<Player>
 
     public void Slap()
     {
+        _slaper.SetIsBonusEnemy(_fightState.Enemy.GetType() == typeof(BonusEnemy));
         _indicator.Stop();
 
         if (!_isMegaslapping)
@@ -88,6 +89,7 @@ public class PlayerTurn : Turn<Player>
 
     protected override void OnKnockedDown()
     {
+        _fightState.Enemy.Flex();
         StartCoroutine(EndLevelWithDelay(1));
     }
     protected override IEnumerator EndTurnWithDelay(float seconds)

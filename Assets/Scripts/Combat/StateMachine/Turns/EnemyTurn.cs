@@ -71,6 +71,7 @@ public class EnemyTurn : Turn<Enemy>
         }
 
         StartCoroutine(EndLevelWithDelay(1.0f));
+        _fightState.Player.Flex();
     }
 
     protected override void OnSlapedOpponent()

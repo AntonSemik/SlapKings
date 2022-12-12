@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LoadLevelState : MonoBehaviour, IGameState
@@ -10,7 +11,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
     [SerializeField] private Indicator _indicator;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private GameObject[] _screenUI;
-    
+
     public void Enter()
     {
         LoadLocation();
@@ -21,6 +22,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
         ResetCameraMover();
         ResetPlayer();
         _slap.SetActive(true);
+        StartCoroutine(ResetAnimations());
     }
 
     private void ResetPlayer() =>
@@ -49,7 +51,7 @@ public class LoadLevelState : MonoBehaviour, IGameState
         _stateMachine.Enemy.gameObject.SetActive(true);
     }
 
-    private void ResetHealthUI() => 
+    private void ResetHealthUI() =>
         _healthUI.SetSlapers(_stateMachine.Player, _stateMachine.Enemy);
 
     private void ShowIdleUI() =>
@@ -63,5 +65,13 @@ public class LoadLevelState : MonoBehaviour, IGameState
         {
             item.SetActive(value);
         }
+    }
+
+    private IEnumerator ResetAnimations()
+    {
+        yield return null;
+
+        _stateMachine.Enemy.PrepareToBeSlaped();
+        _stateMachine.Player.PrepareToSlap();
     }
 }

@@ -92,4 +92,16 @@ public abstract class Slaper : MonoBehaviour
     }
 
     public Sprite GetAvatar() => _avatar;
+
+    public void PrepareToSlap() =>
+        _animator.CrossFade("PrepareToSlap", 0.2f);
+
+    public void PrepareToBeSlaped() =>
+        _animator.CrossFade("PrepareToBeSlaped", 0.2f);
+
+    public void Flex() =>
+        _animator.CrossFade("Flex", 0.2f);
+    
+    public void SetIsBonusEnemy(bool isBonus) =>
+        _animator.SetBool("IsBonus", isBonus);
 }
