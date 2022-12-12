@@ -12,14 +12,12 @@ public class EnemyTurn : Turn<Enemy>
     {  
         if(this.GetType() == typeof(BonusEnemyTurn))
             return;
-        Singletons.Instance.AdsPlaceholder.AdsClose += StartQte;
     }
 
     private void OnDisable()
     {   
         if(this.GetType() == typeof(BonusEnemyTurn))
             return;
-        Singletons.Instance.AdsPlaceholder.AdsClose -= StartQte;
     }
 
     public void SetArmor()
@@ -27,7 +25,7 @@ public class EnemyTurn : Turn<Enemy>
        _slaper.UsedArmor = true;
        _armorButton.gameObject.SetActive(false);
        
-        Singletons.Instance.AdsPlaceholder.ShowForcedAd();
+        StartQte();
 
         //Subtract from total Armor boosters
     }
