@@ -457,6 +457,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8071294659730173207, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
   m_PrefabInstance: {fileID: 6228513347274324519}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &456082436 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8759594729609430056, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
+  m_PrefabInstance: {fileID: 5153598205183834321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &460558453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,6 +2589,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5093640475817352881, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681647816301912255, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
+      propertyPath: NormalSlapHitEffect
+      value: 
+      objectReference: {fileID: 456082436}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
 --- !u!114 &5816469781784612697 stripped
@@ -3303,6 +3316,26 @@ PrefabInstance:
       propertyPath: MegaSlapBone
       value: 
       objectReference: {fileID: 62085540}
+    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.008
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
 --- !u!1 &7423726042915302208 stripped

@@ -19,7 +19,7 @@ public class MegaSlapObject : MonoBehaviour, IGoods
     [HideInInspector] public bool isUnlocked { get; private set; }
     [HideInInspector] public bool isVisible => VisibleModelOrigin.activeSelf;
 
-    [SerializeField] private ParticleSystem[] OnChargeVFX;
+    [SerializeField] private ParticleSystem OnChargeVFX;
     [SerializeField] private ParticleSystem OnHitVFX;
     [SerializeField] private GameObject VisibleModelOrigin;
 
@@ -69,10 +69,9 @@ public class MegaSlapObject : MonoBehaviour, IGoods
         Singletons.Instance.SaveGameState.SaveBool(Name, isUnlocked);
     }
 
-    public void OnChargeTrigger(int chargeLevel)
+    public void OnChargeTrigger()
     {
-        if (chargeLevel >= OnChargeVFX.Length) return;
-        OnChargeVFX[chargeLevel]?.Play();
+        OnChargeVFX?.Play();
     }
 
     public void OnMegaHit()

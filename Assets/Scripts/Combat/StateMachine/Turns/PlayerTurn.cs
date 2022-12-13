@@ -37,6 +37,8 @@ public class PlayerTurn : Turn<Player>
             _indicator.SetDamageText(((int)(_megaSlapTapCounter * _slaper.DamageMultiplier * _slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent))).ToString());
 
             _megaSlapTapCounter++;
+            _slaper._megaSlapObject.OnChargeTrigger();
+
             Singletons.Instance.HitComboIndicator.SetCounter(_megaSlapTapCounter);
         }
     }
