@@ -2621,7 +2621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7429359977276732604
 Transform:
   m_ObjectHideFlags: 0
@@ -2629,7 +2629,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7428492892567939928}
-  m_LocalRotation: {x: -0, y: -0.07466242, z: -0, w: 0.9972089}
+  m_LocalRotation: {x: 0, y: -0.07466539, z: 0, w: 0.99720865}
   m_LocalPosition: {x: 0.020999998, y: 0, z: -0.07399999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2687,12 +2687,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 7369608450018219410}
-  _avatar: {fileID: 21300000, guid: ac7d17a2f892c0744b6db294cf9529a7, type: 3}
+  _avatar: {fileID: 21300000, guid: db12f1fc42b767c4ea2fcbcc7376f7fb, type: 3}
   NormalSlapHitEffect: {fileID: 0}
   MegaSlapBone: {fileID: 2973016937094831829}
   _megaSlapObject: {fileID: 0}
   UsedMegaSlap: 0
-  _settingsForShop: {fileID: 11400000, guid: 3ccf5f9eaa2e0fc468c3b774e3029a32, type: 2}
+  _settingsForShop: {fileID: 11400000, guid: 007571c7200e9ac4eb3920c69b14eed1, type: 2}
   isUnlockedByDefault: 1
 --- !u!1 &7440170032274098274
 GameObject:

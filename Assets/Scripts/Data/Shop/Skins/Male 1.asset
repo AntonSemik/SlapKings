@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc0e939b786249b685ed4bfe58e59d9, type: 3}
-  m_Name: Male
+  m_Name: Male 1
   m_EditorClassIdentifier: 
   title: Catboy Pink
   icon: {fileID: 21300000, guid: cffc126ba70529d429b8859bd2182929, type: 3}

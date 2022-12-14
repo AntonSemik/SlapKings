@@ -726,7 +726,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 3060572741055791050, guid: 381457b141def5e479e5b0e31cdd226f, type: 3}
+  m_Mesh: {fileID: 3060572741055791050, guid: 2b75a664a0b89ac448a891c58892ea55, type: 3}
   m_Bones:
   - {fileID: 4035705279412059811}
   - {fileID: 3714320343321974745}
@@ -1519,7 +1519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4423822362898230671
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,12 +1585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4339477037428411553}
-  _avatar: {fileID: 21300000, guid: cffc126ba70529d429b8859bd2182929, type: 3}
+  _avatar: {fileID: 21300000, guid: 545bc6717d70b9f48bd754f7b030aa0b, type: 3}
   NormalSlapHitEffect: {fileID: 2988187496459527090}
   MegaSlapBone: {fileID: 4170958857641460229}
   _megaSlapObject: {fileID: 0}
   UsedMegaSlap: 0
-  _settingsForShop: {fileID: 11400000, guid: 3ccf5f9eaa2e0fc468c3b774e3029a32, type: 2}
+  _settingsForShop: {fileID: 11400000, guid: 8c3105c9d8d218a4788e2954f8de4fc9, type: 2}
   isUnlockedByDefault: 1
 --- !u!1 &4574556362383042970
 GameObject:

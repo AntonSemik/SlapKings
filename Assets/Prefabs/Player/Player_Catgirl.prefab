@@ -1775,7 +1775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6026387988878805865
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,7 +1801,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030085252622226573}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 81d31781e6c01b949b827832f3585067, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 4920ec5bb80312e448227a87dea985ff, type: 3}
   m_Controller: {fileID: 9100000, guid: 0eb0a842f2f5148488a149b898b20dee, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5980357739637221959}
   _avatar: {fileID: 21300000, guid: ac7d17a2f892c0744b6db294cf9529a7, type: 3}
-  NormalSlapHitEffect: {fileID: 158680338014518707}
+  NormalSlapHitEffect: {fileID: 0}
   MegaSlapBone: {fileID: 2160077849977544960}
   _megaSlapObject: {fileID: 0}
   UsedMegaSlap: 0
@@ -3302,11 +3302,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
---- !u!198 &158680338014518707 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4271093393614929224, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
-  m_PrefabInstance: {fileID: 4140574022693732603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4987214264284340343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8953264713256607884, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}

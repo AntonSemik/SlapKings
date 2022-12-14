@@ -1205,9 +1205,9 @@ MonoBehaviour:
   - {fileID: 1869811293114190945}
   - {fileID: 5571676219418474234}
   - {fileID: 2399085167298244782}
-  - {fileID: 6}
-  - {fileID: 3705043060458422949}
   - {fileID: 1836566522553604837}
+  - {fileID: 3705043060458422949}
+  - {fileID: 6}
   MegaSlaps:
   - {fileID: 4718911456206985749}
   - {fileID: 20752722}
@@ -2417,10 +2417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
-    - target: {fileID: 549860651929839464, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 3060572741055791050, guid: 2b75a664a0b89ac448a891c58892ea55, type: 3}
     - target: {fileID: 4423822362898230671, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2468,10 +2464,6 @@ PrefabInstance:
     - target: {fileID: 4425277449163092587, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
       propertyPath: m_Name
       value: Player_Catboy_Blue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425277449163092587, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
@@ -2626,10 +2618,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Catgirl_Blue
       objectReference: {fileID: 0}
-    - target: {fileID: 7428492892567939928, guid: ae5c6b6197287b045b00b229678cb18e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7429359977276732604, guid: ae5c6b6197287b045b00b229678cb18e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2749,10 +2737,6 @@ PrefabInstance:
     - target: {fileID: 7364395263444203236, guid: 776d91ae0a2849a42b69de067c9e069b, type: 3}
       propertyPath: m_Name
       value: Player_Catgirl_red
-      objectReference: {fileID: 0}
-    - target: {fileID: 7364395263444203236, guid: 776d91ae0a2849a42b69de067c9e069b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7367531776660138240, guid: 776d91ae0a2849a42b69de067c9e069b, type: 3}
       propertyPath: m_RootOrder
@@ -2888,14 +2872,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
-    - target: {fileID: 5980357739637221959, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 4920ec5bb80312e448227a87dea985ff, type: 3}
-    - target: {fileID: 5980357739637221959, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6026387988878805865, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2947,10 +2923,6 @@ PrefabInstance:
     - target: {fileID: 6030085252622226573, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
       propertyPath: m_Name
       value: Player_Catgirl
-      objectReference: {fileID: 0}
-    - target: {fileID: 6030085252622226573, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
@@ -3743,34 +3715,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Catboy
       objectReference: {fileID: 0}
-    - target: {fileID: 3704566668192569718, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.029
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9970192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.077154085
-      objectReference: {fileID: 0}
-    - target: {fileID: 6948451434345285437, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -8.85
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
 --- !u!1001 &7421849896246649049
@@ -3780,17 +3724,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
-    - target: {fileID: 4992250467344680589, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 3060572741055791050, guid: 2b75a664a0b89ac448a891c58892ea55, type: 3}
     - target: {fileID: 9187563574880113550, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
       propertyPath: m_Name
       value: Player_Catboy_Nastya
-      objectReference: {fileID: 0}
-    - target: {fileID: 9187563574880113550, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9191254203704527978, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
       propertyPath: m_RootOrder
