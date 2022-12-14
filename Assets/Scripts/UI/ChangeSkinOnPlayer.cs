@@ -15,7 +15,7 @@ public class ChangeSkinOnPlayer : MonoBehaviour
     public event Action<int> OnChangeSkin;
     // public event Action<string> OnChangeSkin;
 
-    private void Awake()
+    private void Start()
     {
         _currentSkinId = Singletons.Instance.SaveGameState._playerSkinID;
 
