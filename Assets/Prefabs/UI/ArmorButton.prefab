@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9154215844461979110}
   - component: {fileID: 2698284262560617775}
   - component: {fileID: 3540546499040925727}
+  - component: {fileID: 678690034}
+  - component: {fileID: 678690035}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -76,6 +78,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &678690034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927867226676769534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: c76c900451a0a4c65a52983f1d79c916, type: 3}
+--- !u!114 &678690035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927867226676769534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050241d07ba0e45f1aa9818fd4480659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scale:
+  - {x: -0.7, y: 0.7, z: 0.7}
 --- !u!1 &3591378374482821679
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,6 +117,7 @@ GameObject:
   - component: {fileID: 5482497092629725449}
   - component: {fileID: 6921368974911886013}
   - component: {fileID: 291737664042232477}
+  - component: {fileID: 132551589}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
@@ -152,6 +183,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &132551589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591378374482821679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 736537cdc568d7446a704cd7a30c5700, type: 3}
 --- !u!1 &4244379268340528400
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +210,7 @@ GameObject:
   - component: {fileID: 8989385041694093510}
   - component: {fileID: 5236595394886372842}
   - component: {fileID: 2427238788692666594}
+  - component: {fileID: 2111702591}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -264,6 +310,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedAnimation: 1
+--- !u!114 &2111702591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244379268340528400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abd5e064ddf94550b02a16323441773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5902260038273631409
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +413,7 @@ GameObject:
   - component: {fileID: 1168827979}
   - component: {fileID: 5564821312055923470}
   - component: {fileID: 1271657152}
+  - component: {fileID: 214302024560576729}
   m_Layer: 5
   m_Name: ArmorButton
   m_TagString: Untagged
@@ -466,7 +525,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8222896853106890637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: EnemyTurn, Assembly-CSharp
+        m_MethodName: SetArmor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1168827979
 Animator:
   serializedVersion: 4
@@ -513,3 +584,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToHide: 2
+--- !u!114 &214302024560576729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222896853106890634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 13ecd278085512947be587f1283070f2, type: 3}

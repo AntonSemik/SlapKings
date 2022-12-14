@@ -37,6 +37,8 @@ public class Singletons : MonoBehaviour
         InitCurrencies();
         //InitShop();
 
+        ThemeManager.SetThemeUI(ThemeManager.GameThemes.Princess);
+
         // PlayerPrefs.DeleteAll();
         // PREVIOUS LINE IS APOCALIPTICALLY DANGEROUS WTF c. Anton
     }
