@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8283150842642984766}
   - component: {fileID: 2452650327198449825}
   - component: {fileID: 4159828981067737597}
+  - component: {fileID: 1623584432}
   m_Layer: 5
   m_Name: CoinsImage
   m_TagString: Untagged
@@ -232,6 +233,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1623584432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336896108214893437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 2e38498d6d24e49c9b6f1d82e2c7a95f, type: 3}
 --- !u!1 &1350972541291379905
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +623,7 @@ GameObject:
   - component: {fileID: 6068267767712272662}
   - component: {fileID: 3346376001419308233}
   - component: {fileID: 3720565127996048582}
+  - component: {fileID: 1593734171}
   m_Layer: 5
   m_Name: IconUp
   m_TagString: Untagged
@@ -674,6 +690,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1593734171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117968259625653253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 0e4a74afff2d074458fb06b61b1d8e92, type: 3}
 --- !u!1 &5411769690797694956
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +850,8 @@ GameObject:
   - component: {fileID: 5862073012628873958}
   - component: {fileID: 7743014551050977996}
   - component: {fileID: 4425043723115044427}
+  - component: {fileID: 438409087}
+  - component: {fileID: 438409088}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -845,7 +877,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 296, y: 264}
+  m_SizeDelta: {x: 296, y: 296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7743014551050977996
 CanvasRenderer:
@@ -885,6 +917,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &438409087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6116555290091387788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 185f5b5c0b48f410c96c86d70e7b58cb, type: 3}
+--- !u!114 &438409088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6116555290091387788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050241d07ba0e45f1aa9818fd4480659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scale:
+  - {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &6918856314557784497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,6 +1091,7 @@ GameObject:
   - component: {fileID: 6918856315088897682}
   - component: {fileID: 6918856315088897680}
   - component: {fileID: 6918856315088897681}
+  - component: {fileID: 1107476393}
   m_Layer: 5
   m_Name: Cost
   m_TagString: Untagged
@@ -1098,6 +1159,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1107476393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918856315088897683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 9b856cba58bb8734c8639aa04f85e656, type: 3}
 --- !u!1 &6918856315442593521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1411,7 @@ GameObject:
   - component: {fileID: 6918856316377083915}
   - component: {fileID: 6918856316377083916}
   - component: {fileID: 6918856316377083917}
+  - component: {fileID: 723854447}
   m_Layer: 5
   m_Name: PowerUpPowerButton
   m_TagString: Untagged
@@ -1462,6 +1538,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &723854447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918856316377083919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: 2fedc6b4088955743a2a21c91aaeec2f, type: 3}
 --- !u!1 &6918856316415171024
 GameObject:
   m_ObjectHideFlags: 0
