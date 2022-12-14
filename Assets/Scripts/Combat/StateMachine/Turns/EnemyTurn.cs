@@ -3,28 +3,36 @@ using System.Collections;
 
 public class EnemyTurn : Turn<Enemy>
 {
+
+    public static EnemyTurn Instance;
     [SerializeField] private GameObject _armorButton;
     [SerializeField] private GameObject _qtePanel;
-
     protected override Enemy _slaper => _fightState.Enemy;
 
     private void OnEnable()
-    {  
-        if(this.GetType() == typeof(BonusEnemyTurn))
+    {
+        if (this.GetType() == typeof(BonusEnemyTurn))
             return;
+        Instance = this;
     }
 
     private void OnDisable()
-    {   
-        if(this.GetType() == typeof(BonusEnemyTurn))
+    {
+        if (this.GetType() == typeof(BonusEnemyTurn))
             return;
     }
 
-    public void SetArmor()
+    public void SetArmor(bool withoutQTE)
     {
-       _slaper.UsedArmor = true;
-       _armorButton.gameObject.SetActive(false);
-       
+        _slaper.UsedArmor = true;
+        _armorButton.gameObject.SetActive(false);
+
+        if (withoutQTE)
+        {
+            _fightState.Player.SetNewDamageDivider(15); 
+            return;
+        }
+
         StartQte();
 
         //Subtract from total Armor boosters
