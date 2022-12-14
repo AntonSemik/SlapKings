@@ -2417,6 +2417,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
+    - target: {fileID: 549860651929839464, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3060572741055791050, guid: 2b75a664a0b89ac448a891c58892ea55, type: 3}
     - target: {fileID: 4423822362898230671, guid: ff30290104ebde64187d74e2c0c435c6, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2853,7 +2857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 274521053759398713, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 895174040528695523, guid: 27ce5626b34e57b4ca1c497a81818493, type: 3}
       propertyPath: m_IsActive
@@ -3776,6 +3780,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
+    - target: {fileID: 4992250467344680589, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3060572741055791050, guid: 2b75a664a0b89ac448a891c58892ea55, type: 3}
     - target: {fileID: 9187563574880113550, guid: c02836ac3aa95ba499dd90bbbda642f5, type: 3}
       propertyPath: m_Name
       value: Player_Catboy_Nastya
