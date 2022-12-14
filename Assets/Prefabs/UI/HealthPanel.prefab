@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1037256963137407298}
   - component: {fileID: 1037256963137407357}
   - component: {fileID: 3711895770839460633}
+  - component: {fileID: 6228513347274324539}
   m_Layer: 5
   m_Name: HealthPanel
   m_TagString: Untagged
@@ -813,6 +814,20 @@ MonoBehaviour:
   _enemyHP: {fileID: 8605977391547252471}
   _playerImage: {fileID: 8940702165289702550}
   _enemyImage: {fileID: 1566145387230881122}
+--- !u!114 &6228513347274324539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037256963137407359}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e54c338b54b1fb1234b2acd5beb80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprites:
+  - {fileID: 21300000, guid: d5ac7363d6171a6439220878679f9138, type: 3}
 --- !u!1 &1037256963341288993
 GameObject:
   m_ObjectHideFlags: 0
