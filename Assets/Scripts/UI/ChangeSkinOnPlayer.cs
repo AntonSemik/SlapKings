@@ -17,6 +17,8 @@ public class ChangeSkinOnPlayer : MonoBehaviour
 
     private void Awake()
     {
+        _currentSkinId = Singletons.Instance.SaveGameState._playerSkinID;
+
         int layer = LayerMask.NameToLayer("UI");
 
         int index = 0;
@@ -24,8 +26,10 @@ public class ChangeSkinOnPlayer : MonoBehaviour
         {
             Player skin = Instantiate(item, _modelsContainer);
             skin.transform.SetLayer(layer);
-            if (_currentSkinId != index) 
+            if (_currentSkinId != index)
+            {
                 skin.gameObject.SetActive(false);
+            } else skin.gameObject.SetActive(true);
             _skins.Add(skin);
             
             var avatar = Instantiate(_avatarPrefab, _avatarContainer);
