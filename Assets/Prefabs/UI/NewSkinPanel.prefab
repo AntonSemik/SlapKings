@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 5132455309702570610}
   - component: {fileID: 6635173614109103933}
   - component: {fileID: 7535206003385706964}
+  - component: {fileID: 491523666}
   m_Layer: 5
   m_Name: NewSkinPanel
   m_TagString: Untagged
@@ -423,6 +424,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &491523666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831646652597853773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a210ac11dd7c0a4ebb39902a4d4132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors:
+  - {r: 0.8666667, g: 0.7372549, b: 0.8784314, a: 1}
 --- !u!1 &7487019533562290250
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +486,7 @@ GameObject:
   - component: {fileID: 7487019533846788402}
   - component: {fileID: 7487019533846788404}
   - component: {fileID: 7487019533846788405}
+  - component: {fileID: 156557123}
   m_Layer: 5
   m_Name: Skins
   m_TagString: Untagged
@@ -538,6 +554,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &156557123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487019533846788403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a210ac11dd7c0a4ebb39902a4d4132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colors:
+  - {r: 0.79215693, g: 0.5529412, b: 0.8117648, a: 1}
 --- !u!1 &7487019534331825972
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +637,7 @@ MonoBehaviour:
   m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 1
-  m_ConstraintCount: 4
+  m_ConstraintCount: 3
 --- !u!1 &7487019534596833054
 GameObject:
   m_ObjectHideFlags: 0

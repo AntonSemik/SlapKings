@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc0e939b786249b685ed4bfe58e59d9, type: 3}
-  m_Name: Shirt
+  m_Name: Female
   m_EditorClassIdentifier: 
-  title: Shirt
-  icon: {fileID: 21300000, guid: fd9c70c7aee3aa4418dedfe9f8871971, type: 3}
+  title: Catgirl Pink
+  icon: {fileID: 21300000, guid: ac7d17a2f892c0744b6db294cf9529a7, type: 3}
   price: 2
   currencyType: 2
   buyingPerCurrency: 1

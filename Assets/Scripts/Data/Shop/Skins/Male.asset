@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc0e939b786249b685ed4bfe58e59d9, type: 3}
-  m_Name: Crown
+  m_Name: Male
   m_EditorClassIdentifier: 
-  title: Crown
-  icon: {fileID: 21300000, guid: 8d1dc313cd63a7d44b318641f8f8114a, type: 3}
+  title: Catboy Pink
+  icon: {fileID: 21300000, guid: cffc126ba70529d429b8859bd2182929, type: 3}
   price: 4
   currencyType: 2
   buyingPerCurrency: 1

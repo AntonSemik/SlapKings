@@ -33,11 +33,11 @@ public class Singletons : MonoBehaviour
     private void Awake()
     {   
         Instance = this;
+        
+        ThemeManager.SetThemeUI(ThemeManager.GameThemes.Princess);
 
         InitCurrencies();
-        //InitShop();
-
-        ThemeManager.SetThemeUI(ThemeManager.GameThemes.Princess);
+        InitShop();
 
         // PlayerPrefs.DeleteAll();
         // PREVIOUS LINE IS APOCALIPTICALLY DANGEROUS WTF c. Anton
