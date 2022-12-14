@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,9 @@ namespace UI
         [SerializeField] private Sprite[] _progressSprites;
         
         private Color _colorDefault = Color.white;
-        private Color _colorFineshed = new Color32(0,116,6, 255);
+        private Color _colorFineshed;
+        private Color _colorFineshedKing = new Color32(0,116,6, 255);
+        private Color _colorFineshedPrincess = new Color32(71,0,120, 255);
         private Image _currentProgressBackground;
         private int _levelNumber = 1;
         private int _levelIndex;
@@ -19,12 +22,17 @@ namespace UI
 
         private void Awake()
         {
+            _colorFineshed = _colorFineshedKing;
             _currentProgressBackground = GetComponent<Image>();
             _bonusLevelNumber = Singletons.Instance.LevelParameters.bonusLevelNumber;
         }
 
-        private void OnEnable()
+        public void OnEnable()
         {
+            _colorFineshed = (Singletons.Instance.ThemeManager.GameTheme == ThemeManager.GameThemes.Princess)
+                ? _colorFineshedPrincess
+                : _colorFineshedKing;
+            
             _levelNumber = Singletons.Instance.LevelParameters._totalLevel;
             _levelIndex = GetLevelIndex();
             _currentProgressBackground.sprite = _progressSprites[_levelIndex];
@@ -78,5 +86,10 @@ namespace UI
         }
 
         private bool IsBonusLevel() => _levelNumber % _bonusLevelNumber == 0;
+
+        public void SetProgressSprites(List<Sprite> sprites)
+        {
+            _progressSprites = sprites.ToArray();
+        }
     }
 }
