@@ -223,11 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a6aaf52c973e4993c592946a8433a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &62085540 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4026998026484214040, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-  m_PrefabInstance: {fileID: 7404341547862876174}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71376476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5006611104259777966, guid: c702eb4d161fed64f87301b0a4ec212a, type: 3}
@@ -2632,14 +2627,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
-    - target: {fileID: 5980357739637221959, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 81d31781e6c01b949b827832f3585067, type: 3}
-    - target: {fileID: 5980357739637221959, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6026387988878805865, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2684,10 +2671,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6029365935577578815, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
-      propertyPath: _avatar
-      value: 
-      objectReference: {fileID: 21300000, guid: 803eef4368a4e0f4393e047241fb4624, type: 3}
     - target: {fileID: 6030085252622226573, guid: bd745e04ebabb1e4a91ad17acb08a577, type: 3}
       propertyPath: m_Name
       value: Player_Catgirl
@@ -3331,10 +3314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1030152367}
     m_Modifications:
-    - target: {fileID: 3618667566732797884, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 20ba756d9aa8b4d4191beb0f47949491, type: 3}
     - target: {fileID: 3703206449297294994, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3382,34 +3361,6 @@ PrefabInstance:
     - target: {fileID: 3704566668192569718, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
       propertyPath: m_Name
       value: Player_Catboy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3704566668192569718, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3705043062157832388, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: MegaSlapBone
-      value: 
-      objectReference: {fileID: 62085540}
-    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501568323705619336, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293f52c2075ef4c85d92738b6c180d, type: 3}

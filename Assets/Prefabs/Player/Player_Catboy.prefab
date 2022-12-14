@@ -1014,7 +1014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3703206449297294994
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3618667566732797884}
-  _avatar: {fileID: 21300000, guid: f8bc68a6ad433804080bb907c10f4c55, type: 3}
+  _avatar: {fileID: 21300000, guid: e97c0c56161639d48b0add352382ec89, type: 3}
   NormalSlapHitEffect: {fileID: 2844253062154717359}
   MegaSlapBone: {fileID: 4026998026484214040}
   _megaSlapObject: {fileID: 0}
