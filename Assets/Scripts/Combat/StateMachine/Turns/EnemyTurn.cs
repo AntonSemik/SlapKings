@@ -106,7 +106,7 @@ public class EnemyTurn : Turn<Enemy>
     private IEnumerator SlapWithDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        _slaper.Slap();
+        _slaper.Slap("Slap");
     }
 
     private IEnumerator QteDelay(float seconds)

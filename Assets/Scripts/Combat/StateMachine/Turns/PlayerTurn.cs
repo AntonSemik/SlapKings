@@ -23,7 +23,7 @@ public class PlayerTurn : Turn<Player>
         {
             _indicator.SetDamageText(((int)(_slaper.Damage * Mathf.Lerp(0.5f, 1, _indicator.PowerPercent))).ToString());
 
-            _slaper.Slap();
+            _slaper.Slap("Slap");
             _slap.SetActive(false);
         }
         else
@@ -122,12 +122,13 @@ public class PlayerTurn : Turn<Player>
     }
 
     private IEnumerator SlapWithDelay(float seconds)
-    {
+    {   
+        _slaper.PrepareToMegaSlap();
         yield return new WaitForSeconds(seconds);
 
         _megaslappingStarted = false;
 
-        _slaper.Slap();
+        _slaper.Slap("MegaSlap");
         _slap.SetActive(false);
     }
 

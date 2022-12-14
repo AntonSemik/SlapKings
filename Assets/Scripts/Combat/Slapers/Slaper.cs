@@ -39,8 +39,8 @@ public abstract class Slaper : MonoBehaviour
     public void OnSlapedOpponent() =>
         SlapedOpponent?.Invoke();
 
-    public void Slap() =>
-       _animator.CrossFade(ToSlapAnimation, 0.2f);
+    public void Slap(string animationName) =>
+       _animator.CrossFade(animationName, 0.2f);
 
     public virtual void ReceiveDamage(int damage)
     {
@@ -104,4 +104,7 @@ public abstract class Slaper : MonoBehaviour
     
     public void SetIsBonusEnemy(bool isBonus) =>
         _animator.SetBool("IsBonus", isBonus);
+
+    public void PrepareToMegaSlap() =>
+        _animator.CrossFade("MegaIdle", 5);
 }
