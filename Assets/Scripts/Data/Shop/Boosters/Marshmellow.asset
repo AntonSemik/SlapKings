@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Marshmellow
   m_EditorClassIdentifier: 
   title: Marshmellow
-  icon: {fileID: 21300000, guid: 503d44a503d478e41b0ec09db73c9f53, type: 3}
+  icon: {fileID: 21300000, guid: 833d519d3190dcd459707063f2e394e2, type: 3}
   price: 3
   currencyType: 3
   buyingPerCurrency: 1
